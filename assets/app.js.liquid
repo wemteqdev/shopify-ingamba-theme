@@ -1,0 +1,144 @@
+jQuery.fn.setAllToMaxHeight = function(){
+    return this.height( Math.max.apply(this, jQuery.map( this , function(e){ return jQuery(e).height() }) ) );
+}
+
+
+$(window).load(function() {
+    $('ul.product-collection li a').setAllToMaxHeight();
+	$('#featured').orbit({
+		bullets: false,
+		timer: true,
+        advanceSpeed: {{settings.slider_speed}}
+	});
+
+});
+
+
+/* Foundation v2.2 http://foundation.zurb.com */
+jQuery(document).ready(function ($) {
+
+	/* Use this js doc for all application specific JS */
+    
+    $('#menu-dropdown').val(window.location.pathname); 
+    
+    $('#menu-dropdown').on("change", function(e){
+    	e.preventDefault();
+        window.location = $(this).val();
+	});	
+
+    $('#cartform a.update-line').on("click", function(e){
+        $('#cartform').submit();
+	});	    
+    
+	$("#cartform .quantity").on("click", function(){
+		$(this).select();
+	});
+	
+    $("a.product-image").fancybox({
+      'overlayColor':    "#000", 
+      'overlayOpacity': "0.5"
+    });
+	
+	$('#back-top a').on("click", function(e){
+		e.preventDefault();
+		$('html, body').animate({scrollTop:0}, 500, 'swing');
+	});
+	
+	
+	/* TABS --------------------------------- */
+	/* Remove if you don't need :) */
+
+	function activateTab($tab) {
+		var $activeTab = $tab.closest('dl').find('a.active'),
+				contentLocation = $tab.attr("href") + 'Tab';
+
+		//Make Tab Active
+		$activeTab.removeClass('active');
+		$tab.addClass('active');
+
+    	//Show Tab Content
+		$(contentLocation).closest('.tabs-content').children('li').hide();
+		$(contentLocation).css('display', 'block');
+	}
+
+	$('dl.tabs').each(function () {
+		//Get all tabs
+		var tabs = $(this).children('dd').children('a');
+		tabs.click(function (e) {
+			activateTab($(this));
+		});
+	});
+
+	if (window.location.hash) {
+		activateTab($('a[href="' + window.location.hash + '"]'));
+	}
+
+	/* ALERT BOXES ------------ */
+	$(".alert-box").delegate("a.close", "click", function(event) {
+    event.preventDefault();
+	  $(this).closest(".alert-box").fadeOut(function(event){
+	    $(this).remove();
+	  });
+	});
+
+
+	/* PLACEHOLDER FOR FORMS ------------- */
+	/* Remove this and jquery.placeholder.min.js if you don't need :) */
+
+	$('input, textarea').placeholder();
+
+    /* TOOLTIPS ------------ */
+    // disable for touch screens
+    if (!Modernizr.touch){
+	    $(this).tooltips();
+    }
+
+	/* UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE6/7/8 SUPPORT AND ARE USING .block-grids */
+	//$('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'left'});
+	//$('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'left'});
+	//$('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'left'});
+	//$('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'left'});
+
+
+
+	/* DROPDOWN NAV ------------- */
+
+	var lockNavBar = false;
+	$('.nav-bar a.flyout-toggle').live('click', function(e) {
+		e.preventDefault();
+		var flyout = $(this).siblings('.flyout');
+		if (lockNavBar === false) {
+			$('.nav-bar .flyout').not(flyout).slideUp(500);
+			flyout.slideToggle(500, function(){
+				lockNavBar = false;
+			});
+		}
+		lockNavBar = true;
+	});
+
+if ((Modernizr.touch) && (screen.width < 768)){
+    $('.nav-bar>li.has-flyout>a.main').css({
+      'padding-right' : '75px'
+    });
+    $('.nav-bar>li.has-flyout>a.flyout-toggle').css({
+      'border-left' : '1px dashed #eee'
+    });
+  } else {
+    $('.nav-bar>li.has-flyout').hover(function() {
+      $(this).children('.flyout').stop(true,true).fadeIn(300);
+	  //$(this).children('.flyout').show();
+	  $(this).addClass('menu-active');
+    }, function() {
+      //$(this).children('.flyout').stop(true,true).slideUp(200);
+	  $(this).children('.flyout').hide();
+	  $(this).removeClass('menu-active');
+    })
+  }
+
+    $('form.contact-form, form.comment-form').addClass('nice');
+    
+	/* DISABLED BUTTONS ------------- */
+	/* Gives elements with a class of 'disabled' a return: false; */
+  
+
+});

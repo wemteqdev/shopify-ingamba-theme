@@ -1,0 +1,84 @@
+/* Foundation v2.2 http://foundation.zurb.com */
+/* This is for all IE specfific style less than IE9. We hate IE. */
+
+    div.panel { border: 1px solid #ccc; }
+    /*
+    .lt-ie9 .nav-bar li.has-flyout a { padding-right: 20px; }
+    .lt-ie9 .nav-bar li.has-flyout a:after { border-top: none; }
+	*/
+    
+	/* Correct IE7 button padding */
+	.lt-ie9 input[type=submit].nice.button { filter:chroma(color=#000000); position: relative; top: -2px; }
+	.lt-ie9 input[type=submit].tiny.button		{ padding: 5px 5px 7px; }
+	.lt-ie9 input[type=submit].small.button		{ padding: 8px 7px 9px; }
+	.lt-ie9 input[type=submit].medium.button	{ padding: 9px 13px 9px; }
+	.lt-ie9 input[type=submit].large.button		{ padding: 9px 18px 10px; }
+	.lt-ie9 button{overflow:visible;}
+
+/* no responsive stuff for IE8 and below */
+.lt-ie9 .row {width:960px;}
+.lt-ie9 .orbit-slide .caption{background:url({{'black-30-percent.png' | asset_url}});}
+.lt-ie9 .menu-bar li a:hover{background:url({{'black-30-percent.png' | asset_url}});}
+.lt-ie9 .footer .list li a:hover{background:url({{'black-10-percent.png' | asset_url}});}
+.lt-ie9 #back-top a{background:url({{'black-10-percent.png' | asset_url}});}
+
+.lt-ie8 .main-menu{position:relative;z-index:100;zoom:1;}
+.lt-ie8 .menu-bar, .lt-ie9 .menu-bar li{position:relative;z-index:100;zoom:1;}
+.lt-ie8 .menu-bar li{display:inline;}
+
+
+.lt-ie9 .nav-bar{margin-top:0;color:#333;height:auto;border:none;border-top:{{settings.nav_border}} 1px solid;border-bottom:{{settings.nav_border}} 3px double;padding:9px 0;background:none;text-align:center;}
+.lt-ie9 .nav-bar > li{border:none;line-height:30px;height:30px;display:inline-block;float:none;border-left:{{settings.nav_border}} 1px solid;}
+.lt-ie9 .nav-bar > li a.main{display:inline-block;line-height:30px;font-size:{{settings.nav_font_size}}px;border-radius:5px;{% if settings.nav_font_bold %}font-weight:bold;{% endif %}}
+.lt-ie9 .nav-bar > li a.main:hover, .nav-bar li.menu-active a.main {background:{{settings.navigation_text_hover_bg}};color:{{settings.navigation_text_hover}};}
+.lt-ie9 .nav-bar li:first-child{border:none;}
+.lt-ie9 .nav-bar a{color:{{settings.navigation_text}};text-transform:{{settings.nav_transform}};}
+.lt-ie9 .nav-bar li.has-flyout a.main{border-radius:5px 5px 0 0;}
+.lt-ie9 .nav-bar > li.has-flyout > a.flyout-toggle span {border-top:{{settings.navigation_text}} 4px solid;}
+.lt-ie9 .nav-bar > li.has-flyout > a.flyout-toggle{padding:14px 22px 22px 22px;}
+.lt-ie9 .nav-bar > li li{line-height:1;margin:0;text-align:left;}
+.lt-ie9 .flyout{z-index:100;top:30px;border:none;box-shadow:0 5px 5px rgba(0,0,0,0.2);left:0px;background:{{settings.navigation_text_hover_bg}};border-radius:0 0 3px 3px;}
+.flyout a{color:{{settings.shop_menu_links_color}};display:block;padding:5px;font-size:1em;border-radius:2px;}
+.flyout a:before {content:  "\2666\00A0\00A0";}
+.flyout a:hover{text-decoration:none;color:{{settings.shop_menu_links_color_hover}};background:rgba(255,255,255,0.8);}
+
+
+/* search */
+.lt-ie9 .search{margin:4px 0 0 0;position:absolute;top:76px;right: 0;width:170px;zoom:1;overflow:hidden;}
+.lt-ie9 .search input.input-text{font-family:inherit;font-size:14px;margin:0;border:none;padding:3px 0 3px 35px;background:#fff url({{'icon-search.png' | asset_url }}) no-repeat 9px center;width:auto;}
+.lt-ie9 .search button, .lt-ie9 .search label{display:none;}
+
+.lt-ie9 #mini-cart{display:block;padding:5px 0px 12px 0px;margin:0;color:{{settings.minicart_text_color}};font-size:14px;width:200px;position:absolute;right:0;top:27px;text-align:center;}
+.lt-ie9 #mini-cart em{display:block;text-align:center;padding:14px 0 0 0;text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);}
+
+{% case settings.minicart_bg %}
+{% when "no-background" %}
+    .lt-ie9 #mini-cart{background:none;padding:0;line-height:1.1;}
+    .lt-ie9 #mini-cart em{padding:0;}
+{% when "color" %}
+    .lt-ie9 #mini-cart{background:{{settings.minicart_bg_color}};padding:3px 0;line-height:1.1;}
+    .lt-ie9 #mini-cart em{padding:0;}
+{% when "mini-cart-bg.png" %}
+    .lt-ie9 #mini-cart{background:url({{ settings.minicart_bg | asset_url }}) no-repeat right top;}
+    .lt-ie9 #mini-cart span{display:none;}    
+{% else %}
+    .lt-ie9 #mini-cart{background:url({{ settings.minicart_bg | asset_url }}) no-repeat right top;}
+    .lt-ie9 #mini-cart span{display:none;}    
+{% endcase %}
+
+.lt-ie9 #mini-cart:hover{color:{{settings.minicart_text_color_hover}};}
+
+.lt-ie9 .small-image img{max-height:100px;}
+.lt-ie9 .small-image{height:100px;}
+
+.lt-ie9 .cart-items label{display:none;}
+
+.lt-ie9 .product{background:#fff;zoom:1;}
+
+/* fix rounding error that wraps cols */
+.lt-ie9 .block-grid.five-up > li{width:18.4%;}
+
+/* cart */
+.lt-ie9 .cart-items{zoom:1;} 
+.lt-ie9 .row .five {width:39%;} /* fix rounding error */
+

@@ -1,0 +1,50 @@
+<meta property="og:site_name" content="{{ shop.name }} | {{ settings.shop_tagline }}"/>
+
+{% capture defaultImg %}{{'logo.png' | asset_url }}{% endcapture %}
+
+{% case template %}
+{% when 'product' %}
+    <meta property="og:type" content="product"/>
+    <meta property="og:title" content="{{ page_title }}"/>
+    {% if product.images.size < 1 %}
+        <meta property="og:image" content="{{defaultImg}}" />
+    {% else %}
+        <meta property="og:image" content="{{ product.images.first | product_img_url: 'medium' }}" />
+    {% endif %}
+    <meta property="og:description" content="{{ product.description | strip_html | strip_newlines | truncate: 160 | escape}}"/>    
+	<meta property="og:url" content="{{shop.url}}{{product.url}}"/>
+{% when 'collection' %}	
+	<meta property="og:type" content="product"/>
+	<meta property="og:title" content="{{ page_title }}"/>
+	{% if collection.image %}
+		<meta property="og:image" content="{{ collection.image.src | collection_img_url: 'small' }}" />
+	{% else %}
+		<meta property="og:image" content="{{defaultImg}}" />
+	{% endif %}
+	<meta property="og:description" content="{{ collection.description | strip_html | strip_newlines | truncate: 160 | escape}}"/>		
+	<meta property="og:url" content="{{shop.url}}{{collection.url}}"/>
+{% when 'page' %}	
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="{{ page_title }}"/>
+	<meta property="og:image" content="{{defaultImg}}" />
+	<meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncate: 160 | escape}}"/>		
+	<meta property="og:url" content="{{shop.url}}{{page.url}}"/>
+{% when 'blog' %}
+	<meta property="og:type" content="blog"/>
+	<meta property="og:title" content="{{ page_title }}"/>
+	<meta property="og:image" content="{{ product.images.first | product_img_url: 'small' }}" />
+	<meta property="og:description" content="{{ blog.title }}"/>	
+	<meta property="og:url" content="{{shop.url}}{{product.url}}"/>
+{% when 'article' %}
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="{{ page_title }}"/>
+	<meta property="og:image" content="{{defaultImg}}" />
+	<meta property="og:description" content="{{ article.content | strip_html | strip_newlines | truncate: 160 | escape}}"/>		
+	<meta property="og:url" content="{{shop.url}}{{article.url}}"/>
+{% else %}
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="{{ shop.name }} | {{ settings.shop_tagline }}"/>
+	<meta property="og:image" content="{{defaultImg}}" />
+	<meta property="og:description" content="{{ shop.description | strip_html | strip_newlines | truncate: 160 | escape}}"/>	
+	<meta property="og:url" content="{{shop.url}}"/>
+{% endcase %}

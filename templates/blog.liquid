@@ -1,0 +1,32 @@
+{% paginate blog.articles by 10 %}
+<div class="nine columns">
+    <h1 class="page-title">{{blog.title}}</h1>
+    {% if current_tags %}
+        <h2 class="tags-info">Articles tagged as {{current_tags}} <span>(<a href="{{blog.url}}">view all</a>)</span></h2>
+    {% endif %}
+
+	{% for article in blog.articles %}
+		<div class="single-article{% if forloop.last %} last-article{% endif %}">
+				<h2 class="article-title"><a href="{{ article.url }}">{{ article.title | escape }}</a></h2>
+				<p class="posted-by">{{ article.published_at | date: "%d %B, %Y" }}
+							  {% if blog.comments_enabled? %}
+								 <a class="comment-count" href="{{article.url}}#comments">{{ article.comments_count }} comment{% if article.comments_count != 1%}s{% endif %}</a>
+								 <a class="comment-leave" href="{{article.url}}#comments">Leave a comment</a>
+							  {% endif %}</p>
+				<div class="article-content">{{ article.excerpt_or_content }}</div>
+				{% capture articletitle %}{{article.title | escape}}{% endcapture %}
+				{% capture articleurl %}http://{{shop.domain}}{{article.url}}{% endcapture %}
+				{% include 'social-articles' %}
+		</div>
+	{% endfor %}
+
+	{% if paginate.pages > 1 %}
+		<div class="paginate">
+			{{ paginate | default_pagination }}
+		</div>
+	{% endif %}
+</div>
+
+{% include 'blog-sidebar' %}
+	
+{% endpaginate %}

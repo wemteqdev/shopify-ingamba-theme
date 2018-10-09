@@ -1,0 +1,13 @@
+<ul class="popular-products">
+{% if collections.[footer-products].products.size > 0 %}
+	{% for product in collections.[footer-products].products limit:5 %}
+		<li>
+		<a href="{{ product.url }}" title="{{ product.title | escape }}">
+		<span class="product"><img alt="{{ product.images.first.alt | escape }}" src="{{ product.images.first | product_img_url: 'icon' }}"></span>
+		<em>{{ product.title | escape }}</em></a>
+		</li>
+	{% endfor %}
+{% else %}
+	<li>No products found in {{footer-products}}</li>
+{% endif %}
+</ul>

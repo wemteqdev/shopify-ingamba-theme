@@ -1,0 +1,27 @@
+{% if settings.product_show_tweet or settings.product_show_like or settings.product_show_gplus or settings.product_show_pinterest %}
+
+<ul id="social-product" class="cf">
+    {% if settings.product_show_tweet %}
+    <li>
+	    <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </li>
+    {% endif %}
+    {% if settings.product_show_like %}
+    <li>
+	    <div class="fb-like" data-href="{{shop.url}}{{product.url}}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>	
+	</li>
+    {% endif %}
+    {% if settings.product_show_pinterest %}
+    <li>
+	    <a href="http://pinterest.com/pin/create/button/?url=http://{{shop.domain}}{{product.url}}&media={{ product.images.first | product_img_url: 'medium' }}&description={{product.description | strip_html | escape| truncatewords:30}}" class="pin-it-button" count-layout="horizontal">Pin It</a>
+	    <script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>       
+	</li>
+    {% endif %}
+    {% if settings.product_show_gplus %}
+    <li>
+        <g:plusone size="medium" annotation="inline" width="120" href="http://{{shop.domain}}{{product.url}}"></g:plusone>
+	</li>    
+    {% endif %}
+</ul>        
+{% endif %}
+

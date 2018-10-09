@@ -1,0 +1,109 @@
+<div class="six columns product-top{% if settings.product_images_pos == 'right' %} push-six{% endif %}">
+    {% for image in product.images limit:1 %}
+        <a rel="gallery" class="product-image product" href="{{ image | product_img_url: 'original' }}">
+			<img src="{{ image | product_img_url: 'large'}}" alt="{{ image.alt | escape }}" />
+            {% if product.compare_at_price %}
+            <span class="sale-item">Sale</span>
+            {% endif %}
+		</a>		
+	{% endfor %}
+	
+	{% if product.images.size > 1 %}
+		<ul class="block-grid mobile four-up more-images">
+		{% for image in product.images offset:1 %}
+			<li>
+				<a rel="gallery" class="product-image small-image product" href="{{ image | product_img_url: 'original' }}">
+				<img src="{{ image | product_img_url: 'large'}}" alt="{{ image.alt | escape }}" />
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</div>
+
+<div class="six columns product-top{% if settings.product_images_pos == 'right' %} pull-six{% endif %}">
+	<div class="description">
+		<h1 class="product-title page-title">{{ product.title | escape}}</h1>
+        {% if settings.product_button_pos == "below" %}
+            {{ product.description }}
+		{% endif %}
+		
+		{% if product.available %}
+			<form action="/cart/add" method="post" class="cartableProduct">
+				<div id="product-variants">
+					<fieldset>
+						{% if product.variants.size == 1%}
+							{% for variant in product.variants %}
+								<div id="price-field">{% if product.compare_at_price and product.compare_at_price > variant.price %}<del>{{product.compare_at_price | money}}</del> {% endif %}{{ variant.price | money }}</div>
+								<input type="hidden" name="id" value="{{ variant.id }}" />
+							{% endfor %}
+						{% else %}
+							{% assign multi_options = true %}
+							<div id="price-field"></div>
+							<select id="product-select" name='id'>
+							{% for variant in product.variants %}
+								<option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+							{% endfor %}
+							</select>
+						{% endif %}
+					</fieldset>
+				</div>
+				{% if settings.show_qty %}
+				<p class="qty-field"><label for="product-quantity-{{product.id}}">Qty:</label><input class="product-qty" type="text" id="product-quantity-{{product.id}}" name="quantity" value="1" /></p>
+				{% endif %}
+				<button type="submit" id="purchase" class="button nice">{{settings.prd_button_text}}</button>
+			</form>
+		{% else %}
+			<p><strong>{{settings.prd_out_stock_msg}}</strong></p>
+		{% endif %}            
+
+		{% unless settings.product_button_pos == "below" %}
+			{{ product.description }}
+		{% endunless %}			
+		
+    	{% include 'social-product' %}        
+        {% if settings.show_fb_comments %}
+		    <div class="fb-comments" data-href="{{shop.url}}{{product.url}}" data-num-posts="2" data-width="459px"></div>
+        {% endif %}
+	</div>
+</div>			
+
+{% if settings.show_related %}
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+    {% assign found_a_collection = false %}
+    {% for c in product.collections %}
+    	{% if found_a_collection == false and c.handle != 'popular-product' and c.handle != 'frontpage' and c.handle != 'all' %}
+			{% assign found_a_collection = true %}
+			{% assign collection = c %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if collection and collection.products.size > 1 %}
+</div><!-- close row and start a new one, it'll get closed in theme.liquid -->
+<div class="row">
+    <div id="related">
+    	<h3>{{settings.related_heading}}</h3>
+        {% assign max_items = '' %}
+		<ul class="block-grid mobile five-up product-collection">
+			{% for prd in collection.products %}
+				{% if prd.handle != product.handle and max_items != '*****' %}
+					<li>
+					<div class="product">
+						<a title="{{ prd.title | escape }}" href="{{ prd.url }}"><span class="thumbnail"><img alt="{{ prd.images.first.alt | escape }}" src="{{ prd.images.first | product_img_url: 'medium' }}"></span>
+						<span class="price">{% if prd.price_varies %}<em>from </em>{% endif%}{{prd.price | money}}</span> 
+						<span class="product-title">{{ prd.title | escape }}</span>
+						{% if prd.compare_at_price %}
+							<span class="sale-item">Sale</span> 					
+						{% endif %}
+						</a>
+					</div>
+					</li>
+                    {% capture max_items %}{{max_items}}*{% endcapture %}
+				{% endif %}
+			{% endfor %}
+		</ul>		
+	</div>	
+{% endif %}
+

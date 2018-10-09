@@ -1,0 +1,19 @@
+<div class="eight columns page-content">
+	<h1 class="page-title">{{page.title | escape}}</h1>
+	{{ page.content }}
+</div>
+
+<div class="one columns"></div>
+
+<div class="three columns sidebar">
+    <h3></h3>
+    {% if settings.page_linklist != "" %}
+        <h4>{{settings.page_side_heading}}</h4>
+        <ul>
+        {% for link in linklists.[settings.page_linklist].links %}
+            <li><a href="{{link.url}}">{{link.title | escape}}</a></li>
+        {% endfor%}
+        </ul>
+    {% endif %}
+</div>
+

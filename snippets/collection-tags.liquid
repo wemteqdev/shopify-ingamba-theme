@@ -1,0 +1,15 @@
+<div class="four columns tag-filter">
+{% if settings.show_tag_drop %}
+{% capture coll %}{{collection.handle}}{% endcapture %}
+{% if template contains "collection" and collections.[coll].tags.size > 1 %}
+    <select id="filter-by-tag">
+    <optgroup label="Filter by tag">
+    <option value="">View all items</option>    
+    {% for tag in collections.[coll].tags %}
+        <option value="{{tag | handleize}}">{{tag | escape | capitalize}}</option>
+    {% endfor %}
+    </optgroup>
+    </select>
+{% endif %}
+{% endif %}
+</div>

@@ -1,0 +1,44 @@
+{% paginate search.results by 10 %}  
+<div class="twelve columns">
+
+	<h1 class="page-title">Search</h1>
+    
+{% if search.performed == false or search.results == empty %}
+    {% if search.performed %}
+        <h2>Sorry, nothing found for "{{search.terms | escape}}"</h2> 
+    {% endif %}
+	<form class="nice" id="search-main" action="/search" method="get">
+		<p><input class="input-text" type="text" name="q" value="{{search.terms  | escape}}" id="result-q" /> 
+		<input class="button nice" type="submit" value="Search" /></p>
+	</form>
+{% else %}
+	<div id="search-results">  
+		{% if search.performed %}
+			{% if search.results == empty %}  
+				<h2>Sorry, nothing found for "{{search.terms | escape}}"</h2>              
+			{% else %}  
+				<h2>Results for "{{search.terms | escape}}"...</h2>			
+				<ol>
+				{% for item in search.results %}      
+					<li>
+					<h3>{{ item.title | link_to: item.url }}</h3>
+					{% if item.featured_image %}
+						<div class="search-image">
+                            <a href="{{item.url}}" title="">{{ item.featured_image | product_img_url: 'small' | img_tag }}</a>
+                        </div>
+					{% endif %}
+					<p>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }} <a class="read-more" href="{{item.url}}">&raquo; view details</a></p>
+					</li>
+				{% endfor %}
+				</ol>      
+			{% endif %}
+            {% if paginate.pages > 1 %}
+		        <div class="paginate paginate-bottom">
+			        {{ paginate | default_pagination }}
+		        </div>
+	        {% endif %}
+		{% endif %}
+	</div>
+{% endif %}	
+</div>
+{% endpaginate %}    

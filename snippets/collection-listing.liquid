@@ -1,0 +1,18 @@
+<div class="twelve columns collection-list">
+    <h1>Product Collections</h1>
+    <ul class="block-grid mobile {{settings.products_per_row}}-up product-collection">
+    {% for collection in collections %}
+		{% unless collection.handle == 'frontpage' %}
+			<li>
+			{% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+			<div class="product">
+				<a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">
+				<span class="thumbnail">{{ collection.products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}</span>
+				<span class="product-title">{{ collection.title | escape }} <em>({{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'item', 'items' }})</em></span>
+				</a>	  
+			</div>
+			</li>
+		{% endunless %}
+	{% endfor %}
+	</ul>
+</div>

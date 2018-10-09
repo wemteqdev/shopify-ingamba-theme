@@ -1,0 +1,131 @@
+<div class="twelve columns">
+    <h1 class="page-title">{{settings.cart_heading}}</h1>
+    {% if cart.item_count == 0 %}
+		<p><strong>Your shopping cart is empty.</strong></p>
+    {% else %}
+		<form action="/cart" method="post" id="cartform" class="nice">	
+		<ul class="cart-items cf" >
+			<li class="cart-row cart-head cf">
+				<div class="five columns">
+					Item
+				</div>
+				
+				<div class="two columns">
+					Price
+				</div>                
+
+    			<div class="one columns">
+					Qty
+				</div>
+
+        		<div class="two columns">
+					&nbsp;
+				</div>						                
+
+    			<div class="two columns">
+					Total
+				</div>                                
+
+			</li>		
+			
+			<li class="cart-row mobile-buttons cf">
+				<div class="six columns cart-buttons">
+                    <input class="button nice" type="submit" value="{{settings.checkout_text}}" name="checkout" />
+				</div>						
+			</li>	
+
+			{% for item in cart.items %}
+				<li class="cart-row cf">					
+					<div class="five columns">
+						<div class="eight columns push-four item">
+							<a href="{{item.product.url}}">{{ item.product.title | escape }}{% unless item.variant.title contains "Default" %} &ndash; {{ item.variant.title | escape }}{% endunless %}</a>
+                            <p class="mini-desc">{{item.product.description | strip_html | truncatewords:15 }}</p>
+                            {% if item.properties.size > 0 %}
+                            <p class="custom-options">
+                            {% for p in item.properties %}
+                            {% unless p.last == blank %}
+                                {% if p.last contains '/uploads/' %}
+                                    {{ p.first }}: <a href="{{ p.last }}" target="_blank"><em>uploaded file</em></a><br />
+                                {% else %}
+                                    {{ p.first }}: <em>{{ p.last }}</em><br />
+                                {% endif %}
+                            {% endunless %}
+                            {% endfor %}
+                            </p>
+                            {% endif %}
+						</div>					
+						<div class="four columns pull-eight">
+							<a class="cart-image product" href="{{item.product.url}}">
+							{{ item.product.featured_image |  product_img_url: 'compact' | img_tag }}
+							</a>
+						</div>
+					</div>
+
+                    <div class="two columns cart-price">
+                        {{ item.price | money }}
+	                </div>
+
+    				<div class="one columns cart-qty">
+    					<label for="updates_{{item.variant.id}}">Quantity:</label>
+                        <input type="text" class="quantity" name="updates[]" id="updates_{{item.variant.id}}" value="{{item.quantity}}" />
+                         <em> x {{ item.price | money }} each</em>
+					</div>					
+
+    				<div class="two columns">
+						<p class="update-actions">
+    					<a class="update-line" href="#">Update</a><em> or </em>                        
+                        <a class="remove-line" href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+						</p>
+					</div>					
+
+                    <div class="two columns line-total">
+                        {{item.line_price | money }}
+                    </div>                    
+
+				</li>				
+			{% endfor %}			
+			
+			<li class="cart-row cart-foot cf">
+				<div class="twelve columns sub-total">
+					Sub-total {{cart.total_price | money_with_currency }}
+				</div>
+			</li>
+			
+			<li class="cart-row cf last">
+				<div class="six columns cart-note">
+                 {% for item in cart.items %}
+ 
+                  {% if item.product.handle == "scicon-rainbag" %}
+					<p class="cart-attribute__field">
+                      <label for="name-to-print-on-bag">Name to print on bag<span>*</span></label>
+					<input id="name-to-print-on-bag" type="text" name="attributes[Name to print on bag]" maxlength="10" required value="{{ cart.attributes["Name to print on bag"] }}">
+                  </p>
+                  <p class="cart-attribute__field">
+  					<label for="flag-to-print-on-bag">Flag to print on bag<span>*</span></label>
+  					<input id="flag-to-print-on-bag" type="text" name="attributes[Flag to print on bag]" required value="{{ cart.attributes["Flag to print on bag"] }}">
+                  </p>
+                  {% endif %}
+                 {% endfor %}
+                  
+                  
+                  
+                  
+                  <p>
+					<label for="note"><a href="#">{{settings.cart_note_text}}</a></label>
+                    {% if settings.show_cart_note %}
+					    <textarea name="note" id="note" placeholder="{{settings.cart_note_text}}"></textarea>
+                    {% endif %}
+                  </p>
+				</div>
+				<div class="six columns cart-buttons">
+                    <input class="button nice" type="submit" value="{{settings.checkout_text}}" name="checkout" />
+					{% if additional_checkout_buttons %}
+						<em>or</em>
+						{{ content_for_additional_checkout_buttons }}
+					{% endif %}
+				</div>					
+			</li>
+            </ul>
+		</form>
+	{% endif %}
+</div>

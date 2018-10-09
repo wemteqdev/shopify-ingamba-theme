@@ -1,0 +1,188 @@
+html{
+{% if settings.site_bg_image != "no-background" %}
+    background-image: url({{ settings.site_bg_image | asset_url }});
+    background-position: {{ settings.bg_image_y_position }} {{ settings.bg_image_x_position }};
+    background-repeat: {{ settings.bg_image_repeat }};
+    background-attachment: {{ settings.bg_image_attachment }};
+    background-color:{{settings.bg_color}};
+{% else %}
+    background: {{settings.bg_color}};
+{% endif %}
+}
+
+body{
+    font-family:{{ settings.regular_font }};
+    font-size:0.825em;
+    line-height:1.5;
+    color:#333;
+    {% if settings.show_grunge %}
+        background:url(noise-shadow.png) repeat-x center top;
+    {% else %}
+        background: none;
+    {% endif %}
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family:{{ settings.header_font }};
+    font-weight:bold;
+    color:#333;
+    text-transform:{{ settings.header_font_style }};
+}
+
+a{color:blue;}
+a:hover,a:focus{color:#000;text-decoration:underline;}
+
+#info-bar{
+    line-height:30px;
+}
+
+#container{
+    width:900px;
+    overflow:hidden;
+}
+
+#header{
+    padding:0;
+    width:900px;    
+}
+
+#header h1 {
+    padding:20px;
+    background:#fff;
+    margin:0;
+}
+
+{% if settings.custom_logo %}
+    #logo{
+        text-align:center;
+        height:170px;
+        background:url({{'logo.png' | asset_url}}) no-repeat center center !important;
+    }
+    #header h1 .title{display:none;}
+{% else %}
+	#header h1 .title{display:block;font-size:3em;}
+    #container{margin-top:35px;}
+{% endif %}
+
+#header h1 span.subtitle {font-size:1.5em;color:#333;font-style:italic;font-weight:normal;}
+
+#main {
+    background:#fff;
+    padding: 0 20px 20px 20px;
+    width: 860px;
+}
+
+#content{
+padding:10px 0;   
+}
+
+#overview {
+    background:none;
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 10px;
+}
+
+#overview h2 {
+font-size:16px;
+}
+
+#products{
+width:580px;
+border-right:none;
+}
+
+#thumbs{width:90%;}
+
+#thumbs div{border:#ddd 1px solid;}
+
+#thumbs span{color:#555;}
+
+#wallet{
+background:#f6f6f6 !important;
+margin-left:581px;
+width:238px;
+}
+
+#wallet br{display:none;}
+#wallet span{display:block;color:#333;}
+
+#overview .hint{color:#333;font-size:1em;}
+
+#cost, #order-num {
+    color: #333;
+    display: block;
+}
+
+
+#footer {
+    background:none;
+    color:{{settings.text_color}};
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 900px;
+}
+
+
+#email, #addresses{
+background:#f6f6f6;
+border-color:#ddd;
+}
+
+#email label, .group h3, .pgroup h3{text-transform:uppercase;color:#222;font-size:16px;margin:0 0 10px 0;}
+.group h3, .pgroup h3{padding:0 0 10px 0;}
+
+span.sign-in-message{display:inline-block;padding:10px;font-size:1em;}
+
+#billing label, #shipping label{font-weight:bold;}
+
+#buttons{background:none;border:none;}
+
+
+.field-with-errors {
+    background-color: #c33;
+    border: 1px solid #a00;
+    line-height: 1.5;
+    padding: 5px 10px;
+}
+
+.field-with-errors .error-message {
+    color: #fff;
+    font-family: Verdana, Arial, Helevetica, sans-serif;
+}
+
+
+#container.slim {
+    width: 900px;
+}
+
+#container.slim #header {
+    background:none;
+    width: 900px;
+}
+
+
+#container.slim #main {
+    background: #fff;
+    padding: 20px;
+    width: 860px;
+}
+
+#container.slim .group{
+    font-size:16px;   
+}
+
+
+#container.slim #footer {
+    background:none;
+    width: 900px;
+    padding:10px 0;
+}
+
+
+/* end */
+
+
+

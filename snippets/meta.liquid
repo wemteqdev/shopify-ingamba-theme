@@ -1,0 +1,41 @@
+{% if template == 'index' %}
+    <title>{{ shop.name }} | {{ settings.shop_tagline }}</title>
+{% elsif template == '404' %}
+    <title>Page Not Found | {{ shop.name }}</title>
+{% else %}
+	<title>{{ page_title }} | {{ shop.name }}</title>
+{% endif %}
+
+{% assign maxmeta = 155 %}
+{% if template contains 'product' %}
+	<meta name="description" content="{{ product.description | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+{% elsif template contains 'page' %}
+	<meta name="description" content="{{ page.content | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+{% elsif template == 'index' %}
+	<meta name="description" content="{{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+{% elsif template contains 'article' %}	
+{% elsif template contains 'collection' %}	
+	{% if collection.description != "" %}
+		<meta name="description" content="{{ collection.description | strip_html | strip_newlines | truncatewords: maxmeta | escape }}" />
+	{% else %}
+		<meta name="description" content="{{ page_title | escape }} - {{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+	{% endif %}
+{% else %}
+	<meta name="description" content="{{ page_title | escape }} - {{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+{% endif %}
+
+{% if settings.shop_keywords != '' %}
+	<meta name="keywords" content="{{ settings.shop_keywords }}" />
+{% endif %}
+
+
+{% case template %}
+{% when 'index' %}
+    <link rel="canonical" href="{{ shop.url }}" />
+{% when 'product' %}
+    <link rel="canonical" href="{{ shop.url }}{{ product.url }}" />
+{% when 'collection' %}    
+    <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
+{% else %}
+	<link rel="canonical" href="{{ canonical_url }}" />
+{% endcase %}

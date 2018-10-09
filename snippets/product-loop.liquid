@@ -1,0 +1,17 @@
+{% if settings.products_per_row == "two" %}
+    {% capture img_src %}{{ product.images.first | product_img_url: 'large' }}{% endcapture %}
+{% else %}
+    {% capture img_src %}{{ product.images.first | product_img_url: 'medium' }}{% endcapture %}
+{% endif %}
+<li>
+	<div class="product">
+		<a title="{{ product.title | escape }}" href="{{ product.url }}"><span class="thumbnail"><img alt="{{ product.images.first.alt | escape }}" src="{{img_src}}"></span>
+		<span class="price">{% if product.price_varies %}<em>from </em>{% endif%}{{product.price | money}}</span> 
+		<span class="product-title">{{ product.title | escape }}</span>
+		{% if product.compare_at_price %}
+			<span class="sale-item">Sale</span> 					
+		{% endif %}
+		
+		</a>
+	</div>
+</li>			

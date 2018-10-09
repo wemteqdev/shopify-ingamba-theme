@@ -1,0 +1,28 @@
+<div class="three columns sidebar">
+    {% if settings.show_rss_link %}
+    <p><a class="rss-feed" href="{{shop.url}}{{blog.url}}.atom">Subscribe to our feed</a></p>
+    {% endif %}
+    {% if settings.show_blog_tags %}
+    	{% if blog.all_tags.size > 0 %}
+    		<div id="blog-categories">
+    			<h4>{{settings.blog_tags_heading}}</h4>			
+    			<ul>
+    			{% for tag in blog.all_tags %}
+    				<li><a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a></li>
+    			{% endfor %}
+    			</ul>
+    		</div>
+    	{% endif %}
+	{% endif %}
+    
+    {% if settings.show_blog_latest %}
+    	{% if blog.articles.size > 1 %}	
+    		<h4>{{settings.blog_latest_heading}}</h4>			
+    		<ul>
+    		{% for article in blog.articles limit:10 %}
+    			<li><a href="{{ article.url }}">{{ article.title | escape }}</a></li>
+    		{% endfor %}
+    		</ul>	
+    	{% endif %}
+    {% endif %}
+</div>

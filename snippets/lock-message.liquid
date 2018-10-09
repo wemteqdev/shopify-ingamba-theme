@@ -1,0 +1,6 @@
+{% if locked_type == 'collection' %}
+    Sorry this area is only available to customers who have made a purchase from the {{ collections[locked_type_value].title | link_to: collections[locked_type_value].url }} collection.</br>
+    You can go to the {{ collections[locked_type_value].title | link_to: collections[locked_type_value].url }} collection and purchase something to get access.
+{% else %}
+    Sorry you haven't been given access to this area.
+{% endif %}

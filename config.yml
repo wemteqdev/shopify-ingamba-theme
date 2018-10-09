@@ -1,4 +1,9 @@
 development:
-    password:
-    theme_id: ""
-    store: ingamba.myshopify.com
+  password: 5d7a51962e594d8ce22cc0c0d1712be3
+  theme_id: "4496311"
+  store: ingamba.myshopify.com
+  ignore_files:
+  - development
+  - config/settings.html
+  - config/settings_data.json
+  - config/settings_schema.json

@@ -1,0 +1,112 @@
+<div class="nine columns">
+
+    <h1 class="page-title">{{ article.title | escape }}</h1>
+
+    <div class="single-article">
+        <p class="posted-by">{{ article.published_at | date: "%d %B, %Y" }}
+		{% if blog.comments_enabled? %}
+			<a class="comment-count" href="#comments">{{ article.comments_count }} comments</a>
+			<a class="comment-leave" href="#comments">Leave a comment</a>
+		{% endif %}</p>
+		{{ article.content }}
+		{% capture articletitle %}{{article.title | escape}}{% endcapture %}
+		{% capture articleurl %}http://{{shop.domain}}{{article.url}}{% endcapture %}
+		{% include 'social-articles' %}    
+	</div>
+    
+    {% if blog.next_article or blog.previous_article %}
+        <div id="article-nav">
+        {% if blog.previous_article and blog.next_article %}
+            {% assign separator = '&nbsp;&nbsp;|&nbsp;&nbsp;' %}
+        {% else %}
+            {% assign separator = '' %}
+        {% endif %}
+        {% if blog.previous_article %}
+            <a id="article-prev" href="{{blog.previous_article}}">&laquo; previous post</a>
+        {% endif %}
+        {{separator}}
+        {% if blog.next_article %}
+            <a id="article-next" href="{{blog.next_article}}">next post &raquo;</a>
+        {% endif %}         
+        </div>
+    {% endif %}
+</div>
+
+{% include 'blog-sidebar' %}
+
+
+<!-- Comments -->
+{% if blog.comments_enabled? %}
+</div>
+<div class="row" id="comments">
+    <div class="four columns comment-form">
+		<!-- Comment Form -->
+		{% form article %}
+			<h3>Leave a comment</h3>
+		
+			<!-- Check if a comment has been submitted in the last request, and if yes display an appropriate message -->
+			{% if form.posted_successfully? %}
+				{% if blog.moderated? %}
+					<div class="notice">
+						Thanks! We've received your comment.<br />
+						It'll appear as soon as it's approved.
+					</div>
+				{% else %}
+					<div class="notice">Successfully posted your comment.</div>
+				{% endif %}
+			{% endif %}
+
+			{% if form.errors %}
+				<div class="notice error">Not all the fields have been filled out correctly!</div>
+			{% endif %}
+		
+    		<p class="{% if form.errors contains 'author' %}error{% endif %}">
+				<label for="comment_author">Your name</label>
+				<input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="input input-text{% if form.errors contains 'author' %} input-error{% endif %}" />
+			</p>
+			
+			
+			<p class="{% if form.errors contains 'email' %}error{% endif %}">
+				<label for="comment_email">Your email</label>
+				<input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="input input-text{% if form.errors contains 'email' %} input-error{% endif %}" />
+			</p>
+			
+			<p class="{% if form.errors contains 'body' %}error{% endif %}">
+				<label for="comment_body">Your comment</label>
+				<textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="input{% if form.errors contains 'body' %} input-error{% endif %}">{{form.body}}</textarea>				
+			</p>
+		
+			{% if blog.moderated? %}
+				<p class="hint">Comments are checked before they appear</p>
+			{% endif %}    
+			
+			<button class="button nice" type="submit">Post comment</button>
+		{% endform %}
+		<!-- END Comment Form -->
+    </div>
+    
+	
+    <div class="eight columns comments">
+		<h3>Comments</h3>
+	  
+		{% if article.comments.size < 1 %}
+			<p>No comments yet, be the first!</p>
+		{% endif %}
+	  
+		<!-- List all comments -->
+		<ol id="comment-list">
+			{% for comment in article.comments %}
+				<li>
+                    <img class="comment-icon" src="http://www.gravatar.com/avatar/{{ comment.email | md5 }}?s=50&amp;d={{'no-gravatar.png' | asset_url }}" alt="" />
+    				<div class="comment-title">
+    					<span class="comment-author">{{ comment.author }}</span>
+    					<span class="comment-date">{{ comment.created_at | date: "%B %d, %Y" }}</span>
+    				</div>
+    				{{ comment.content }}
+				</li>
+			{% endfor %}
+		</ol>
+    </div>
+{% endif %}
+
+

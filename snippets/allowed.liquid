@@ -1,0 +1,31 @@
+{% assign allowed = false %}
+{% for order in customer.orders %}
+    {% if order.financial_status == 'paid' %}
+        {% for item in order.line_items %}
+            {% case locked_type %}
+                {% when 'sku' %}
+                    {% if item.sku == locked_type_value %}
+                        {% assign allowed = true %}
+                    {% endif %}
+                {% when 'prefix' %}
+                    {% if item.sku contains locked_type_value %}
+                        {% assign allowed = true %}
+                    {% endif %}
+                {% when 'handle' %}
+                    {% if item.product.handle == locked_type_value %}
+                        {% assign allowed = true %}
+                    {% endif %}
+                {% when 'type' %}
+                    {% if item.product.type == locked_type_value %}
+                        {% assign allowed = true %}
+                    {% endif %}
+                {% when 'collection' %}
+                    {% for collection in item.product.collections %}
+                        {% if collection.handle == locked_type_value %}
+                            {% assign allowed = true %}
+                        {% endif %}
+                    {% endfor %}
+            {% endcase %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

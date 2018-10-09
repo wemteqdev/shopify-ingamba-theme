@@ -1,0 +1,17 @@
+{% if settings.blog_social %}
+<ul class="social-article">
+<li>
+    <!-- Tweet this -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{articletitle}}" data-url="{{articleurl}}" data-count="horizontal">Tweet</a>
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+</li>
+<li>
+    <!-- Facebook like-->
+    <div class="fb-like" data-href="{{articleurl}}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+</li>
+<li>
+    <!--  +1 button -->
+    <div class="g-plusone" data-size="medium" data-width="120" data-annotation="inline" data-href="{{articleurl}}"></div>
+</li>
+</ul>
+{% endif %}

@@ -1,0 +1,7 @@
+    	<ul class="footer-posts">
+		{% for article in blogs.[footer-articles].articles limit:3 %}
+			<li>
+    		    <p><strong>{{ article.title | escape }}</strong><em>{{ article.created_at | date: "%d %B, %Y" }} </em>{{article.content | strip_html | truncatewords:15 }} <a href="{{article.url}}" class="read-more">read more</a></p>
+			</li>
+		{% endfor %}
+		</ul>	

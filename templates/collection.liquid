@@ -1,0 +1,32 @@
+{% paginate collection.products by settings.paginate_products_by %}
+<div class="twelve columns">
+    <div id="collection-description">
+        {% if collection.url != "" %}
+            {% if collection.image %}
+                <img class="float-{{settings.coll_image}}" src="{{ collection.image.src | collection_img_url: 'original' }}" alt="{{ collection.title | escape }}" />
+            {% endif %}
+        {% endif %}
+        <h1 class="page-title">{{collection.title | escape }}</h1>
+        {% if collection.description.size > 0 %}
+            {{collection.description}}
+        {% endif %}
+    </div>
+
+    {% if collection.products.size < 1 %}
+        <h2>Sorry, there are no products in this collection yet.</h2>
+    {% endif %}
+
+    <ul class="block-grid mobile {{settings.products_per_row}}-up product-collection">
+		{% for product in collection.products %}
+			{% include 'product-loop' %}
+		{% endfor %}
+	</ul>
+     
+	{% if paginate.pages > 1 %}
+		<div class="paginate paginate-bottom">
+			{{ paginate | default_pagination }}
+		</div>
+	{% endif %}
+
+</div>    
+{% endpaginate %}

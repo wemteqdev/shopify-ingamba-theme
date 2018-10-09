@@ -1,0 +1,71 @@
+{% assign allowed = false %}
+{% assign locked = false %}
+
+{% if product %}
+    {% for collection in product.collections %}
+        {% if collection.metafields.lockdown.locked == 'true' %}
+            {% assign current_object = collection %}
+        {% endif %}
+    {% endfor %}
+    {% unless current_object %}
+        {% assign current_object = product %}
+    {% endunless %}
+    {% assign all_collection = true %}
+{% elsif collection %}
+    {% assign current_object = collection %}
+    {% if collection.handle == 'all' %}
+        {% assign all_collection = true %}
+    {% endif %}
+{% elsif blog %}
+    {% assign current_object = blog %}
+{% elsif article %}
+    {% assign current_object = article.blog %}
+{% elsif page %}
+    {% assign current_object = page %}
+{% endif %}
+
+{% if current_object.metafields.lockdown.locked == 'true' %}
+    {% assign locked = true %}
+    {% assign locked_type = current_object.metafields.lockdown.locked_type %}
+    
+    {% if product %}
+        {% assign return_url = product.url %}
+    {% elsif article %}
+        {% assign return_url = article.url %}
+    {% else %}
+        {% assign return_url = current_object.url %}
+    {% endif %}
+    
+    {% if locked_type != 'none' %}
+        {% assign locked_type_value = current_object.metafields.lockdown.locked_type_value %}
+    {% endif %}
+{% elsif all_collection == true %}
+    {% if shop.metafields.lockdown.all_locked == true %}
+        {% assign locked = true %}
+        {% assign locked_type = shop.metafields.lockdown.all_locked_type %}
+        
+        {% assign return_url = current_object.url %}
+        
+        {% if locked_type != 'none' %}
+            {% assign locked_type_value = shop.metafields.lockdown.all_locked_type_value %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+{% if locked == true %}
+    {% if locked_type == 'tag' %}
+        {% if customer.tags contains locked_type_value %}
+            {% assign allowed = true %}
+        {% else %}
+            {% assign allowed = false %}
+        {% endif %}
+    {% elsif locked_type == 'collection' %}
+        {% include 'allowed' %}
+    {% else %}
+        {% if customer %}
+            {% assign allowed = true %}
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% assign allowed = true %}
+{% endif %}

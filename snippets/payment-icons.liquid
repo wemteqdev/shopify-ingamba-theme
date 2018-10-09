@@ -1,0 +1,55 @@
+{% if settings.show_payment_icons %}
+    <p id="payment-icons">
+    {% if settings.show_2checkout_icon %}
+		<img src="{{ '2checkout.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_amex_icon %}
+		<img src="{{ 'american-express.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_cirrus_icon %}
+		<img src="{{ 'cirrus.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_delta_icon %}
+		<img src="{{ 'delta.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_dd_icon %}
+		<img src="{{ 'direct-debit.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_discover_icon %}
+		<img src="{{ 'discover.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_google_icon %}
+		<img src="{{ 'google-checkout.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_maestro_icon %}
+		<img src="{{ 'maestro.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_mastercard_icon %}
+		<img src="{{ 'mastercard.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_moneybookers_icon %}
+		<img src="{{ 'moneybookers.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_paypal_icon %}
+		<img src="{{ 'paypal.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_sagepay_icon %}
+		<img src="{{ 'sagepay.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_solo_icon %}
+		<img src="{{ 'solo.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_switch_icon %}
+		<img src="{{ 'switch.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_visa_icon %}
+		<img src="{{ 'visa.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_visaelectron_icon %}
+		<img src="{{ 'visa-electron.png' | asset_url }}" alt=""/>
+	{% endif %}
+	{% if settings.show_western_icon %}
+		<img src="{{ 'western-union.png' | asset_url }}" alt=""/>
+	{% endif %}
+    </p>
+{% endif %}
