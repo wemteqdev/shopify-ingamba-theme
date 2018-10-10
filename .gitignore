@@ -1,3 +1,5 @@
 .DS_Store
 development/node_modules
 development/npm-debug.log
+development/bower_components
+.vscode

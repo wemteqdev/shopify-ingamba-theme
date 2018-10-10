@@ -58,27 +58,20 @@
 
 <body id="{{template | replace:'.','_' }}" {% if template contains 'customers' %}class="customer-area"{% endif %}>
 
-{% if settings.show_top_menu %}
 	<div class="container menu-bar">
 		<div class="row">
 			<div class="twelve columns">
 				<ul>
 				{% for link in linklists.[settings.top_menu_linklist].links %}
 					<li><a href="{{link.url}}">{{link.title | escape}}</a></li>
-				{% endfor%}					
-				{% if shop.customer_accounts_enabled %}
-                    {% if customer  %}
-						<li><a id="customer_login_link" href="/account">My Account</a></li>
-						<li>{{ "Log Out" | customer_logout_link }}</li>
-					{% else %}
-						<li>{{ "Client Access" | customer_login_link }}</li>
-					{% endif %}
-				{% endif %}							
+				{% endfor %}
+					<li>
+						<a id="mini-cart" href="/cart"><em>{{cart.item_count}} item{% if cart.item_count != 1 %}s{% endif %} | {{cart.total_price | money}}</em></a>		
+					</li>	
 				</ul>
 			</div>			
 		</div>
 	</div><!-- menu bar -->
-{% endif %}
 		
 
 	<!-- container -->
@@ -87,26 +80,14 @@
 		<div class="row">
 			<div class="nine columns branding">
 				<h1 id="logo" {% if settings.custom_logo != true %} class="text-logo"{% endif%}><a href="http://ingamba.pro/" title="Home">
-				{% if settings.custom_logo %}
 					<img src="{{'logo.png' | asset_url}}" alt="{{shop.name}}" /></a>
-				{% else %}
-					{{shop.name | escape}}</a>
-				{% endif %}
 				</h1>
-			</div>
+			</div>					
 			<div class="three columns">
-				<a id="mini-cart" href="/cart"><span>View Cart </span><em>{{cart.item_count}} item{% if cart.item_count != 1 %}s{% endif %} | {{cart.total_price | money}}</em></a>		
-			</div>						
-			<div class="three columns">
-				<form class="search" action="/search" method="get">
-					<label for="search-input">Search</label>
-					<input type="text" class="input-text" id="search-input" name="q" value="" placeholder="Search..." />
-					<button type="submit">Search</button>
-				</form>								
+									
 			</div>			
 		</div>
         
-        {% if settings.show_main_menu %}
 		<div class="row main-menu">
 			<div class="twelve columns">
 		
@@ -126,7 +107,6 @@
 			</ul>
 			</div>
 		</div>
-		{% endif%}
         
         {% if settings.show_ad1 %}
             {% assign show_ad1 = false %}

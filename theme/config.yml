@@ -4,6 +4,4 @@ development:
   store: ingamba.myshopify.com
   ignore_files:
   - development
-  - config/settings.html
   - config/settings_data.json
-  - config/settings_schema.json

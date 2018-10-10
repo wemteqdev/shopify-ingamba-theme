@@ -1,0 +1,1624 @@
+
+<div class="section-info">
+    <h3>THEME SETTINGS AREA</h3>
+    <p>Thanks for purchasing the Flex theme!</p>
+    <p>Please see the <a href="http://vintage-audio.myshopify.com/pages/theme-settings">theme documentation</a></p>
+    <p>If you spot a bug or need help using the theme, please send an email to rawsterne@gmail.com</p>
+</div>
+
+<fieldset>
+    <legend>General Options</legend>
+    <table>
+    <tr>
+        <td><label for="custom_logo">Use a custom site logo?</label></td>
+        <td><input type="checkbox" id="custom_logo" name="custom_logo" /></td>
+    </tr>
+    <tr>
+        <td><label for="logo_image">Your logo</label></td>
+        <td><input type="file" id="logo_image" name="logo.png" data-max-width="700"/></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <br /><hr />
+        </td>
+    </tr>
+    <tr>
+        <td><label for="img_favicon">Your favicon (16 x 16px)</label></td>
+        <td><input type="file" id="img_favicon" name="favicon.png" data-max-width="16" data-max-height="16" /></td>
+    </tr>    
+    <tr>
+        <td><label for="img_apple_1">Apple touch icon (52 x 52px)</label></td>
+        <td><input type="file" id="img_apple_1" name="apple-touch-52.png" data-max-width="52" data-max-height="52" /></td>
+    </tr>        
+    <tr>
+        <td><label for="img_apple_2">Apple touch icon (72 x 72px)</label></td>
+        <td><input type="file" id="img_apple_2" name="apple-touch-72.png" data-max-width="72" data-max-height="72" /></td>
+    </tr>    	
+    <tr>
+        <td><label for="img_apple_3">Apple touch icon (114 x 114px)</label></td>
+        <td><input type="file" id="img_apple_3" name="apple-touch-114.png" data-max-width="114" data-max-height="114" /></td>
+	</tr>			
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>	
+    <tr>
+        <td><label for="show_breadcrumbs">Show breadcrumb trail?</label></td>
+        <td><input type="checkbox" id="show_breadcrumbs" name="show_breadcrumbs" /></td>
+    </tr>   
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>		
+	<tr>
+		<td><label for="paginate_products_by">Products per page</label></td>
+		<td><input id="paginate_products_by" name="paginate_products_by" value="12" /></td>
+	</tr>
+   <tr>
+		<td><label for="products_per_row">Products per row</label></td>
+		<td>
+		<select name="products_per_row" id="products_per_row">
+		<option value="two">2</option>
+		<option value="three" selected="selected">3</option>
+		<option value="four">4</option>
+		<option value="five">5</option>
+		</select>
+		</td>
+	</tr>	
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Homepage</legend>
+    <table>
+	<tr>
+		<td><label for="show_home_collection">Show Products on homepage?</label></td>
+		<td><input type="checkbox" id="show_home_collection" name="show_home_collection" /></td>
+	</tr>	
+	<tr>
+		<td><label for="home_collection">Collection for homepage products</label></td>
+		<td><select class="collection" name="home_collection" id="home_collection" /></td>
+	</tr>		
+	<tr>
+		<td><label for="home_collection_no">Number of products to display?</label></td>
+		<td><input id="home_collection_no" name="home_collection_no" value="3" /></td>
+	</tr>
+	<tr>
+		<td><label for="home_collection_heading">Heading for homepage products</label></td>
+		<td><input type="text" name="home_collection_heading" id="home_collection_heading" class="text" value="Featured Items" />
+			<span class="note">Leave blank for no heading</span>
+		</td>
+    </tr>	
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>	
+	<tr>
+		<td><label for="show_home_collections">Feature collections on homepage?</label></td>
+		<td><input type="checkbox" id="show_home_collections" name="show_home_collections" /></td>
+	</tr>		
+	<tr>
+		<td><label for="home_collections_linklist">Linklist for featured collections</label></td>
+		<td><select class="linklist" id="home_collections_linklist" name="home_collections_linklist" /></td>
+	</tr>	
+	<tr>
+		<td><label for="home_collections_heading">Heading for collection</label></td>
+		<td><input type="text" name="home_collections_heading" id="home_collections_heading" class="text" value="Featured Collections" />
+			<span class="note">Leave blank for no heading</span>
+		</td>
+    </tr>	
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>		
+	<tr>
+		<td><label for="show_home_text">Show text on homepage?</label></td>
+		<td><input type="checkbox" id="show_home_text" name="show_home_text" /></td>
+	</tr>			
+	<tr>
+		<td><label for="home_text_page">Select a page</label></td>
+		<td><select class="page" name="home_text_page" /><span class="note"> Select a page to pull the content from.</span></td>
+	</tr>	
+	</table>
+</fieldset>	
+
+
+<fieldset>
+    <legend>Options for Mobile</legend>
+    <table>
+	<tr>
+		<td><label for="mobile_navbar_style">Navigation style for main menu</label></td>
+		<td>
+		<select name="mobile_navbar_style" id="mobile_navbar_style">
+		<option value="compact">Compact</option>
+		<option value="accordion">Expandable</option>
+		</select>
+		</td>
+	</tr>		
+	</table>
+	
+	<h3>Hide the following items for mobiles</h3>
+	<table>
+    <tr>
+        <td><label for="mobile_hide_ad1">Hide full-width ad</label></td>
+        <td><input type="checkbox" id="mobile_hide_ad1" name="mobile_hide_ad1" /></td>
+    </tr>				
+    <tr>
+        <td><label for="mobile_hide_slideshow">Hide homepage slideshow</label></td>
+        <td><input type="checkbox" id="mobile_hide_slideshow" name="mobile_hide_slideshow" /></td>
+    </tr>					
+    <tr>
+        <td><label for="mobile_related_items">Hide related items</label></td>
+        <td><input type="checkbox" id="mobile_related_items" name="mobile_related_items" /></td>
+    </tr>	
+    <tr>
+        <td><label for="mobile_hide_prd_images">Hide extra product images</label></td>
+        <td><input type="checkbox" id="mobile_hide_prd_images" name="mobile_hide_prd_images" /></td>
+    </tr>		
+    <tr>
+        <td><label for="mobile_hide_fb_comments">Hide Facebook comments</label></td>
+        <td><input type="checkbox" id="mobile_hide_fb_comments" name="mobile_hide_fb_comments" /></td>
+    </tr>		
+    <tr>
+        <td><label for="mobile_hide_cart_images">Hide product images on cart page</label></td>
+        <td><input type="checkbox" id="mobile_hide_cart_images" name="mobile_hide_cart_images" /></td>
+    </tr>			
+    <tr>
+        <td><label for="mobile_hide_coll_desc">Hide collection description</label></td>
+        <td><input type="checkbox" id="mobile_hide_coll_desc" name="mobile_hide_coll_desc" /></td>
+    </tr>			
+    <tr>
+        <td><label for="mobile_hide_footer">Hide footer columns</label></td>
+        <td><input type="checkbox" id="mobile_hide_footer" name="mobile_hide_footer" /></td>
+    </tr>			
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Colors</legend>
+	
+	<h3>General Colors</h3>	
+	<table>
+	<tr>
+		<td><label for="bg_color">Background</label></td>
+		<td><input id="bg_color" name="bg_color" class="color" value="#323232" /></td>
+    </tr>
+    <tr>
+		<td><label for="text_color">Regular text</label></td>
+		<td><input id="text_color" name="text_color" class="color" value="#333333" /></td>
+    </tr>
+    <tr>
+		<td><label for="heading_color">Headings</label></td>
+		<td><input id="heading_color" name="heading_color" class="color" value="#777777" /></td>
+    </tr>
+	<tr>
+		<td><label for="border_color">Borders</label></td>
+		<td><input id="border_color" name="border_color" class="color" value="#222222"/></td>
+	</tr>
+	<tr>
+		<td><label for="link_color">Links</label></td>
+		<td><input id="link_color" name="link_color" class="color" value="#B24A2E"/></td>
+	</tr>
+	<tr>
+		<td><label for="link_hover_color">Links (when hovered)</label></td>
+		<td><input id="link_hover_color" name="link_hover_color" class="color" value="#000000"/></td>
+	</tr>
+	</table>
+
+	<br /><hr />		
+	
+	<h3>Footer Colors</h3>
+	<table>
+	<tr>
+		<td><label for="footer_text">Footer Text Color</label></td>
+		<td><input id="footer_text" name="footer_text" class="color" value="#b2b2b2" /></td>
+    </tr>
+	<tr>
+		<td><label for="footer_links">Footer Links Color</label></td>
+		<td><input id="footer_links" name="footer_links" class="color" value="#00bff3"/></td>
+	</tr>
+	<tr>
+		<td><label for="footer_links_hover">Footer Links Color (when hovered)</label></td>
+		<td><input id="footer_links_hover" name="footer_links_hover" class="color" value="#FFFFFF"/></td>
+	</tr>
+	</table>
+    
+</fieldset>
+
+
+<fieldset>
+    <legend>Buttons</legend>
+	<table>
+    <tr>
+		<td><label for="button_font_style">Button Font Style</label></td>
+		<td>
+		<select name="button_font_style" id="header_font_style">
+		<option value="none" selected="selected">None</option>
+		<option value="uppercase">Uppercase</option>
+		<option value="lowercase">Lowercase</option>
+		</select>
+		</td>
+    </tr>
+	<tr>
+		<td><label for="button_radius">Button Radius</label></td>
+		<td><input id="button_radius" name="button_radius" class="text" value="12" />
+			<span class="note">Control how round button corners are. Higher value is more rounded.</span>
+		</td>
+	</tr>	
+	<tr>
+		<td><label for="button_border_color">Button Border Color</label></td>
+		<td><input id="button_border_color" name="button_border_color" class="color" value="#111111"/></td>
+	</tr>	
+	<tr>
+		<td><label for="button_bg_color">Button Background</label></td>
+		<td><input id="button_bg_color" name="button_bg_color" class="color" value="#00C546"/></td>
+	</tr>
+	<tr>
+		<td><label for="button_bg_color_hover">Button Background (when hovered)</label></td>
+		<td><input id="button_bg_color_hover" name="button_bg_color_hover" class="color" value="#00E752"/></td>
+	</tr>
+	<tr>
+		<td><label for="button_text">Button Text</label></td>
+		<td><input id="button_text" name="button_text" class="color" value="#FFFFFF"/></td>
+	</tr>
+	<tr>
+		<td><label for="button_text_hover">Button Text (when hovered)</label></td>
+		<td><input id="button_text_hover" name="button_text_hover" class="color" value="#FFFFFF"/></td>
+	</tr>		
+	<tr>
+		<td><label for="button_overlay">Set Button Texture</label></td>
+		<td>
+		<select name="button_overlay" id="button_overlay">
+		<option value="none">None</option>	
+		<option value="button-bg-grunge.png">Grunge</option>		
+		<option value="button-gradient.png">Gradient</option>
+		</select>
+		</td>
+	</tr>	
+	
+  </table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Typography</legend>
+	<table>
+	<tr>
+		<td><label for="typeface_method">Choose a method for rendering Headers:</label></td>
+		<td>
+		<input type="radio" name="typeface_method" value="google_webfonts" /> Google WebFonts
+		<input type="radio" name="typeface_method" value="websafe" /> Websafe fonts
+		<p><span class="note">You can see how these look and select a font to use by visiting the <a href="http://www.google.com/webfonts" target="_blank">Google WebFonts</a> site.</span></p>
+		<br />
+		</td>
+	</tr>
+    
+	<tr>
+		<td>
+		<label for="google_webfont_font">Paste the link code from Google WebFonts</label>
+		</td>
+		<td>
+		<textarea name="google_webfont_font" cols="60" rows="5" id="google_webfont_font"></textarea>
+		<span class="note">You can find this by clicking a font in <a href="http://www.google.com/webfonts" target="_blank">Google WebFonts</a> and then clicking the "Quick-use" link. Copy the code from the "standard" code box.</span>
+		<br /><br />
+		</td>
+    </tr>
+	
+	<tr>
+		<td>
+		<label for="google_webfont_font_name">Specify the Google Webfonts name</label>
+		</td>
+		<td>
+		<textarea name="google_webfont_font_name" cols="60" rows="2" id="google_webfont_font_name"></textarea>
+		<span class="note">You can find this by clicking a font in <a href="http://www.google.com/webfonts" target="_blank">Google WebFonts</a> and then clicking the "Quick-use" link. Copy the font name from section 4.</span>
+		<br /><br />
+		</td>
+    </tr>	
+	
+ 	
+	<tr>
+		<td><label for="header_font">Headers (if using websafe fonts)</label></td>
+		<td>
+		<select class="font" name="header_font" id="header_font">
+		<option value="Helvetica, Arial, sans-serif" selected="selected">Helvetica/Arial</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+	<td><label for="regular_font">Regular text</label></td>
+		<td>
+		<select class="font" name="regular_font" id="regular_font">
+		<option value="Helvetica, Arial, sans-serif" selected="selected">Helvetica/Arial</option>
+		</select>
+		</td>
+	</tr>
+    <tr>
+		<td><label for="header_font_style">Header Font Style</label></td>
+		<td>
+		<select name="header_font_style" id="header_font_style">
+		<option value="none" selected="selected">None</option>
+		<option value="uppercase">Uppercase</option>
+		<option value="lowercase">Lowercase</option>
+		</select>
+		</td>
+    </tr>
+	
+	<tr>
+		<td><label for="special_nav_font">Apply header font to Navbar?</label></td>
+		<td><input type="checkbox" id="special_nav_font" name="special_nav_font" /></td>
+	</tr>	
+	<tr>
+		<td><label for="special_button_font">Apply header font to Buttons?</label></td>
+		<td><input type="checkbox" id="special_button_font" name="special_button_font" /></td>
+	</tr>		
+	
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Site Background Image</legend>
+	<table>
+	<tr>
+		<td><label for="site_bg_image">Set your site background image</label></td>
+		<td>
+		<select name="site_bg_image" id="site_bg_image">
+		<option value="no-background">No background image</option>		
+    	<option value="background1.jpg">Vintage Paper</option>        
+        <option value="background2.png">Blue Stripes</option>                
+        <option value="background3.jpg">Dark Texture</option>                        
+		<option value="site-background.png">Your image</option>
+		</select>
+		</td>
+	</tr>
+		
+    <tr>
+		<td><label>Upload your background image</label></td>
+		<td><input type="file" id="site_bg_image" name="site-background.png" /></td>
+    </tr>
+
+    <tr>
+		<td><label for="bg_image_position">Position</label></td>
+		<td id="bg_image_position">
+		<select name="bg_image_y_position" id="bg_image_y_position">
+		<option value="top">Top</option>
+		<option value="center">Center</option>
+		<option value="bottom" selected="selected">Bottom</option>
+		</select>
+		<select name="bg_image_x_position" id="bg_image_x_position">
+		<option value="left">Left</option>
+		<option value="center">Center</option>
+		<option value="right" selected="selected">Right</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="bg_image_repeat">Tiling</label></td>
+		<td>
+		<select name="bg_image_repeat" id="bg_image_repeat">
+		<option value="no-repeat" selected="selected">Do not tile</option>
+		<option value="repeat-x">Tile horizontally</option>
+		<option value="repeat-y">Tile vertically</option>
+		<option value="repeat">Tile everywhere</option>
+		</select>
+		</td>
+	</tr>
+    <tr>
+		<td><label for="bg_image_attachment">Scrolling</label></td>
+		<td>
+		<select name="bg_image_attachment" id="bg_image_attachment">
+		<option value="scroll">Scrolls with page</option>
+		<option value="fixed" selected="selected">Stays fixed</option>
+		</select>
+		</td>
+    </tr>
+    
+    <tr>
+        <td><label for="show_grunge">Show grunge layer?</label></td>
+		<td><input type="checkbox" id="show_grunge" name="show_grunge" /></td>
+	</tr>    
+    
+  </table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Minicart (Header)</legend>
+	<p>Here you control how the minicart appears. Choose a background image, solid color or no background.</p>
+	<table>	
+	<tr>
+		<td><label for="minicart_bg">Set minicart background</label></td>
+		<td>
+		<select name="minicart_bg" id="minicart_bg">
+		<option value="no-background">No background</option>	
+		<option value="mini-cart-bg.png">Vintage Plate</option>		
+    	<option value="minicart-brown-paper.png">Brown Paper</option>
+		<option value="minicart-blue.png">Turquoise banner</option>		        		
+		<option value="minicart-bg-user.png">Uploaded background (upload below)</option>
+		<option value="color">Solid Color (specify below)</option>
+		</select>
+		</td>
+	</tr>
+		
+    <tr>
+		<td><label for="minicart_bg_user">Your background image (200 x 50px)</label></td>
+		<td><input type="file" id="minicart_bg_user" name="minicart-bg-user.png" data-max-width="200" data-max-height="50" /></td>
+    </tr>
+	
+    <tr>
+		<td><label for="minicart_bg_color">Minicart Background Color (only if you've selected solid color)</label></td>
+		<td><input id="minicart_bg_color" name="minicart_bg_color" class="color" value="#ca5d30" /></td>
+    </tr>	
+   
+    <tr>
+		<td><label for="minicart_text_color">Minicart Text Color</label></td>
+		<td><input id="minicart_text_color" name="minicart_text_color" class="color" value="#FFFFFF" /></td>
+    </tr>		
+	
+	<tr>
+		<td><label for="minicart_text_color_hover">Minicart Text Color (on hover)</label></td>
+		<td><input id="minicart_text_color_hover" name="minicart_text_color_hover" class="color" value="#DDDDDD" /></td>
+    </tr>	
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Top Menu Bar</legend>
+    <h3>Top Menu bar</h3>
+    <table>
+    <tr>
+		<td><label for="show_top_menu">Show top menu bar?</label></td>
+		<td><input type="checkbox" id="show_top_menu" name="show_top_menu" /></td>
+	</tr>	
+	<tr>
+		<td><label for="top_menu_linklist">Linklist for top menu</label></td>
+		<td><select class="linklist" id="top_menu_linklist" name="top_menu_linklist" /></td>
+	</tr>
+	
+	<tr>
+		<td><label for="top_menu_bg">Set background</label></td>
+		<td>
+		<select name="top_menu_bg" id="top_menu_bg">
+		<option value="no-background">No background</option>	
+		<option value="top-menu-bg1.png">Torn paper</option>		
+        <option value="top-menu-bg2.png">Blue waves</option>    	
+		<option value="top-menu-bg-user.png">Your image (upload below)</option>
+		<option value="color">Solid Color (specify below)</option>
+		</select>
+		</td>
+	</tr>
+	
+    <tr>
+		<td><label for="top-menu_bg_user">Your background image</label></td>
+		<td><input type="file" id="top-menu_bg_user" name="top-menu-bg-user.png" /></td>
+    </tr>
+	
+    <tr>
+		<td><label for="top-menu_bg_color">Background Color (only if solid color chosen)</label></td>
+		<td><input id="top-menu_bg_color" name="top-menu_bg_color" class="color" value="#ca5d30" /></td>
+    </tr>		
+	
+    <tr>
+    	<td><label for="top_menu_text_color">Text Color</label></td>
+		<td><input id="top_menu_text_color" name="top_menu_text_color" class="color" value="#EDE4D7" /></td>
+    </tr>		
+	
+	<tr>
+		<td><label for="top_menu_text_hover">Text Color (on hover)</label></td>
+		<td><input id="top_menu_text_hover" name="top_menu_text_hover" class="color" value="#EDE4D7" /></td>
+    </tr>	    
+
+    <tr>
+    	<td><label for="top_menu_bg_color_hover">Background Color (on hover)</label></td>
+		<td><input id="top_menu_bg_color_hover" name="top_menu_bg_color_hover" class="color" value="#333" /></td>
+    </tr>		
+
+    </table>	
+</fieldset>
+
+
+<fieldset>
+    <legend>Navigation Bar</legend>
+	<table>	 
+	<tr>
+		<td><label for="show_main_menu">Show main navigation?</label></td>
+		<td><input type="checkbox" id="show_main_menu" name="show_main_menu" /></td>
+	</tr>		
+	<tr>
+		<td><label for="main_menu_linklist">Linklist for main menu</label></td>
+		<td><select class="linklist" id="main_menu_linklist" name="main_menu_linklist" /></td>
+	</tr>	
+    <tr>
+		<td><label for="nav_transform">Navigation Style</label></td>
+		<td>
+		<select name="nav_transform" id="nav_transform">
+		<option value="none" selected="selected">None</option>
+		<option value="uppercase">Uppercase</option>
+		<option value="lowercase">Lowercase</option>
+		</select>
+		</td>
+    </tr>	
+	<tr>
+		<td><label for="navigation_text">Navigation Text</label></td>
+		<td><input id="navigation_text" name="navigation_text" class="color" value="#959595"/></td>
+	</tr>
+	<tr>
+		<td><label for="navigation_text_hover">Navigation Text (when hovered)</label></td>
+		<td><input id="navigation_text_hover" name="navigation_text_hover" class="color" value="#FFFFFF"/></td>
+	</tr>
+	<tr>
+		<td><label for="navigation_text_hover_bg">Navigation Background (when hovered)</label></td>
+		<td><input id="navigation_text_hover_bg" name="navigation_text_hover_bg" class="color" value="#222"/></td>
+	</tr>
+	<tr>
+		<td><label for="nav_border">Navigation Border Color</label></td>
+		<td><input id="nav_border" name="nav_border" class="color" value="#333333"/></td>
+	</tr>	
+	<tr>
+		<td><label for="shop_menu_links_color">Sub Menu Links Color</label></td>
+		<td><input id="shop_menu_links_color" name="shop_menu_links_color" class="color" value="#777777"/></td>
+	</tr>		
+	<tr>
+		<td><label for="shop_menu_links_color_hover">Sub Menu Links Color (when hovered)</label></td>
+		<td><input id="shop_menu_links_color_hover" name="shop_menu_links_color_hover" class="color" value="#AA0000"/></td>
+	</tr>			
+	<tr>
+		<td><label for="show_view_all">Show "view all" in submenus?</label></td>
+		<td><input type="checkbox" id="show_view_all" name="show_view_all" /></td>
+	</tr>			
+	</table>		
+    
+    <br /><hr />
+    
+    <h3>Adjust Menu Font Size</h3>
+    <p>Useful when using custom fonts as they often appear larger/smaller than web-safe fonts</p>
+    <table>
+        <tr>		        
+    		<td><label for="nav_font_size">Font size in px</label></td>        
+			<td><input type="text" name="nav_font_size" id="nav_font_size" value="16" />
+            <span class="note">Enter numbers only e.g. 16</span>
+			</td>
+		</tr>		 
+        <tr>  
+            <td><label for="nav_font_bold">Make font bold?</label></td>
+		    <td><input type="checkbox" id="snav_font_bold" name="nav_font_bold" /></td>
+        </tr>                
+    </table>
+</fieldset>
+
+
+<fieldset>
+  <legend>Full Width Ad</legend>
+  <p>This is the ad that appears just under the navigation bar. The image should be 960px wide and can be any height.</p>
+  <table>
+        <tr>  
+      	    <td><label for="show_ad1">Show Top Promo Ad?</label></td>
+		    <td><input type="checkbox" id="show_ad1" name="show_ad1" /></td>
+        </tr>        
+		<tr>
+			<td><label for="home_ad1_image">Top Promo Image</label></td>
+			<td>
+			<select name="home_ad1_image" id="home_ad1_image">
+			<option value="home-ad1.png">Demo vintage</option>        
+			<option value="home-ad1a.png">Demo red ribbon</option>                
+			<option value="full-width-ad-gene.png">Demo simple ad</option>                			
+			<option value="full-width-ad-raven.png">Demo dark ad</option>                						
+			<option value="home-ad1-user.png">Your image</option>
+			</select>
+			</td>
+		</tr>	
+		<tr>
+			<td><label>Upload your image</label></td>
+			<td><input type="file" name="home-ad1-user.png" /></td>
+		</tr>			
+    	<tr>		        
+    		<td><label for="home_ad1_link">Link to</label></td>        
+			<td><input type="text" name="home_ad1_link" value="/pages/about-us" /></td>
+		</tr>		
+	</table>
+	
+	<h3>Select pages to display ad</h3>
+	<table class="standard-table">
+    <thead>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Display?</td>
+    </tr>
+    </thead>
+	<tbody>
+	<tr class="odd">
+		<td><label for="ad1_home">Home page</label></td>
+		<td><input type="checkbox" id="ad1_home" name="ad1_home" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="ad1_collection">Collection page</label></td>
+		<td><input type="checkbox" id="ad1_collection" name="ad1_collection" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="ad1_product">Product page</label></td>
+		<td><input type="checkbox" id="ad1_product" name="ad1_product" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="ad1_cart">Cart</label></td>
+		<td><input type="checkbox" id="ad1_cart" name="ad1_cart" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="ad1_page">Single Page (about, contact etc.)</label></td>
+		<td><input type="checkbox" id="ad1_page" name="ad1_page" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="ad1_blog">Blog</label></td>
+		<td><input type="checkbox" id="ad1_blog" name="ad1_blog" /></td>
+	</tr>
+	</tbody>
+	</table>
+</fieldset>
+
+
+<fieldset>
+  <legend>Homepage Slideshow</legend>
+    <p>Slideshow images must be <strong>960px wide and all the same height</strong></p>
+  
+	<table>
+	<tr>
+		<td><label for="show_slider">Display Slideshow?</label></td>
+		<td><input type="checkbox" id="show_slider" name="show_slider" /></td>
+	</tr>
+  	<tr>
+		<td><label for="slide_height">Set Slide height in px</label></td>
+		<td><input type="text" id="slide_height" name="slide_height" value="450" /></td>
+    </tr>
+  	<tr>
+		<td><label for="slider_speed">Slide speed (1000 is one second)</label></td>
+		<td><input type="text" id="slider_speed" name="slider_speed" value="7000" /></td>
+    </tr>	
+	</table>
+  
+    <br /><hr />
+  
+    <table>
+	<tr><td><h3>SLIDE1</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_1">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_1" name="show_slide_1" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_1_img">Image</label></td>
+		<td><input type="file" id="slide_1_img" name="slide_1.jpg" data-max-width="960" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_1_link">Link to...</label></td>
+		<td><input type="text" id="slide_1_link" name="slide_1_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_1_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_1_caption" name="show_slide_1_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_1_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_1_caption_pos" id="slide_1_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_1_caption">Caption text</label></td>
+		<td><textarea name="slide_1_caption" cols="60" rows="3" id="slide_1_caption"></textarea></td>
+    </tr>	
+	</table>	
+	
+	<table>
+	<tr><td><h3>SLIDE2</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_2">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_2" name="show_slide_2" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_2_img">Image</label></td>
+		<td><input type="file" id="slide_2_img" name="slide_2.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_2_link">Link to...</label></td>
+		<td><input type="text" id="slide_2_link" name="slide_2_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_2_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_2_caption" name="show_slide_2_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_2_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_2_caption_pos" id="slide_2_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_2_caption">Caption text</label></td>
+		<td><textarea name="slide_2_caption" cols="60" rows="3" id="slide_2_caption"></textarea></td>
+    </tr>	
+	</table>		
+	
+	<table>
+	<tr><td><h3>SLIDE3</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_3">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_3" name="show_slide_3" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_3_img">Image</label></td>
+		<td><input type="file" id="slide_3_img" name="slide_3.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_3_link">Link to...</label></td>
+		<td><input type="text" id="slide_3_link" name="slide_3_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_3_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_3_caption" name="show_slide_3_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_3_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_3_caption_pos" id="slide_3_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_3_caption">Caption text</label></td>
+		<td><textarea name="slide_3_caption" cols="60" rows="3" id="slide_3_caption"></textarea></td>
+    </tr>	
+	</table>		
+	
+	
+	<table>
+	<tr><td><h3>SLIDE4</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_4">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_4" name="show_slide_4" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_4_img">Image</label></td>
+		<td><input type="file" id="slide_4_img" name="slide_4.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_4_link">Link to...</label></td>
+		<td><input type="text" id="slide_4_link" name="slide_4_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_4_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_4_caption" name="show_slide_4_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_4_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_4_caption_pos" id="slide_4_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_4_caption">Caption text</label></td>
+		<td><textarea name="slide_4_caption" cols="60" rows="3" id="slide_4_caption"></textarea></td>
+    </tr>	
+	</table>	
+
+	
+	<table>
+	<tr><td><h3>SLIDE5</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_5">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_5" name="show_slide_5" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_5_img">Image</label></td>
+		<td><input type="file" id="slide_5_img" name="slide_5.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_5_link">Link to...</label></td>
+		<td><input type="text" id="slide_5_link" name="slide_5_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_5_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_5_caption" name="show_slide_5_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_5_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_5_caption_pos" id="slide_5_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_5_caption">Caption text</label></td>
+		<td><textarea name="slide_5_caption" cols="60" rows="3" id="slide_5_caption"></textarea></td>
+    </tr>	
+	</table>	
+
+
+	<table>
+	<tr><td><h3>SLIDE6</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_6">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_6" name="show_slide_6" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_6_img">Image</label></td>
+		<td><input type="file" id="slide_6_img" name="slide_6.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_6_link">Link to...</label></td>
+		<td><input type="text" id="slide_6_link" name="slide_6_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_6_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_6_caption" name="show_slide_6_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_6_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_6_caption_pos" id="slide_6_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_6_caption">Caption text</label></td>
+		<td><textarea name="slide_6_caption" cols="60" rows="3" id="slide_6_caption"></textarea></td>
+    </tr>	
+	</table>	
+	
+	<table>
+	<tr><td><h3>SLIDE7</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_7">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_7" name="show_slide_7" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_7_img">Image</label></td>
+		<td><input type="file" id="slide_7_img" name="slide_7.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_7_link">Link to...</label></td>
+		<td><input type="text" id="slide_7_link" name="slide_7_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_7_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_7_caption" name="show_slide_7_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_7_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_7_caption_pos" id="slide_7_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_7_caption">Caption text</label></td>
+		<td><textarea name="slide_7_caption" cols="60" rows="3" id="slide_7_caption"></textarea></td>
+    </tr>	
+	</table>
+	
+	<table>
+	<tr><td><h3>SLIDE8</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_8">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_8" name="show_slide_8" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_8_img">Image</label></td>
+		<td><input type="file" id="slide_8_img" name="slide_8.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_8_link">Link to...</label></td>
+		<td><input type="text" id="slide_8_link" name="slide_8_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_8_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_8_caption" name="show_slide_8_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_8_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_8_caption_pos" id="slide_8_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_8_caption">Caption text</label></td>
+		<td><textarea name="slide_8_caption" cols="60" rows="3" id="slide_8_caption"></textarea></td>
+    </tr>	
+	</table>
+	
+	<table>
+	<tr><td><h3>SLIDE9</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_9">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_9" name="show_slide_9" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_9_img">Image</label></td>
+		<td><input type="file" id="slide_9_img" name="slide_9.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_9_link">Link to...</label></td>
+		<td><input type="text" id="slide_9_link" name="slide_9_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_9_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_9_caption" name="show_slide_9_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_9_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_9_caption_pos" id="slide_9_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_9_caption">Caption text</label></td>
+		<td><textarea name="slide_9_caption" cols="60" rows="3" id="slide_9_caption"></textarea></td>
+    </tr>	
+	</table>
+	
+	<table>
+	<tr><td><h3>SLIDE10</h3></td></tr>
+	<tr>
+		<td><label for="show_slide_10">Show?</label></td>
+		<td><input type="checkbox" id="show_slide_10" name="show_slide_10" /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_10_img">Image</label></td>
+		<td><input type="file" id="slide_10_img" name="slide_10.jpg" data-max-width="960"  /></td>
+	</tr>
+	<tr>
+		<td><label for="slide_10_link">Link to...</label></td>
+		<td><input type="text" id="slide_10_link" name="slide_10_link" value="/collections/all" /></td>
+    </tr>	
+	<tr>
+		<td><label for="show_slide_10_caption">Show caption?</label></td>
+		<td><input type="checkbox" id="show_slide_10_caption" name="show_slide_10_caption" /></td>
+    </tr>	
+	<tr>
+		<td><label for="slide_10_caption_pos">Caption position</label></td>
+		<td>
+		<select name="slide_10_caption_pos" id="slide_10_caption_pos">
+		<option value="bottom" selected="selected">Bottom</option>
+		<option value="top">Top</option>
+		</select>
+		</td>
+    </tr>
+    <tr>
+		<td><label for="slide_10_caption">Caption text</label></td>
+		<td><textarea name="slide_10_caption" cols="60" rows="3" id="slide_10_caption"></textarea></td>
+    </tr>	
+	</table>
+
+</fieldset>
+
+
+<fieldset>
+    <legend>Product Page</legend>
+	
+	<table>
+	<tr>
+		<td><label for="product_images_pos">Layout - Images Position</label></td>
+		<td>
+			<select name="product_images_pos" id="product_images_pos">
+			<option value="left" selected="selected">Left</option>
+			<option value="right">Right</option>
+			</select>		
+		</td>
+	</tr>				
+	<tr>
+		<td><label for="product_button_pos">Layout - Buy Button Position</label></td>
+		<td>
+			<select name="product_button_pos" id="product_button_pos">
+			<option value="above" selected="selected">Above description</option>
+			<option value="below">Below description</option>
+			</select>		
+		</td>
+	</tr>
+    <tr>
+        <td><label for="show_qty">Show "Qty" Field?</label></td>
+        <td><input type="checkbox" id="show_qty" name="show_qty" /></td>
+    </tr>	
+	<tr>		        
+		<td><label>Buy Button Text</label></td>        
+		<td><input type="text" name="prd_button_text" value="Add To Cart" /></td>
+	</tr>					
+	<tr>		        
+		<td><label>Message for out-of-stock items</label></td>        
+		<td><input type="text" name="prd_out_stock_msg" value="Sorry, this product is temporarily out of stock." /></td>
+	</tr>				
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>	
+	<tr>
+		<td><label for="show_related">Show Related Items</label></td>
+		<td><input type="checkbox" id="show_related" name="show_related" /></td>
+	</tr>
+	<tr>		        
+		<td><label>Heading for related items</label></td>        
+		<td><input type="text" name="related_heading" value="You May Also Like" /></td>
+	</tr>			
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>	
+	<tr>
+		<td><label for="show_fb_comments">Show Facebook Comments</label></td>
+		<td><input type="checkbox" id="show_fb_comments" name="show_fb_comments" /></td>
+	</tr>	
+	<tr>
+		<td colspan="2">
+			<br /><hr />
+		</td>
+	</tr>		
+	<tr>
+		<td><label for="product_show_tweet">Show Tweet Button</label></td>
+		<td><input type="checkbox" id="product_show_tweet" name="product_show_tweet" /></td>
+	</tr>		
+	<tr>
+		<td><label for="product_show_like">Show Facebook Like Button</label></td>
+		<td><input type="checkbox" id="product_show_like" name="product_show_like" /></td>
+	</tr>		
+	<tr>
+		<td><label for="product_show_gplus">Show Google+ Button</label></td>
+		<td><input type="checkbox" id="product_show_gplus" name="product_show_gplus" /></td>
+	</tr>		
+	<tr>
+		<td><label for="product_show_pinterest">Show Pinterest Button</label></td>
+		<td><input type="checkbox" id="product_show_pinterest" name="product_show_pinterest" /></td>
+	</tr>	
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Collections</legend>
+	<table>	
+	<tr>
+		<td><label for="coll_image">Collection Description Image Position</label></td>
+		<td>
+			<select name="coll_image" id="coll_image">
+			<option value="none" selected="selected">None</option>
+			<option value="left">Left</option>
+			<option value="right">Right</option>
+			</select>		
+			<span class="note">You can upload an image to each collection. If you've done that, this setting allows you to control how the image is displayed at the top of each collection page.</span>
+		</td>
+	</tr>			
+	<tr>
+		<td><label for="show_tag_drop">Show Dropdown for Tags?</label></td>
+		<td><input type="checkbox" id="show_tag_drop" name="show_tag_drop" checked="checked" /></td>
+	</tr>	
+	<tr>
+		<td><label for="sale_sticker_bg">Sale Sticker</label></td>
+		<td>
+		<select name="sale_sticker_bg" id="sale_sticker_bg">
+		<option value="sale-sticker.png">Orange circle</option>		
+        <option value="sale-sticker-red.png">Red circle</option>    	
+		<option value="sale-green-rectangle.png">Green rectangle</option>    	
+		<option value="sale-turquoise.png">Turquoise rectangle</option>    	
+		<option value="sale-sticker-user.png">Uploaded image</option>
+		</select>
+		</td>
+	</tr>
+		
+    <tr>
+		<td><label for="sale_sticker_user">Your sale sticker image (size 60 x 60px)</label></td>
+		<td><input type="file" id="sale_sticker_user" name="sale-sticker-user.png" data-max-width="60" data-max-height="60" /></td>
+    </tr>
+   
+    <tr>
+		<td><label for="collection_text_color">Collection Text Color</label></td>
+		<td><input id="collection_text_color" name="collection_text_color" class="color" value="#000000" /></td>
+    </tr>		
+	
+	<tr>
+		<td><label for="collection_text_color_hover">Collection Text Color (on hover)</label></td>
+		<td><input id="collection_text_color_hover" name="collection_text_color_hover" class="color" value="#BBBBBB" /></td>
+    </tr>	
+	</table>
+	
+	<br /><hr />
+	<h3>Image border style</h3>
+	<table>
+	<tr>
+		<td><input type="radio" name="image_border_style" value="torn-paper" /> Torn Paper</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="image_border_style" value="solid" /> Simple color</td>
+		<td><input id="image_border_color" name="image_border_color" class="color" value="#eeeeee" /></td>
+	</tr>
+
+	</table>	
+	
+</fieldset>
+
+
+<fieldset>
+	<table>
+    <legend>Single Page</legend>
+	<tr>		        
+		<td><label for="page_side_heading">Heading for sidebar</label></td>        
+		<td><input type="text" name="page_side_heading" id="page_side_heading" value="Useful Info" /></td>
+	</tr>		
+	<tr>
+		<td><label for="page_linklist">Linklist for sidebar</label></td>
+		<td><select class="linklist" id="page_linklist" name="page_linklist" /></td>
+	</tr>
+	</table>
+</fieldset>
+
+
+<fieldset>
+	<table>
+    <legend>Blog</legend>
+	<tr>
+		<td><label for="show_rss_link">Show RSS feed link (Sidebar)</label></td>
+		<td><input type="checkbox" id="show_rss_link" name="show_rss_link" /></td>
+	</tr>		
+	<tr>
+		<td><label for="show_blog_tags">Show Tags (Sidebar)</label></td>
+		<td><input type="checkbox" id="show_blog_tags" name="show_blog_tags" /></td>
+	</tr>	
+	<tr>		        
+		<td><label for="blog_tags_heading">Heading for Tags</label></td>        
+		<td><input type="text" name="blog_tags_heading" id="blog_tags_heading" value="Blog Categories" /></td>
+	</tr>						
+	<tr>
+		<td><label for="show_blog_latest">Show Latest Posts (Sidebar)</label></td>
+		<td><input type="checkbox" id="show_blog_latest" name="show_blog_latest" /></td>
+	</tr>		
+	<tr>		        
+		<td><label for="blog_latest_heading">Heading for Latest Posts</label></td>        
+		<td><input type="text" name="blog_latest_heading" id="blog_latest_heading" value="Recent Posts" /></td>
+	</tr>							
+	<tr>
+		<td colspan="2">
+			<hr />
+		</td>
+	</tr>	
+	<tr>
+		<td><label for="blog_social">Show Sharing Icons on Articles?</label></td>
+		<td><input type="checkbox" id="blog_social" name="blog_social" /></td>
+	</tr>	
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Cart Page</legend>
+	<table>	
+    <tr>
+		<td><label>Cart Page Heading</label></td>
+		<td><input type="text" name="cart_heading" class="text" value="Your Cart" /></td>
+    </tr>		
+	<tr>
+        <td><label for="show_cart_note">Show cart note?</label></td>
+		<td><input type="checkbox" id="show_cart_note" name="show_cart_note" /></td>
+	</tr> 	
+    <tr>
+		<td><label>Cart note text</label></td>
+		<td><input type="text" name="cart_note_text" class="text" value="Add a note to your order..." /></td>
+    </tr>	
+    <tr>
+		<td><label>Checkout button text</label></td>
+		<td><input type="text" name="checkout_text" class="text" value="Go to Checkout" /></td>
+    </tr>		
+	<tr>
+		<td colspan="2">
+			<hr />
+		</td>
+	</tr>
+	</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Payment Icons</legend>
+	<table>
+	<tr>
+		<td><label for="show_payment_icons">Show Payment Icons?</label></td>
+		<td><input type="checkbox" id="show_payment_icons" name="show_payment_icons" /></td>
+	</tr>
+	</table>
+	
+	<table class="standard-table">
+    <thead>
+    <tr>
+		<td>Icon</td>
+		<td>Show?</td>
+    </tr>
+    </thead>
+    <tbody>	
+	<tr class="odd">
+		<td><label for="show_2checkout_icon">Show 2checkout Icon?</label></td>
+		<td><input type="checkbox" id="show_2checkout_icon" name="show_2checkout_icon" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="show_amex_icon">Show American Express Icon?</label></td>
+		<td><input type="checkbox" id="show_amex_icon" name="show_amex_icon" /></td>
+	</tr>	
+	<tr class="odd">
+		<td><label for="show_cirrus_icon">Show Cirrus Icon?</label></td>
+		<td><input type="checkbox" id="show_cirrus_icon" name="show_cirrus_icon" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="show_delta_icon">Show Delta Icon?</label></td>
+		<td><input type="checkbox" id="show_delta_icon" name="show_delta_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_dd_icon">Show Direct Debit Icon?</label></td>
+		<td><input type="checkbox" id="show_dd_icon" name="show_dd_icon" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="show_discover_icon">Show Discover Icon?</label></td>
+		<td><input type="checkbox" id="show_discover_icon" name="show_discover_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_google_icon">Show Google Checkout Icon?</label></td>
+		<td><input type="checkbox" id="show_google_icon" name="show_google_icon" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="show_maestro_icon">Show Maestro Icon?</label></td>
+		<td><input type="checkbox" id="show_maestro_icon" name="show_maestro_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_mastercard_icon">Show Mastercard Icon?</label></td>
+		<td><input type="checkbox" id="show_mastercard_icon" name="show_mastercard_icon" /></td>
+	</tr>	
+	<tr class="even">
+		<td><label for="show_moneybookers_icon">Show Moneybookers Icon?</label></td>
+		<td><input type="checkbox" id="show_moneybookers_icon" name="show_moneybookers_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_paypal_icon">Show Paypal Icon?</label></td>
+		<td><input type="checkbox" id="show_paypal_icon" name="show_paypal_icon" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="show_sagepay_icon">Show Sagepay Icon?</label></td>
+		<td><input type="checkbox" id="show_sagepay_icon" name="show_sagepay_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_solo_icon">Show Solo Icon?</label></td>
+		<td><input type="checkbox" id="show_solo_icon" name="show_solo_icon" /></td>
+	</tr>	
+	<tr class="even">
+		<td><label for="show_switch_icon">Show Switch Icon?</label></td>
+		<td><input type="checkbox" id="show_switch_icon" name="show_switch_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_visa_icon">Show Visa Icon?</label></td>
+		<td><input type="checkbox" id="show_visa_icon" name="show_visa_icon" /></td>
+	</tr>	
+	<tr class="even">
+		<td><label for="show_visaelectron_icon">Show Visa Electron Icon?</label></td>
+		<td><input type="checkbox" id="show_visaelectron_icon" name="show_visaelectron_icon" /></td>
+	</tr>
+	<tr class="odd">
+		<td><label for="show_western_icon">Show Western Union Icon?</label></td>
+		<td><input type="checkbox" id="show_western_icon" name="show_western_icon" /></td>
+	</tr>	
+	</tbody>
+	</table>
+</fieldset>
+
+
+
+<fieldset>
+    <legend>Footer</legend>
+	
+	<h1>Content for column 1</h1>
+	
+	<h3>Social Links</h3>
+	
+	<table>
+	<tr>
+		<td><label for="show_social">Show Social Icons?</label></td>
+		<td><input type="checkbox" id="show_social" name="show_social" /></td>
+	</tr>
+	<tr>
+		<td><label for="social_icon_style">Icon Style</label></td>
+		<td>
+		<select name="social_icon_style" id="social_icon_style">
+		<option value="-white">Light</option>
+		<option value="" selected="selected">Dark</option>
+		</select>
+		</td>
+	</tr>			
+	<tr>
+		<td><label>Social icons heading</label></td>
+		<td><input type="text" name="social_heading" class="text" value="Stay in touch" /></td>
+    </tr>		
+	</table>	
+	
+	<p>Choose up to 5 social icons to display in the footer.</p>
+	<table class="standard-table">
+    <thead>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Icon</td>
+      <td>Link to</td>
+    </tr>
+    </thead>
+    <tbody>
+	<tr class="odd">
+		<td><label for="social1">Icon 1</label></td>
+		<td>
+			<select name="social1" id="social1">
+			<option value="none" selected="selected">Do not display</option>
+			<option value="twitter">Twitter</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google +</option>
+			<option value="youtube">Youtube</option>
+			<option value="vimeo">Vimeo</option>
+            <option value="pinterest">Pinterest</option>
+			<option value="flickr">Flickr</option>
+			<option value="myspace">Myspace</option>
+			</select>
+		</td>
+		<td><input type="input" name="social1_link" value="" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="social2">Icon 2</label></td>
+		<td>
+			<select name="social2" id="social2">
+			<option value="none" selected="selected">Do not display</option>
+			<option value="twitter">Twitter</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google +</option>
+			<option value="youtube">Youtube</option>
+			<option value="vimeo">Vimeo</option>
+            <option value="pinterest">Pinterest</option>
+			<option value="flickr">Flickr</option>
+			<option value="myspace">Myspace</option>
+			</select>
+		</td>
+		<td><input type="input" name="social2_link" value="" /></td>
+	</tr>	
+	<tr class="odd">
+		<td><label for="social3">Icon 3</label></td>
+		<td>
+			<select name="social3" id="social3">
+			<option value="none" selected="selected">Do not display</option>
+			<option value="twitter">Twitter</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google +</option>
+			<option value="youtube">Youtube</option>
+			<option value="vimeo">Vimeo</option>
+            <option value="pinterest">Pinterest</option>
+			<option value="flickr">Flickr</option>
+			<option value="myspace">Myspace</option>
+			</select>
+		</td>
+		<td><input type="input" name="social3_link" value="" /></td>
+	</tr>
+	<tr class="even">
+		<td><label for="social4">Icon 4</label></td>
+		<td>
+			<select name="social4" id="social4">
+			<option value="none" selected="selected">Do not display</option>
+			<option value="twitter">Twitter</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google +</option>
+			<option value="youtube">Youtube</option>
+			<option value="vimeo">Vimeo</option>
+            <option value="pinterest">Pinterest</option>
+			<option value="flickr">Flickr</option>
+			<option value="myspace">Myspace</option>
+			</select>
+		</td>
+		<td><input type="input" name="social4_link" value="" /></td>
+	</tr>	
+	<tr class="odd">
+		<td><label for="social5">Icon 5</label></td>
+		<td>
+			<select name="social5" id="social5">
+			<option value="none" selected="selected">Do not display</option>
+			<option value="twitter">Twitter</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google +</option>
+			<option value="youtube">Youtube</option>
+			<option value="vimeo">Vimeo</option>
+            <option value="pinterest">Pinterest</option>
+			<option value="flickr">Flickr</option>
+			<option value="myspace">Myspace</option>
+			</select>
+		</td>
+		<td><input type="input" name="social5_link" value="" /></td>
+	</tr>	
+	</tbody>
+	</table>		
+	
+	<br />
+	<h3>Newsletter</h3>
+	<table>
+    <tr>
+		<td><label>Show newsletter form?</label></td>
+		<td><input type="checkbox" name="show_newsletter_form" /></td>
+    </tr>	
+    <tr>
+		<td><label>Newsletter heading</label></td>
+		<td><input type="text" name="newsletter_heading" class="text" value="Newsletter" /></td>
+    </tr>	
+	<tr>
+		<td><label for="newsletter_text">Newsletter Intro</label></td>
+		<td>        
+		<textarea name="newsletter_text" cols="60" rows="2" id="newsletter_text"></textarea>
+		<span class="note">Optional. Leave this blank if you don't want to display text above the form.</span>
+		</td>
+	</tr>	
+    <tr>
+		<td><label>Form action URL</label></td>
+		<td><input type="text" name="newsletter_action" class="text" value="" />
+		<span class="note">Your form action starting with http://. See <a href="http://vintage-audio.myshopify.com/pages/theme-settings">instructions</a>.</span>
+		</td>
+    </tr>		
+	<tr>
+		<td><label>Button text</label></td>
+		<td><input type="text" name="newsletter_button" class="text" value="Subscribe" /></td>
+    </tr>	
+	</table>	
+	
+	
+	<br /><hr />
+	
+	
+	<h1>Content for column 2</h1>
+	<table>
+    <tr>
+		<td><label>Column heading</label></td>
+		<td><input type="text" name="footer_col2_heading" class="text" value="Your Heading" /></td>
+    </tr>		
+	<tr>
+		<td><input type="radio" name="footer_col2_content" value="linklist" /> Linklist</td>
+		<td><select class="linklist" name="footer_col2_linklist" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col2_content" value="page" /> Page content</td>
+		<td><select class="page" name="footer_col2_page" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col2_content" value="blog" /> Blog Articles</td>
+		<td><select class="blog" name="footer_col2_blog" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col2_content" value="products" /> Products</td>
+		<td><select class="collection" name="footer_col2_collection" /></td>
+	</tr>	
+	</table>	
+	
+	<br /><hr />
+	
+	<h1>Content for column 3</h1>
+	<table>
+    <tr>
+		<td><label>Column heading</label></td>
+		<td><input type="text" name="footer_col3_heading" class="text" value="Your Heading" /></td>
+    </tr>		
+	<tr>
+		<td><input type="radio" name="footer_col3_content" value="linklist" /> Linklist</td>
+		<td><select class="linklist" name="footer_col3_linklist" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col3_content" value="page" /> Page content</td>
+		<td><select class="page" name="footer_col3_page" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col3_content" value="blog" /> Blog Articles</td>
+		<td><select class="blog" name="footer_col3_blog" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col3_content" value="products" /> Products</td>
+		<td><select class="collection" name="footer_col3_collection" /></td>
+	</tr>	
+	</table>
+
+	<br /><hr />
+	
+	<h1>Content for column 4</h1>
+	<table>
+    <tr>
+		<td><label>Column heading</label></td>
+		<td><input type="text" name="footer_col4_heading" class="text" value="Your Heading" /></td>
+    </tr>		
+	<tr>
+		<td><input type="radio" name="footer_col4_content" value="linklist" /> Linklist</td>
+		<td><select class="linklist" name="footer_col4_linklist" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col4_content" value="page" /> Page content</td>
+		<td><select class="page" name="footer_col4_page" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col4_content" value="blog" /> Blog Articles</td>
+		<td><select class="blog" name="footer_col4_blog" /></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="footer_col4_content" value="products" /> Products</td>
+		<td><select class="collection" name="footer_col4_collection" /></td>
+	</tr>	
+	</table>	
+
+	<br /><hr />
+	
+	<table>
+	<tr>
+		<td><label for="remove_designer_credit">Remove designer credit?</label></td>
+		<td><input type="checkbox" id="remove_designer_credit" name="remove_designer_credit" /></td>
+	</tr>
+	</table>
+</fieldset>
+
+
+<fieldset>
+  <legend>META data for SEO</legend>
+  <p>Remember to set your shop description too in "Preferences > general settings" </p>
+  <table>
+    <tr>
+      <td>
+        <label for="shop_tagline">Tagline</label>
+      </td>
+      <td>        
+        <textarea name="shop_tagline" cols="60" rows="2" id="shop_tagline"></textarea>
+        <span class="note">This will be used in your title tag on your home page. Do <strong>not</strong> include the name of your shop here.</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="shop_keywords">Keywords for your store</label>
+      </td>
+      <td>
+        <textarea name="shop_keywords" cols="60" rows="5" id="shop_keywords"></textarea>
+        <span class="note">Between 5 and 10 keywords separated by commas</span>
+      </td>
+    </tr>
+
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Custom CSS</legend>
+  <p>For advanced users only. You can add CSS rules here.</p>
+  <table>
+    <tr>
+      <td>
+        <label for="user_css">Your CSS</label>
+      </td>
+      <td>        
+        <textarea name="user_css" cols="60" rows="10" id="user_css"></textarea>
+      </td>
+    </tr>
+  </table>
+</fieldset>
+
+
