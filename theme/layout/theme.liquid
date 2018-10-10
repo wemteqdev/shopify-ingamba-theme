@@ -28,7 +28,7 @@
     {{ 'customer.css' | shopify_asset_url | stylesheet_tag }}    
 {% endif %}
 {% endcomment %}
-
+{{ 'app.css'     | asset_url | stylesheet_tag }}
 {{ 'stylesheet.css'     | asset_url | stylesheet_tag }}
 
 {% if template contains 'customers' %}
@@ -57,14 +57,14 @@
 
 <body id="{{template | replace:'.','_' }}" {% if template contains 'customers' %}class="customer-area"{% endif %}>
 
-	<div class="container top-menu">
+	<div class="container top-menu-section">
 		<div class="row">
 			<div class="twelve columns">
-				<ul>
+				<ul class="float-right">
 				{% for link in linklists.[settings.top_menu_linklist].links %}
-					<li><a href="{{link.url}}">{{link.title | escape}}</a></li>
+					<li class="float-left"><a href="{{link.url}}">{{link.title | escape}}</a></li>
 				{% endfor %}
-					<li>
+					<li class="float-left">
 						<a id="mini-cart" href="/cart"><em>{{cart.item_count}} item{% if cart.item_count != 1 %}s{% endif %} | {{cart.total_price | money}}</em></a>		
 					</li>	
 				</ul>
@@ -72,67 +72,54 @@
 		</div>
 	</div><!-- menu bar -->
 		
+	<div class="container main-menu-section">
+		<div class="row grid-x align-bottom main-menu">
+			<div class="columns medium-3 branding">
+				<h1 id="logo" {% if settings.custom_logo != true %} class="text-logo"{% endif%}>
+					<a href="http://ingamba.pro/" title="Home">
+						<img src="{{'logo.png' | asset_url}}" alt="{{shop.name}}" />
+					</a>
+				</h1>
+			</div>			
+			<div class="columns medium-9">
+				<div class="main-menu">
+					<ul class="nav-bar">
+						{% for link in linklists.[settings.main_menu_linklist].links %}
+						{% assign current = false %}{% if template == 'index' and link.url == '/' %}
+						{% assign current = true %}{% elsif collection.url == link.url %}
+						{% assign current = true %}{% elsif blog.url == link.url %}
+						{% assign current = true %}{% elsif page.url == link.url %}
+						{% assign current = true %}{% elsif page_title == link.title %}
+						{% assign current = true %}{% elsif template == 'list-collections' and link.url == '/collections' %}
+						{% assign current = true %}{% elsif page_title == 'Products' and link.url == '/collections/all' %}
+						{% assign current = true %}{% elsif template == 'article' and link.url == article.url %}
+						{% assign current = true %}{% endif %}{% assign has_sub = false %}
+						{% capture sub_menu_handle %}{{ link.title | handleize }}{% endcapture %}
+						{% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
+						{% assign has_sub = true %}{% endif %}
+						<li class="{% if has_sub %}has-flyout{% endif %}{% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
+							<a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
+							{% if has_sub %}
+								<a href="{{ link.url }}" class="flyout-toggle"><span></span></a>
+								<div class="flyout small">
+									<ul class="sub-menu">
+										{% for sublink in linklists[sub_menu_handle].links %}
+										<li><a href="{{ sublink.url }}">{{ sublink.title | escape }}</a></li>
+										{% endfor %}
+										{% if settings.show_view_all %}<li><a href="{{ link.url }}">View all</a></li>{% endif %}
+									</ul>
+								</div>
+							{% endif %}
+						</li>
+						{% endfor %}
+					</ul>
+				</div>				
+			</div>			
+		</div>
+	</div>
 
 	<!-- container -->
 	<div class="container top-section">
-
-		<div class="row">
-			<div class="nine columns branding">
-				<h1 id="logo" {% if settings.custom_logo != true %} class="text-logo"{% endif%}><a href="http://ingamba.pro/" title="Home">
-					<img src="{{'logo.png' | asset_url}}" alt="{{shop.name}}" /></a>
-				</h1>
-			</div>					
-			<div class="three columns">
-									
-			</div>			
-		</div>
-        
-		<div class="row main-menu">
-			<div class="twelve columns">
-		
-				<div class="mobile-menu cf">
-					<select id="menu-dropdown" name="menu-dropdown">
-                    <option selected="selected" value="#">&nbsp;</option>
-					<optgroup label="Main Menu">
-					{% for link in linklists.[settings.main_menu_linklist].links %}
-						<option value="{{link.url}}">{{link.title | escape}}</option>
-					{% endfor%}	
-                        <option value="/cart">Cart</option>
-					</optgroup>
-					</select>
-				</div>
-				
-			<ul class="nav-bar cf">{% for link in linklists.[settings.main_menu_linklist].links %}{% assign current = false %}{% if template == 'index' and link.url == '/' %}{% assign current = true %}{% elsif collection.url == link.url %}{% assign current = true %}{% elsif blog.url == link.url %}{% assign current = true %}{% elsif page.url == link.url %}{% assign current = true %}{% elsif page_title == link.title %}{% assign current = true %}{% elsif template == 'list-collections' and link.url == '/collections' %}{% assign current = true %}{% elsif page_title == 'Products' and link.url == '/collections/all' %}{% assign current = true %}{% elsif template == 'article' and link.url == article.url %}{% assign current = true %}{% endif %}{% assign has_sub = false %}{% capture sub_menu_handle %}{{ link.title | handleize }}{% endcapture %}{% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}{% assign has_sub = true %}{% endif %}<li class="{% if has_sub %}has-flyout{% endif %}{% if forloop.first %} first{% endif %}"><a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>{% if has_sub %}<a href="{{ link.url }}" class="flyout-toggle"><span></span></a><div class="flyout small"><ul class="sub-menu">{% for sublink in linklists[sub_menu_handle].links %}<li><a href="{{ sublink.url }}">{{ sublink.title | escape }}</a></li>{% endfor %}{% if settings.show_view_all %}<li><a href="{{ link.url }}">View all</a></li>{% endif %}</ul></div>{% endif %}</li>{% endfor %}
-			</ul>
-			</div>
-		</div>
-        
-        {% if settings.show_ad1 %}
-            {% assign show_ad1 = false %}
-            {% if template == "index" %}
-                {% if settings.ad1_home %}{% assign show_ad1 = true %}{% endif %}
-            {% elsif template == "cart" %}
-                {% if settings.ad1_cart %}{% assign show_ad1 = true %}{% endif %}
-            {% elsif template contains "page" %}
-                {% if settings.ad1_page %}{% assign show_ad1 = true %}{% endif %}
-            {% elsif template contains "collection" %}
-                {% if settings.ad1_collection %}{% assign show_ad1 = true %}{% endif %}
-            {% elsif template contains "product" %}
-                {% if settings.ad1_product %}{% assign show_ad1 = true %}{% endif %}
-            {% endif %}
-            {% if show_ad1 %}
-        		<div class="row">
-        			<div class="twelve columns">
-                        {% if settings.home_ad1_link !="" %}
-        				    <a id="full-width-ad" href="{{settings.home_ad1_link}}"><img src="{{settings.home_ad1_image | asset_url}}" alt="{{settings.shop_tagline}}" /></a>
-                        {% else %}
-                            <img id="full-width-ad" src="{{settings.home_ad1_image | asset_url}}" alt="{{settings.shop_tagline}}" />
-                        {% endif %}
-        			</div> 
-        		</div>
-            {% endif %}    
-        {% endif %}
-		
 		{% if template == "index" and settings.show_slider == true %}
         {% if settings.show_slide_1 or settings.show_slide_2 or settings.show_slide_3 or settings.show_slide_4 or settings.show_slide_5 or settings.show_slide_6 or settings.show_slide_7 or settings.show_slide_8 or settings.show_slide_9 or settings.show_slide_10 %}
 		<div class="row slider">

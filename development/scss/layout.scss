@@ -1,5 +1,54 @@
 @import 'variables';
 
-.top-menu{
-  background: $ingamba-bg-color;
+.top-menu-section{
+  background: $ingamba-header-bg-color;
+
+  ul{
+    margin: 0;
+
+    li{
+      list-style: none;
+      padding: 0 16px;
+      height: 31px;
+      line-height: 31px;
+
+      a{
+        font-size: 12px;
+        color: $ingamba-link-color;
+      }
+    }
+  }
+}
+
+.main-menu-section{
+  background: $ingamba-menu-bg-color;
+  padding: 22px 0;
+
+  ul{
+    margin: 0;
+
+    li{
+      list-style: none;
+      padding: 0 16px;
+      height: 31px;
+      line-height: 31px;
+
+      a{
+        font-size: 14px;
+        line-height: 14px;
+
+        display: block;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+#logo{
+  margin: 0;
+  
+  img{
+    height: 36px;
+    display: block;
+  }
 }

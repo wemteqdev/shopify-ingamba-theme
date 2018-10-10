@@ -1,5 +1,502 @@
 [
   {
+  "name": "Home Page Slideshow",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Slideshow images must be 960px wide and all the same height"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider",
+      "label": "Display Slideshow?"
+    },
+    {
+      "type": "text",
+      "id": "slide_height",
+      "label": "Set Slide height in px",
+      "default": "450"
+    },
+    {
+      "type": "text",
+      "id": "slider_speed",
+      "label": "Slide speed (1000 is one second)",
+      "default": "7000"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_1",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_1.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_1_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_1_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_1_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_1_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_2",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_2.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_2_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_2_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_2_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_2_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_3",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_3.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_3_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_3_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_3_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_3_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_4",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_4.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_4_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_4_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_4_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_4_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_5",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_5.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_5_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_5_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_5_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_5_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE6"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_6",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_6.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_6_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_6_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_6_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_6_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE7"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_7",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_7.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_7_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_7_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_7_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_7_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE8"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_8",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_8.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_8_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_8_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_8_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_8_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE9"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_9",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_9.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_9_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_9_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_9_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_9_caption",
+      "label": "Caption text"
+    },
+    {
+      "type": "header",
+      "content": "SLIDE10"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_10",
+      "label": "Show?"
+    },
+    {
+      "type": "image",
+      "id": "slide_10.jpg",
+      "label": "Image",
+      "max-width": 960
+    },
+    {
+      "type": "text",
+      "id": "slide_10_link",
+      "label": "Link to...",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_10_caption",
+      "label": "Show caption?"
+    },
+    {
+      "type": "select",
+      "id": "slide_10_caption_pos",
+      "label": "Caption position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_10_caption",
+      "label": "Caption text"
+    }
+  ]
+
+},
+  {
     "name": "General Options",
     "settings": [
       {
@@ -976,502 +1473,6 @@
         "type": "checkbox",
         "id": "ad1_blog",
         "label": "Blog"
-      }
-    ]
-  },
-  {
-    "name": "Homepage Slideshow",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "Slideshow images must be 960px wide and all the same height"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slider",
-        "label": "Display Slideshow?"
-      },
-      {
-        "type": "text",
-        "id": "slide_height",
-        "label": "Set Slide height in px",
-        "default": "450"
-      },
-      {
-        "type": "text",
-        "id": "slider_speed",
-        "label": "Slide speed (1000 is one second)",
-        "default": "7000"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE1"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_1",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_1.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_1_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_1_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_1_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_1_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE2"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_2",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_2.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_2_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_2_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_2_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_2_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE3"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_3",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_3.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_3_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_3_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_3_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_3_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE4"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_4",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_4.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_4_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_4_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_4_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_4_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE5"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_5",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_5.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_5_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_5_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_5_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_5_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE6"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_6",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_6.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_6_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_6_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_6_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_6_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE7"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_7",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_7.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_7_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_7_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_7_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_7_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE8"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_8",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_8.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_8_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_8_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_8_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_8_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE9"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_9",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_9.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_9_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_9_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_9_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_9_caption",
-        "label": "Caption text"
-      },
-      {
-        "type": "header",
-        "content": "SLIDE10"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_10",
-        "label": "Show?"
-      },
-      {
-        "type": "image",
-        "id": "slide_10.jpg",
-        "label": "Image",
-        "max-width": 960
-      },
-      {
-        "type": "text",
-        "id": "slide_10_link",
-        "label": "Link to...",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_slide_10_caption",
-        "label": "Show caption?"
-      },
-      {
-        "type": "select",
-        "id": "slide_10_caption_pos",
-        "label": "Caption position",
-        "options": [
-          {
-            "value": "bottom",
-            "label": "Bottom"
-          },
-          {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "bottom"
-      },
-      {
-        "type": "textarea",
-        "id": "slide_10_caption",
-        "label": "Caption text"
       }
     ]
   },
