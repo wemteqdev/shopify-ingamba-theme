@@ -27,8 +27,6 @@ body{font-size:16px;font-family:{{ settings.regular_font }};
 color:{{settings.text_color}};
 }
 
-.row {max-width: 960px;}
-
 h1,h2,h3,h4,h5,h6 {
     font-family: {% if settings.typeface_method == "google_webfonts" %}'{{ settings.google_webfont_font_name }}', {% endif %}{{ settings.header_font }};
     font-weight:bold;color:{{settings.heading_color}};text-transform:{{ settings.header_font_style }};
