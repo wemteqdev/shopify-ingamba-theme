@@ -29,7 +29,6 @@
 {% endif %}
 {% endcomment %}
 
-{{ 'app.css'     | asset_url | stylesheet_tag }}
 {{ 'stylesheet.css'     | asset_url | stylesheet_tag }}
 
 {% if template contains 'customers' %}
@@ -58,7 +57,7 @@
 
 <body id="{{template | replace:'.','_' }}" {% if template contains 'customers' %}class="customer-area"{% endif %}>
 
-	<div class="container menu-bar">
+	<div class="container top-menu">
 		<div class="row">
 			<div class="twelve columns">
 				<ul>

@@ -12,7 +12,7 @@ function sass() {
   return gulp.src('scss/app.scss')
     .pipe($.sass({
       includePaths: sassPaths,
-      outputStyle: 'compressed' // if css compressed **file size**
+      outputStyle: 'compressed'
     })
       .on('error', $.sass.logError))
     .pipe($.postcss([
@@ -28,7 +28,6 @@ function serve() {
   });
 
   gulp.watch("scss/*.scss", sass);
-  gulp.watch("*.html").on('change', browserSync.reload);
 }
 
 gulp.task('sass', sass);
