@@ -1,0 +1,10 @@
+#featured{
+  .orbit-next, .orbit-previous{
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px 15px;
+    outline: none;
+    &:focus{
+      background: rgba(255, 255, 255, 0.5); 
+    }
+  }
+}
