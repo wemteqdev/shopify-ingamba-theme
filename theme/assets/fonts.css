@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'DIN-Mod';
+  src:  url('font-DIN-Mod.eot');
+  src:  url('font-DIN-Mod.eot') format('embedded-opentype'),
+        url('font-DIN-Mod.woff2') format('woff2'),
+        url('font-DIN-Mod.woff') format('woff'),
+        url('font-DIN-Mod.ttf') format('truetype'),
+        url('font-DIN-Mod.svg#DIN-Mod') format('svg');
+}
+
+@font-face {
+  font-family: 'DIN-CondensedBold';
+  src: url("font-DIN-Condensed-Bold.eot");
+  src: url("font-DIN-Condensed-Bold.eot") format("embedded-opentype"),
+       url("font-DIN-Condensed-Bold.woff") format("woff"),
+       url("font-DIN-Condensed-Bold.ttf") format("truetype"),
+       url("font-DIN-Condensed-Bold.svg#DIN-Condensed-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Gotham-Bold'; 
+  src: url("font-Gotham-Bold.eot");
+  src: url("font-Gotham-Bold.eot") format("embedded-opentype"),
+       url("font-Gotham-Bold.woff") format("woff"),
+       url("font-Gotham-Bold.ttf") format("truetype"),
+       url("font-Gotham-Bold.svg#Gotham-Bold") format("svg");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'Gotham-Light';
+  src:  url('font-Gotham-Light.eot');
+  src:  url('font-Gotham-Light.eot?#iefix') format('embedded-opentype'),
+        url('font-Gotham-Light.woff2') format('woff2'),
+        url('font-Gotham-Light.woff') format('woff'),
+        url('font-Gotham-Light.svg#Gotham-Light') format('svg');
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        unicode-range: U+0020-FB04;
+}
+
+@font-face {
+  font-family:'Gotham-Medium';
+  src:  url('font-Gotham-Medium.eot');
+  src:  url('font-Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+        url('font-Gotham-Medium.woff2') format('woff2'),
+        url('font-Gotham-Medium.woff') format('woff'),
+        url('font-Gotham-Medium.svg#Gotham-Medium') format('svg');
+  font-weight: 350;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-FB04;
+}
+
+@font-face {
+  font-family:'Gotham-Book';
+  src:  url('font-Gotham-Book.eot');
+  src:  url('font-Gotham-Book.eot?#iefix') format('embedded-opentype'),
+        url('font-Gotham-Book.woff2') format('woff2'),
+        url('font-Gotham-Book.woff') format('woff'),
+        url('font-Gotham-Book.svg#Gotham-Book') format('svg');
+  font-weight: 325;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-FB04;
+}
+
+@font-face {
+  font-family:'Klavika-Light';
+  src:  url('font-Klavika-Light.eot');
+  src:  url('font-Klavika-Light.eot?#iefix') format('embedded-opentype'),
+        url('font-Klavika-Light.woff2') format('woff2'),
+        url('font-Klavika-Light.woff') format('woff'),
+        url('font-Klavika-Light.svg#Klavika-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-FB02;
+}
+
+@font-face {
+  font-family:'Klavika-MediumItalic';
+  src:  url('font-Klavika-MediumItalic.eot');
+  src:  url('font-Klavika-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('font-Klavika-MediumItalic.woff2') format('woff2'),
+        url('font-Klavika-MediumItalic.woff') format('woff'),
+        url('font-Klavika-MediumItalic.svg#Klavika-MediumItalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-FB02;
+}
+
+
+@font-face {
+  font-family:'Klavika-LightItalic';
+  src:  url('font-Klavika-LightItalic.eot');
+  src:  url('font-Klavika-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('font-Klavika-LightItalic.woff2') format('woff2'),
+        url('font-Klavika-LightItalic.woff') format('woff'),
+        url('font-Klavika-LightItalic.svg#Klavika-LightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-FB02;
+}
+
+
+@font-face {
+  font-family:'Klavika-Medium';
+  src:  url('font-Klavika-Medium.eot');
+  src:  url('font-Klavika-Medium.eot?#iefix') format('embedded-opentype'),
+        url('font-Klavika-Medium.woff2') format('woff2'),
+        url('font-Klavika-Medium.woff') format('woff'),
+        url('font-Klavika-Medium.svg#Klavika-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-FB02;
+}
+
+@font-face {
+  font-family:'Klavika-MediumItalic';
+  src:  url('font-Klavika-MediumItalic.eot');
+  src:  url('font-Klavika-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('font-Klavika-MediumItalic.woff2') format('woff2'),
+        url('font-Klavika-MediumItalic.woff') format('woff'),
+        url('font-Klavika-MediumItalic.svg#Klavika-MediumItalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-FB02;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue'; 
+  src: url("font-HelveticaNeue-MediumCond.eot");
+  src: url("font-HelveticaNeue-MediumCond.eot#iefix") format("embedded-opentype"),
+       url("font-HelveticaNeue-MediumCond.woff") format("woff"),
+       url("font-HelveticaNeue-MediumCond.ttf") format("truetype"),
+
+  font-weight: 500;
+  font-style: normal;
+}
