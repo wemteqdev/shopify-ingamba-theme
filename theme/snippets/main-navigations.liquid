@@ -1,0 +1,43 @@
+<ul class="navbar menu dropdown float-right" data-dropdown-menu>
+  {% for link in linklists.[settings.main_menu_linklist].links %}
+  {% assign current = false %}{% if template == 'index' and link.url == '/' %}
+  {% assign current = true %}{% elsif collection.url == link.url %}
+  {% assign current = true %}{% elsif blog.url == link.url %}
+  {% assign current = true %}{% elsif page.url == link.url %}
+  {% assign current = true %}{% elsif page_title == link.title %}
+  {% assign current = true %}{% elsif template == 'list-collections' and link.url == '/collections' %}
+  {% assign current = true %}{% elsif page_title == 'Products' and link.url == '/collections/all' %}
+  {% assign current = true %}{% elsif template == 'article' and link.url == article.url %}
+  {% assign current = true %}{% endif %}{% assign has_sub = false %}
+  {% capture sub_menu_handle %}main-menu-{{ link.title | handleize }}{% endcapture %}
+  {% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
+  {% assign has_sub = true %}{% endif %}
+  <li class="{% if has_sub %}has_sub {% endif %} {% if current %} active{% endif %} {% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
+    <a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
+    {% if has_sub %}
+      <ul class="menu">
+        {% for sublink in linklists[sub_menu_handle].links %}
+        <li>
+          {% if forloop.first %}
+            <span class="caret"></span>
+          {% endif %}
+          <a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+  <li class="has_sub float-left signin">
+    <a class="main" href="#">Sign In</a>
+    <ul class="menu">
+      <li>
+        <span class="caret"></span>
+        <a href="/"><img src="{{'igb-my-trip.png' | asset_url}}" /> My Trips</a>
+      </li>
+      <li>
+         <a href="/account/login"><img src="{{'igb-settings.png' | asset_url}}" /> Store Account</a>
+      </li>  
+    </ul> 
+  </li>
+</ul>

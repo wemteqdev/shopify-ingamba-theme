@@ -4,12 +4,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Slideshow images must be 960px wide and all the same height"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_slider",
-      "label": "Display Slideshow?"
+      "content": "Slideshow images must be 1200px wide and all the same height"
     },
     {
       "type": "text",
@@ -36,7 +31,7 @@
       "type": "image",
       "id": "slide_1.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -83,7 +78,7 @@
       "type": "image",
       "id": "slide_2.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -130,7 +125,7 @@
       "type": "image",
       "id": "slide_3.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -177,7 +172,7 @@
       "type": "image",
       "id": "slide_4.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -224,7 +219,7 @@
       "type": "image",
       "id": "slide_5.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -271,7 +266,7 @@
       "type": "image",
       "id": "slide_6.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -318,7 +313,7 @@
       "type": "image",
       "id": "slide_7.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -365,7 +360,7 @@
       "type": "image",
       "id": "slide_8.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -412,7 +407,7 @@
       "type": "image",
       "id": "slide_9.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",
@@ -459,7 +454,7 @@
       "type": "image",
       "id": "slide_10.jpg",
       "label": "Image",
-      "max-width": 960
+      "max-width": 1200
     },
     {
       "type": "text",

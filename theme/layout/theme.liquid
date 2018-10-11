@@ -28,6 +28,8 @@
     {{ 'customer.css' | shopify_asset_url | stylesheet_tag }}    
 {% endif %}
 {% endcomment %}
+{{ 'fontawesome-all.min.css'     | asset_url | stylesheet_tag }}
+{{ 'fonts.css'     | asset_url | stylesheet_tag }}
 {{ 'app.css'     | asset_url | stylesheet_tag }}
 {{ 'stylesheet.css'     | asset_url | stylesheet_tag }}
 
@@ -57,62 +59,34 @@
 
 <body id="{{template | replace:'.','_' }}" {% if template contains 'customers' %}class="customer-area"{% endif %}>
 
-	<div class="container top-menu-section">
+	<div class="container topbar-links-container">
 		<div class="row">
 			<div class="columns">
-				<ul class="float-right">
-				{% for link in linklists.[settings.top_menu_linklist].links %}
-					<li class="float-left"><a href="{{link.url}}">{{link.title | escape}}</a></li>
-				{% endfor %}
-					<li class="float-left">
-						<a id="mini-cart" href="/cart"><em>{{cart.item_count}} item{% if cart.item_count != 1 %}s{% endif %} | {{cart.total_price | money}}</em></a>		
-					</li>	
-				</ul>
+				<div class="topbar-links text-right">
+					{% for link in linklists.[settings.top_menu_linklist].links %}
+						<a href="{{link.url}}">{{link.title | escape}}</a>
+					{% endfor %}
+
+					<a id="mini-cart" href="/cart">
+						<img src="{{'igb-cart.png' | asset_url}}" alt="cart" />
+					</a>
+				</div>
 			</div>			
 		</div>
 	</div><!-- menu bar -->
 		
-	<div class="container main-menu-section">
+	<div class="container main-navigation">
 		<div class="row grid-x align-bottom main-menu">
-			<div class="columns medium-3 branding">
+			<div class="columns medium-2 branding">
 				<h1 id="logo" {% if settings.custom_logo != true %} class="text-logo"{% endif%}>
 					<a href="http://ingamba.pro/" title="Home">
 						<img src="{{'logo.png' | asset_url}}" alt="{{shop.name}}" />
 					</a>
 				</h1>
 			</div>			
-			<div class="columns medium-9">
+			<div class="columns medium-10">
 				<div class="main-menu">
-					<ul class="nav-bar">
-						{% for link in linklists.[settings.main_menu_linklist].links %}
-						{% assign current = false %}{% if template == 'index' and link.url == '/' %}
-						{% assign current = true %}{% elsif collection.url == link.url %}
-						{% assign current = true %}{% elsif blog.url == link.url %}
-						{% assign current = true %}{% elsif page.url == link.url %}
-						{% assign current = true %}{% elsif page_title == link.title %}
-						{% assign current = true %}{% elsif template == 'list-collections' and link.url == '/collections' %}
-						{% assign current = true %}{% elsif page_title == 'Products' and link.url == '/collections/all' %}
-						{% assign current = true %}{% elsif template == 'article' and link.url == article.url %}
-						{% assign current = true %}{% endif %}{% assign has_sub = false %}
-						{% capture sub_menu_handle %}{{ link.title | handleize }}{% endcapture %}
-						{% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
-						{% assign has_sub = true %}{% endif %}
-						<li class="{% if has_sub %}has-flyout{% endif %}{% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
-							<a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
-							{% if has_sub %}
-								<a href="{{ link.url }}" class="flyout-toggle"><span></span></a>
-								<div class="flyout small">
-									<ul class="sub-menu">
-										{% for sublink in linklists[sub_menu_handle].links %}
-										<li><a href="{{ sublink.url }}">{{ sublink.title | escape }}</a></li>
-										{% endfor %}
-										{% if settings.show_view_all %}<li><a href="{{ link.url }}">View all</a></li>{% endif %}
-									</ul>
-								</div>
-							{% endif %}
-						</li>
-						{% endfor %}
-					</ul>
+					{% include 'main-navigations' %}	
 				</div>				
 			</div>			
 		</div>
@@ -120,16 +94,14 @@
 
 	<!-- container -->
 	<div class="container top-section">
-		{% if template == "index" and settings.show_slider == true %}
+		{% if template == "index" %}
         {% if settings.show_slide_1 or settings.show_slide_2 or settings.show_slide_3 or settings.show_slide_4 or settings.show_slide_5 or settings.show_slide_6 or settings.show_slide_7 or settings.show_slide_8 or settings.show_slide_9 or settings.show_slide_10 %}
-		<div class="row slider">
-			<div class="twelve columns">
-				{% include 'slider' %}
-			</div>
+		<div class="slider">
+			{% include 'slider' %}
 		</div>	
         {% endif %}
 		{% endif %}
-	</div><!-- top-section -->	
+	</div><!-- top-section -->
 
 
 	<div class="container main-content">
@@ -244,24 +216,12 @@
 	<a class="close-reveal-modal">&#215;</a>
 </div>
 
-{{ 'jquery.min.js' | asset_url | script_tag }}	
-{{ 'foundation.js' | asset_url | script_tag }}
+{{ 'jquery.js' | asset_url | script_tag }}	
+{{ 'foundation.min.js' | asset_url | script_tag }}
 {{ 'app.js' | asset_url | script_tag }}
 
 {% include 'variant-fix' %}
 {% include 'product-js' %}
-
-{% if collection %}
-<script type="text/javascript">
-jQuery(document).ready(function($){
-    $("#filter-by-tag").val("{{ current_tags.first | handleize }}");
-    $('select#filter-by-tag').change(function() {
-        window.location = '/collections/{{collection.handle}}/' + $(this).val();
-    });     
-});
-</script>
-{% endif %}
-
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -281,11 +241,6 @@ jQuery(document).ready(function($){
     po.src = 'https://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
-</script>
-
-
-<script>
-jQuery(function(){jQuery("body").on("click",'[name="checkout"], [name="goto_pp"], [name="goto_gc"]',function(){var e=!0,r="Please fill this out and you will be able to check out.";return jQuery('[name^="attributes"], [name="note"]').filter('.required, [required]').each(function(){jQuery(this).removeClass("error"),e&&""==jQuery(this).val()&&(e=!1,r=jQuery(this).attr("data-error")||r,jQuery(this).addClass("error"))}),e?void jQuery(this).submit():(alert(r),!1)})}),jQuery(window).unload(function(){var e=jQuery('form[action="/cart"]');if(e.size()){var r={type:"POST",url:"/cart/update.js",data:e.serialize(),dataType:"json",async:!1};jQuery.ajax(r)}});
 </script>
 
 
