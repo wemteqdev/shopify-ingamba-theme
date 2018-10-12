@@ -1,0 +1,33 @@
+<ul class="megamenu row full-width">
+  {% for link in linklists.[settings.shop_menu_linklist].links %}
+  {% assign current = false %}{% if template == 'index' and link.url == '/' %}
+  {% assign current = true %}{% elsif collection.url == link.url %}
+  {% assign current = true %}{% elsif blog.url == link.url %}
+  {% assign current = true %}{% elsif page.url == link.url %}
+  {% assign current = true %}{% elsif page_title == link.title %}
+  {% assign current = true %}{% elsif template == 'list-collections' and link.url == '/collections' %}
+  {% assign current = true %}{% elsif page_title == 'Products' and link.url == '/collections/all' %}
+  {% assign current = true %}{% elsif template == 'article' and link.url == article.url %}
+  {% assign current = true %}{% endif %}{% assign has_sub = false %}
+  {% capture sub_menu_handle %}shop-menu-{{ link.title | handleize }}{% endcapture %}
+  {% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
+  {% assign has_sub = true %}{% endif %}
+  <li id="{{ sub_menu_handle }}" class="columns">
+    <div class="collection">
+      <a class="shop {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
+    </div>
+    {% if has_sub %}
+      <ul class="collection-tags">
+        {% for sublink in linklists[sub_menu_handle].links %}
+        <li>
+          {% if forloop.first %}
+            <span class="caret"></span>
+          {% endif %}
+          <a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

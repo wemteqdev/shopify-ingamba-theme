@@ -12,7 +12,7 @@
   {% capture sub_menu_handle %}main-menu-{{ link.title | handleize }}{% endcapture %}
   {% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
   {% assign has_sub = true %}{% endif %}
-  <li class="{% if has_sub %}has_sub {% endif %} {% if current %} active{% endif %} {% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
+  <li id="{{ sub_menu_handle }}" class="{% if has_sub %}has_sub {% endif %} {% if current %} active{% endif %} {% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
     <a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
     {% if has_sub %}
       <ul class="menu is-dropdown-submenu">
