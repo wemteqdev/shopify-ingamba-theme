@@ -15,7 +15,7 @@
   <li class="{% if has_sub %}has_sub {% endif %} {% if current %} active{% endif %} {% if forloop.first %} first{% endif %} float-left grid-x align-bottom">
     <a class="main {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
     {% if has_sub %}
-      <ul class="menu">
+      <ul class="menu is-dropdown-submenu">
         {% for sublink in linklists[sub_menu_handle].links %}
         <li>
           {% if forloop.first %}
@@ -30,7 +30,7 @@
   {% endfor %}
   <li class="has_sub float-left signin">
     <a class="main" href="#">Sign In</a>
-    <ul class="menu">
+    <ul class="menu is-dropdown-submenu">
       <li>
         <span class="caret"></span>
         <a href="/"><img src="{{'igb-my-trip.png' | asset_url}}" /> My Trips</a>

@@ -6,4 +6,15 @@ jQuery.fn.setAllToMaxHeight = function(){
 
 $(function() {
     $('ul.product-collection li a').setAllToMaxHeight();
+
+	$('.home-carousel').flickity({
+		wrapAround: true,
+		imagesLoaded: true,
+		arrowShape: { 
+			x0: 0,
+			x1: 96, y1: 100,
+			x2: 100, y2: 96,
+			x3: 4
+		}
+	});
 });

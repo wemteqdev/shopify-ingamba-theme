@@ -1,10 +1,4 @@
-<div id="featured" class="orbit" role="region" data-orbit>
-	<div class="orbit-wrapper">
-		<div class="orbit-controls">
-      <button class="orbit-previous"><img src="{{'igb-chevron-left.png' | asset_url}}"/></button>
-      <button class="orbit-next"><img src="{{'igb-chevron-right.png' | asset_url}}"/></button>
-    </div>
-		<ul class="orbit-container">
+<div id="featured" class="home-carousel">
 
 		{% for i in (1..10) %}
 				{% capture show_slide %}show_slide_{{i}}{% endcapture %}
@@ -15,28 +9,16 @@
 				{% capture slide_image_url %}slide_{{i}}.jpg{% endcapture %}
 				
 				{% if settings[show_slide] %}
-					<li class="orbit-slide {% if forloop.first %} is-active{% endif %}">
+					<div class="carousel-cell">
 						<a href="{{settings[slide_link]}}">
 							<img src="{{ slide_image_url | asset_url}}" alt="{{settings.shop_tagline}}" width="100%" height="{{settings.slide_height}}" />
 							{% if settings[show_slide_caption] %}
 								<span class="caption {{settings[slide_caption_pos]}}">{{settings[slide_caption]}}</span>	
 							{% endif %}
 						</a>
-					</li>
+					</div>
 				{% endif %}		
 		{% endfor %}
-		</ul>
-	</div>
-
-	<nav class="orbit-bullets">
-		{% assign data_slide = 0 %}
-		{% for i in (1..10) %}
-			{% capture show_slide %}show_slide_{{i}}{% endcapture %}
-			{% if settings[show_slide] %}
-				<button class="{% if forloop.first %} is-active{% endif %}" data-slide="{% increment data_slide %}"><span class="show-for-sr">{{ i }}</span></button>
-			{% endif %}		
-		{% endfor %}
-  </nav>
 </div>
 
 

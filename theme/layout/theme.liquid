@@ -30,6 +30,7 @@
 {% endcomment %}
 {{ 'fontawesome-all.min.css'     | asset_url | stylesheet_tag }}
 {{ 'fonts.css'     | asset_url | stylesheet_tag }}
+{{ 'flickity.min.css'     | asset_url | stylesheet_tag }}
 {{ 'app.css'     | asset_url | stylesheet_tag }}
 {{ 'stylesheet.css'     | asset_url | stylesheet_tag }}
 
@@ -110,114 +111,29 @@
             {% include 'collection-tags' %}
         </div>
 		<div class="row">
-          {% include 'lockdown' %}
+          	{% include 'lockdown' %}
             {% if allowed %}
                 {{ content_for_layout }}
             {% else %}
                 {% if template contains 'cart' %}
-        {{ content_for_layout }}
-    {% elsif customer %}
-        {% include 'lock-message' %}
-    {% else %}
-        <meta content="0; url=/account/login?checkout_url={{ return_url }}" http-equiv="refresh" />
-    {% endif %}
-{% endif %}
-        
+				{{ content_for_layout }}
+				{% elsif customer %}
+					{% include 'lock-message' %}
+				{% else %}
+					<meta content="0; url=/account/login?checkout_url={{ return_url }}" http-equiv="refresh" />
+				{% endif %}
+			{% endif %}
 		</div>
 	</div><!-- main-content -->
 	
 
-
 	<div class="container footer">
-		<div class="row first">
-			<div class="three columns">
-                {% if settings.show_social %}
-				<h4>{{settings.social_heading}}</h4>
-				<p id="social-links">
-                {% for i in (1..5) %}
-                    {% capture social_key %}social{{i}}{% endcapture %}
-                    {% capture social_link %}social{{i}}_link{% endcapture %}
-                    {% if settings.[social_key] != "none" %}
-                        <a class="has-tip tip-top noradius" href="{{settings.[social_link]}}" title="{{settings.[social_key] | upcase}}">
-                        {% capture social_img %}icon-{{settings.[social_key]}}{{settings.social_icon_style}}.png{% endcapture %}
-                        <img src="{{ social_img | asset_url}}" alt="{{settings.[social_key]}}">    
-                        </a>
-                    {% endif %}
-                {% endfor %}
-                </p>
-	            {% endif %}
-                {% if settings.show_newsletter_form %}
-    				<h4>{{settings.newsletter_heading}}</h4>
-					<form class="nice" method="post" action="{{settings.newsletter_action}}" id="newsletter">
-                        {% if settings.newsletter_text != "" %}<p>{{settings.newsletter_text}}</p>{% endif %}
-                        <fieldset>
-							<input name="EMAIL" type="email" class="required email input-text" placeholder="type your email..." />
-							<button class="button nice" type="submit">{{settings.newsletter_button}}</button>
-						</fieldset>
-					</form>                
-                {% endif %}
-			</div>		
-			<div class="three columns">
-				<h4>{{settings.footer_col2_heading}}</h4>
-                {% case settings.footer_col2_content %}
-                {% when 'linklist' %}
-                    {% include 'footer-linklist' with settings.footer_col2_linklist %}
-                {% when 'page' %}
-                    {{pages.[settings.footer_col2_page].content}}
-                {% when 'blog' %}
-                    {% include 'footer-articles' with settings.footer_col2_blog %}
-                {% when 'products' %}
-                    {% include 'footer-products' with settings.footer_col2_collection %}
-                {% endcase %}
-			</div>			
-			<div class="three columns">
-    			<h4>{{settings.footer_col3_heading}}</h4>
-                {% case settings.footer_col3_content %}
-                {% when 'linklist' %}
-                    {% include 'footer-linklist' with settings.footer_col3_linklist %}
-                {% when 'page' %}
-                    {{pages.[settings.footer_col3_page].content}}
-                {% when 'blog' %}
-                    {% include 'footer-articles' with settings.footer_col3_blog %}
-                {% when 'products' %}
-                    {% include 'footer-products' with settings.footer_col3_collection %}
-                {% endcase %}
-			</div>					
-			<div class="three columns">
-    			<h4>{{settings.footer_col4_heading}}</h4>
-                {% case settings.footer_col4_content %}
-                {% when 'linklist' %}
-                    {% include 'footer-linklist' with settings.footer_col4_linklist %}
-                {% when 'page' %}
-                    {{pages.[settings.footer_col4_page].content}}
-                {% when 'blog' %}
-                    {% include 'footer-articles' with settings.footer_col4_blog %}
-                {% when 'products' %}
-                    {% include 'footer-products' with settings.footer_col4_collection %}
-                {% endcase %}
-			</div>		
-		</div>
-		
-		<div class="row last">
-			<div class="five columns pay-methods">
-				{% include 'payment-icons' %}
-			</div>
-			<div class="seven columns credits">
-				<p id="back-top"><a href="#logo">Back to top</a></p>
-				<p>Copyright &copy; {{ "now" | date: "%Y" }} {{shop.name}}. All Rights Reserved.</p>
-			</div>			
-		</div>		
-		
+		{% include 'footer' %}	
 	</div><!-- footer-->
-	
-
-<div id="myModal" class="reveal-modal">
-	<div class="modal-content"></div>
-	<a class="close-reveal-modal">&#215;</a>
-</div>
 
 {{ 'jquery.js' | asset_url | script_tag }}	
 {{ 'foundation.min.js' | asset_url | script_tag }}
+{{ 'flickity.min.js' | asset_url | script_tag }}
 {{ 'app.js' | asset_url | script_tag }}
 
 {% include 'variant-fix' %}
@@ -232,8 +148,6 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-
 <!-- Google +1 -->
 <script type="text/javascript">
   (function() {
@@ -242,7 +156,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-
 
 </body>
 </html>

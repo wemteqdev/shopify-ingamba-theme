@@ -1,10 +1,56 @@
 #featured{
-  .orbit-next, .orbit-previous{
+  .carousel-cell {
+    width: 100%;
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+  }
+
+  .flickity-button{
     background: rgba(255, 255, 255, 0.5);
-    padding: 30px 15px;
+    width: 66px;
+    height: 132px;
     outline: none;
+    padding: 30px 15px;
+    
+    svg{
+      width: 40px;
+      height: 74px;
+      left: 0;
+      top: 0;
+      position: relative;
+    }
+
     &:focus{
       background: rgba(255, 255, 255, 0.5); 
+    }
+
+    &.previous{
+      left: 60px;
+    }
+
+    &.next{
+      right: 60px;
+    }
+  }
+
+  .flickity-page-dots {
+    position: absolute;
+    width: 100%;
+    margin: 60px 0;
+    bottom: 0;
+    .dot {
+      background: #e50511;
+      margin: 0 5px;
+      outline: none;
+      width: 22px;
+      height: 22px;
+      opacity: 1;
+      &.is-selected{
+        background: #ffffff;
+        opacity: 1;
+      }
     }
   }
 }

@@ -1,4 +1,11 @@
 @import 'variables';
+body{
+  color: #3d3d3d;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'DIN-CondensedBold';
+}
 
 .topbar-links-container{
   background: $ingamba-header-bg-color;
@@ -161,5 +168,52 @@
   img{
     height: 36px;
     display: block;
+  }
+}
+
+.footer{
+  background: #e6e6e6;
+  padding: 60px 0;
+  font-size: 14px;
+
+  h2 {
+    font-size: 18px;
+    font-family: 'DIN-CondensedBold';
+    margin-bottom: 10px;
+  }
+  p{
+    margin-bottom: 25px;
+  }
+  a{
+    color: #3d3d3d;
+  }
+
+  .button{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .input-group{
+    background: #ffffff;
+    padding: 0.5rem;
+
+    input {
+      padding: 0;
+      font-style: italic;
+    }
+
+    .chevron-right{
+      padding: 0 0.5rem 0 1rem;
+      border-left: 1px solid #e6e6e6;
+    }
+  }
+}
+
+.footer-logo{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Gotham-Bold';
+  img{
+    margin-bottom: 15px;
   }
 }
