@@ -1,0 +1,49 @@
+@import 'variables';
+#product{
+  .carousel-cell {
+    width: 50%; /* half-width */
+    img{
+      max-height: 550px;
+      width: auto;
+    }
+  }
+
+  .flickity-button{
+    background: rgba(255, 255, 255, 0.5);
+    width: 66px;
+    height: 132px;
+    outline: none;
+    padding: 30px 15px;
+    .flickity-button-icon{
+      fill: #5c5c5c;
+    }
+    
+    svg{
+      width: 40px;
+      height: 74px;
+      left: 0;
+      top: 0;
+      position: relative;
+    }
+
+    &:focus{
+      background: rgba(255, 255, 255, 0.5); 
+    }
+
+    &.previous{
+      left: 60px;
+    }
+
+    &.next{
+      right: 60px;
+    }
+  }
+
+  .flickity-page-dots{
+    position: static;
+    padding: 10px 0;
+    .dot{
+      margin: 0 3px;
+  }
+ }
+}

@@ -1,32 +1,106 @@
 {% paginate collection.products by settings.paginate_products_by %}
-<div class="twelve columns">
-    <div id="collection-description">
-        {% if collection.url != "" %}
-            {% if collection.image %}
-                <img class="float-{{settings.coll_image}}" src="{{ collection.image.src | collection_img_url: 'original' }}" alt="{{ collection.title | escape }}" />
+<div id="collection">
+    {% if collection.url != "" %}
+        <div id="collection-description" class="text-center">
+            <div class="row">
+                <div class="columns">
+                    <div class="title-box grid-x align-bottom">
+                        <h1 class="page-title">
+                            {{collection.title | escape }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-box grid-x align-middle">
+                <img src="{{ collection.image.src | collection_img_url }}" />
+            </div>
+
+            <div class="scroll-down-box">
+                <p>
+                    <a href="javascript: void(0)" id="scroll-down-button"></a>
+                </p>
+                <p>
+                    <span>SCROLL DOWN</span>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    
+    <div id="page-scrollpoint"></div>
+
+    <div class="breadcrumbs">
+        <div class="row">
+            <div class="columns">
+                {% include 'breadcrumbs' %}    
+            </div>
+            {% if collection.products.size > 0 %}
+                <div class="columns text-right">    
+                    <span>{{collection.products.size}} Products</span>
+                </div>
             {% endif %}
+        </div>
+    </div>
+    <div class="filters">
+        <div class="row">
+            <div class="columns grid-x align-middle">
+                <a href="javascript: void(0);" id="filter-by-link">
+                    <img src="{{ 'igb-filter-icon.png' | asset_url }}">&nbsp;
+                    FILTER BY 
+                    &nbsp;&nbsp;&nbsp;
+                    <img src="{{ 'igb-chevron-up.png' | asset_url }}">
+                </a>
+                <a href="javascript: void(0);" id="filter-clear-link">CLEAR ALL</a>
+            </div>
+            <div class="columns grid-x align-middle align-right">
+                {% include 'collection-sorting' %}
+            </div>
+        </div>
+    </div>
+
+    <div id="filter-options">
+        <div class="row">
+            <div class="columns">
+                {% include 'collection-tags' %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="columns">
+        {% if collection.products.size < 1 %}
+            <h2>Sorry, there are no products in this collection yet.</h2>
         {% endif %}
-        <h1 class="page-title">{{collection.title | escape }}</h1>
-        {% if collection.description.size > 0 %}
-            {{collection.description}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="columns">
+            <div class="product-collection">
+                <div class="row">
+                {% for product in collection.products %}
+                    <div class="small-12 medium-6 large-3 columns">
+                    {% include 'product-loop' %}
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">    
+        {% if paginate.pages > 1 %}
+            <div class="paginate paginate-bottom">
+                {{ paginate | default_pagination }}
+            </div>
         {% endif %}
     </div>
 
-    {% if collection.products.size < 1 %}
-        <h2>Sorry, there are no products in this collection yet.</h2>
-    {% endif %}
-
-    <ul class="block-grid mobile {{settings.products_per_row}}-up product-collection">
-		{% for product in collection.products %}
-			{% include 'product-loop' %}
-		{% endfor %}
-	</ul>
-     
-	{% if paginate.pages > 1 %}
-		<div class="paginate paginate-bottom">
-			{{ paginate | default_pagination }}
-		</div>
-	{% endif %}
-
+    <div class="bottom-buttons">
+        <div class="row">
+            <div class="columns text-left"><a href="javascript:void(0);" id="open-help-link"><img src="{{ 'igb-help-icon.png' | asset_url }}"></a></div>
+            <div class="columns text-right"><a href="javascript:void(0);" id="scroll-top-link"><span></span></a></div>
+        </div>
+    </div>
 </div>    
 {% endpaginate %}

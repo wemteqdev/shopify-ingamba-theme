@@ -97,7 +97,7 @@
       },
       {
         "type": "image",
-        "id": "category-1-image",
+        "id": "category-1-image.jpg",
         "label": "Category Image"
       },
       {
@@ -116,7 +116,7 @@
       },
       {
         "type": "image",
-        "id": "category-2-image",
+        "id": "category-2-image.jpg",
         "label": "Category Image"
       },
       {
@@ -135,7 +135,7 @@
       },
       {
         "type": "image",
-        "id": "category-3-image",
+        "id": "category-3-image.jpg",
         "label": "Category Image"
       },
       {
@@ -154,7 +154,7 @@
       },
       {
         "type": "image",
-        "id": "category-4-image",
+        "id": "category-4-image.jpg",
         "label": "Category Image"
       }
 
@@ -1479,27 +1479,6 @@
   {
     "name": "Collections",
     "settings": [
-      {
-        "type": "select",
-        "id": "coll_image",
-        "label": "Collection Description Image Position",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "none",
-        "info": "You can upload an image to each collection. If you've done that, this setting allows you to control how the image is displayed at the top of each collection page."
-      },
       {
         "type": "checkbox",
         "id": "show_tag_drop",

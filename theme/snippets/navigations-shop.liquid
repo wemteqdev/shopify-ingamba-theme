@@ -12,7 +12,7 @@
   {% capture sub_menu_handle %}shop-menu-{{ link.title | handleize }}{% endcapture %}
   {% if linklists[sub_menu_handle] and linklists[sub_menu_handle].links.size > 0 %}
   {% assign has_sub = true %}{% endif %}
-  <li id="{{ sub_menu_handle }}" class="columns">
+  <li id="{{ sub_menu_handle }}" class="small-12 medium-6 large-3 columns">
     <div class="collection">
       <a class="shop {% if current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape}}</a>
     </div>

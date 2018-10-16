@@ -1,6 +1,36 @@
 @import 'variables';
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+  .main-menu > ul.menu{
+    float: right;
+  }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
 body{
   color: #3d3d3d;
+  background: #ffffff;
+}
+
+img{
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 h1, h2, h3, h4, h5 {
@@ -229,6 +259,7 @@ h1, h2, h3, h4, h5 {
   background: #e6e6e6;
   padding: 60px 0;
   font-size: 14px;
+  margin-top: 80px;
 
   h2 {
     font-size: 18px;
@@ -270,4 +301,35 @@ h1, h2, h3, h4, h5 {
   img{
     margin-bottom: 15px;
   }
+}
+
+.breadcrumbs{
+  margin-top: 15px;
+  font-family: 'Gotham-Book';
+  font-size: 12px;
+}
+#breadcrumbs{
+  text-transform: uppercase;
+
+  .separator{
+    margin: 0 5px;
+  }
+
+  a{
+    color: #333332;
+    &.page-on{
+      font-family: 'Gotham-Bold';
+    }
+  }
+}
+.dropdown.menu{
+  margin: 0;
+  li{
+    margin: 0;
+    list-style: none;
+  }
+}
+
+.stripe-bg-grey{
+  background: #fafafa;
 }

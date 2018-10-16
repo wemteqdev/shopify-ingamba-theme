@@ -1,0 +1,44 @@
+<div class="form-horizontal filter-sort filter-menu">
+  {% comment %}<label for="sort-by">{{ 'collections.sorting.title' | t }}</label> {% endcomment %}
+
+  <ul class="dropdown menu" data-dropdown-menu>
+    <li class="is-dropdown-submenu-parent">
+      <a href="javascript: void(0);">Sort By</a>
+      <ul id="sort-by" data-selected="{{collection.sort_by}}" class="menu dropdown-menu" aria-labelledby="dropdown-sort-by">
+        <li class="sort-manual"><a href="javascript: sort_by('manual');">Featured</a></li>
+        <li class="sort-best-selling"><a href="javascript: sort_by('best-selling');">Best Selling</a></li>
+        <li class="sort-title-ascending"><a href="javascript: sort_by('title-ascending');">Alphabetically, A-Z</a></li>
+        <li class="sort-price-ascending"><a href="javascript: sort_by('title-descending');">Alphabetically, Z-A</a></li>
+        <li class="sort-price-ascending"><a href="javascript: sort_by('price-ascending');">Price, low to high</a></li>
+        <li class="sort-price-descending"><a href="javascript: sort_by('price-descending');">Price, high to low</a></li>
+        <li class="sort-created-descending"><a href="javascript: sort_by('created-descending');">Date, new to old</a></li>
+        <li class="sort-created-ascending"><a href="javascript: sort_by('created-ascending');">Date, old to new</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+  /*============================================================================
+    Inline JS because collection liquid object is only available
+    on collection pages, and not external JS files
+  ==============================================================================*/
+  Shopify.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+/*.val('{{ collection.sort_by | default: collection.default_sort_by }}')*/
+  jQuery(function($) {
+    var selected = $('#sort-by').attr("data-selected");
+    $('.sort-' + selected).addClass("active");
+  });
+  function sort_by(param){
+    Shopify.queryParams.sort_by = param;
+    location.search = jQuery.param(Shopify.queryParams);
+  }
+</script>

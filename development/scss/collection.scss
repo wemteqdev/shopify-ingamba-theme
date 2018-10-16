@@ -1,0 +1,177 @@
+@import 'variables';
+
+#collection{
+  #collection-description{
+    position: relative;
+    .image-box{
+      max-height: 810px;
+      overflow: hidden;
+      img { width: 100%; }
+    }
+
+    .scroll-down-box{
+      font-family: 'Gotham-Bold';
+      font-size: 24px;
+      color: #e0e0e0;
+      position: absolute;
+      width: 100%;
+      bottom: 45px;
+      
+      p{
+        margin-bottom: 20px;
+      }
+
+      #scroll-down-button{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background: url('igb-chevron-down.png')  #e0e0e0  center center no-repeat;
+      }
+    }
+    .title-box{
+      position: absolute;
+      top: 100px;
+
+      width: 200px;
+      height: 295px;
+      background: $ingamba-primary-color;
+      text-transform: uppercase;
+      font-family: 'Din-CondensedBold';
+      font-size: 36px;
+      color: #fff;
+
+      h1{
+        padding: 20px;
+        margin: 0;
+        &:before{
+          content: '';
+          display: block;
+          width: 60px;
+          border-top: 2px solid #fff;
+        }
+      }
+    }
+  }
+}
+
+
+.filters{
+  font-family: 'Din-CondensedBold';
+  margin-bottom: 30px;
+  
+  #filter-by-link{
+    margin-right: 100px;
+  }
+
+  #filter-clear-link{
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  a{
+    color: #333332;
+  }
+  .dropdown.menu{
+    ul{
+      margin: 0;
+    }
+    .is-dropdown-submenu-parent{
+      border: 1px solid #b7b7b7;
+      &>a{
+        font-family: 'Din-CondensedBold';
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        padding: 12px 10px;
+        min-width: 195px;
+        line-height: 1em;
+        background: url('igb-chevron-down-small.png') center right 10px no-repeat!important;
+        &::after{
+          display: none!important;
+        }
+      }
+    }
+
+    a{
+      color: #333332;
+      font-size: 16px;
+    }
+
+    .is-dropdown-submenu{
+      a{
+        display: block;
+        color: #333332;
+        font-size: 16px;
+        padding: 5px 10px;
+  
+        &:hover{
+          color: $ingamba-primary-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.product-collection{
+  margin-top: 40px;
+
+  .product{
+    font-size: 14px;
+    margin-bottom: 50px;
+    .image-box{
+      margin-bottom: 10px;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .title-box{
+      font-family: 'Gotham-Bold';
+      margin-bottom: 10px;
+    }
+
+    a{
+      color: #333332;
+      text-transform: uppercase;
+    }
+  }
+
+  .price-box{
+    font-family: 'Gotham-Medium';
+    .price{
+      color: $ingamba-primary-color;
+    }
+    .compare_at_price{
+      text-decoration: line-through;
+    }
+  }
+
+  .options-box{
+    margin-bottom: 10px;
+    a{
+      margin: 0 8px;
+    }
+  }
+}
+
+.bottom-buttons{
+  #scroll-top-link{
+    width: 40px;
+    height: 40px;
+    background: #333333 url(igb-chevron-up.png) center center no-repeat;
+    display: inline-block;
+    text-align: center;
+
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+
+#filter-options{
+  display: none;
+  background: #f7f7f7;
+  padding: 40px 0;
+}

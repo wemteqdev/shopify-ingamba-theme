@@ -1,72 +1,73 @@
-<div class="six columns product-top{% if settings.product_images_pos == 'right' %} push-six{% endif %}">
-    {% for image in product.images limit:1 %}
-        <a rel="gallery" class="product-image product" href="{{ image | product_img_url: 'original' }}">
-			<img src="{{ image | product_img_url: 'large'}}" alt="{{ image.alt | escape }}" />
-            {% if product.compare_at_price %}
-            <span class="sale-item">Sale</span>
-            {% endif %}
-		</a>		
-	{% endfor %}
-	
+<div id="product">
+<div class="product-images">
 	{% if product.images.size > 1 %}
-		<ul class="block-grid mobile four-up more-images">
-		{% for image in product.images offset:1 %}
-			<li>
-				<a rel="gallery" class="product-image small-image product" href="{{ image | product_img_url: 'original' }}">
-				<img src="{{ image | product_img_url: 'large'}}" alt="{{ image.alt | escape }}" />
-				</a>
-			</li>
-		{% endfor %}
-		</ul>
+		<div class="product-carousel">
+				{% for image in product.images offset:1 %}
+						<div class="carousel-cell text-center">
+								<img src="{{ image | product_img_url: 'large'}}"/>
+						</div>
+				{% endfor %}
+		</div>
 	{% endif %}
 </div>
 
-<div class="six columns product-top{% if settings.product_images_pos == 'right' %} pull-six{% endif %}">
-	<div class="description">
-		<h1 class="product-title page-title">{{ product.title | escape}}</h1>
-        {% if settings.product_button_pos == "below" %}
-            {{ product.description }}
-		{% endif %}
-		
-		{% if product.available %}
-			<form action="/cart/add" method="post" class="cartableProduct">
-				<div id="product-variants">
-					<fieldset>
-						{% if product.variants.size == 1%}
-							{% for variant in product.variants %}
-								<div id="price-field">{% if product.compare_at_price and product.compare_at_price > variant.price %}<del>{{product.compare_at_price | money}}</del> {% endif %}{{ variant.price | money }}</div>
-								<input type="hidden" name="id" value="{{ variant.id }}" />
-							{% endfor %}
-						{% else %}
-							{% assign multi_options = true %}
-							<div id="price-field"></div>
-							<select id="product-select" name='id'>
-							{% for variant in product.variants %}
-								<option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
-							{% endfor %}
-							</select>
-						{% endif %}
-					</fieldset>
-				</div>
-				{% if settings.show_qty %}
-				<p class="qty-field"><label for="product-quantity-{{product.id}}">Qty:</label><input class="product-qty" type="text" id="product-quantity-{{product.id}}" name="quantity" value="1" /></p>
-				{% endif %}
-				<button type="submit" id="purchase" class="button nice">{{settings.prd_button_text}}</button>
-			</form>
-		{% else %}
-			<p><strong>{{settings.prd_out_stock_msg}}</strong></p>
-		{% endif %}            
-
-		{% unless settings.product_button_pos == "below" %}
-			{{ product.description }}
-		{% endunless %}			
-		
-    	{% include 'social-product' %}        
-        {% if settings.show_fb_comments %}
-		    <div class="fb-comments" data-href="{{shop.url}}{{product.url}}" data-num-posts="2" data-width="459px"></div>
-        {% endif %}
+<div class="stripe-bg-grey">
+	<div class="product-title-box">
+		<div class="row">
+			<div class="columns medium-2">
+			</div>
+			<div class="columns medium-8">
+				<h1 class="product-title page-title">{{ product.title | escape}}</h1>
+			</div>
+			<div class="columns medium-2">
+			</div>
+		</div>
 	</div>
-</div>			
+
+	<div class="product-description-box">
+		<div class="row">
+			<div class="columns">
+				<div class="product-description">
+						{{ product.description }}
+				</div>
+			</div>
+			<div class="columns">
+				<div class="add-to-cart-box">
+					{% if product.available %}
+						<form action="/cart/add" method="post" class="cartableProduct">
+							<div id="product-variants">
+								<fieldset>
+									{% if product.variants.size == 1%}
+										{% for variant in product.variants %}
+											<div id="price-field">{% if product.compare_at_price and product.compare_at_price > variant.price %}<del>{{product.compare_at_price | money}}</del> {% endif %}{{ variant.price | money }}</div>
+											<input type="hidden" name="id" value="{{ variant.id }}" />
+										{% endfor %}
+									{% else %}
+										{% assign multi_options = true %}
+										<div id="price-field"></div>
+										<select id="product-select" name='id'>
+										{% for variant in product.variants %}
+											<option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+										{% endfor %}
+										</select>
+									{% endif %}
+								</fieldset>
+							</div>
+							{% if settings.show_qty %}
+							<p class="qty-field"><label for="product-quantity-{{product.id}}">Qty:</label>
+								<input class="product-qty" type="text" id="product-quantity-{{product.id}}" name="quantity" value="1" />
+							</p>
+							{% endif %}
+							<button type="submit" id="purchase" class="button nice">{{settings.prd_button_text}}</button>
+						</form>
+					{% else %}
+						<p><strong>{{settings.prd_out_stock_msg}}</strong></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>		
 
 {% if settings.show_related %}
 {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
@@ -81,7 +82,6 @@
 {% endif %}
 
 {% if collection and collection.products.size > 1 %}
-</div><!-- close row and start a new one, it'll get closed in theme.liquid -->
 <div class="row">
     <div id="related">
     	<h3>{{settings.related_heading}}</h3>
@@ -106,4 +106,4 @@
 		</ul>		
 	</div>	
 {% endif %}
-
+</div>

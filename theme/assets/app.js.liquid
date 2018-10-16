@@ -1,11 +1,24 @@
 $(document).foundation();
 
-jQuery.fn.setAllToMaxHeight = function(){
-    return this.height( Math.max.apply(this, jQuery.map( this , function(e){ return jQuery(e).height() }) ) );
-}
+// extends jQuery
+(function($) {
+		$.fn.setAllToMaxHeight = function(){
+			return this.height( Math.max.apply(this, jQuery.map( this , function(e){ return jQuery(e).height() }) ) );
+		}
 
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'fast');
+        return this; // for chaining...
+    }
+})(jQuery);
+
+// main javascripts
 $(function() {
-    $('ul.product-collection li a').setAllToMaxHeight();
+	$('#filter-by-link').on('click', function(){
+ 			$('#filter-options').slideToggle(250);
+  });
 
 	$('.home-carousel').flickity({
 		wrapAround: true,
@@ -16,6 +29,25 @@ $(function() {
 			x2: 100, y2: 96,
 			x3: 4
 		}
+	});
+
+	$('.product-carousel').flickity({
+		wrapAround: true,
+		imagesLoaded: true,
+		arrowShape: { 
+			x0: 0,
+			x1: 96, y1: 100,
+			x2: 100, y2: 96,
+			x3: 4
+		}
+	});
+
+	$('#scroll-down-button').on('click', function(){
+		$(this).goTo();
+	});
+
+	$('#scroll-top-link').on('click', function(){
+		$('body').goTo();
 	});
 
 	var shop_menu_hide_timeout = null;

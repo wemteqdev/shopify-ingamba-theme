@@ -1,4 +1,4 @@
-<ul class="navbar menu dropdown float-right" data-dropdown-menu>
+<ul class="navbar menu dropdown" data-dropdown-menu>
   {% for link in linklists.[settings.main_menu_linklist].links %}
   {% assign current = false %}{% if template == 'index' and link.url == '/' %}
   {% assign current = true %}{% elsif collection.url == link.url %}

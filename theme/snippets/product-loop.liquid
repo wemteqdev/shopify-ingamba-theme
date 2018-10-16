@@ -1,17 +1,56 @@
 {% if settings.products_per_row == "two" %}
     {% capture img_src %}{{ product.images.first | product_img_url: 'large' }}{% endcapture %}
 {% else %}
-    {% capture img_src %}{{ product.images.first | product_img_url: 'medium' }}{% endcapture %}
+    {% capture img_src %}{{ product.images.first | product_img_url: 'large' }}{% endcapture %}
 {% endif %}
-<li>
 	<div class="product">
-		<a title="{{ product.title | escape }}" href="{{ product.url }}"><span class="thumbnail"><img alt="{{ product.images.first.alt | escape }}" src="{{img_src}}"></span>
-		<span class="price">{% if product.price_varies %}<em>from </em>{% endif%}{{product.price | money}}</span> 
-		<span class="product-title">{{ product.title | escape }}</span>
-		{% if product.compare_at_price %}
-			<span class="sale-item">Sale</span> 					
-		{% endif %}
-		
-		</a>
+		<div class="image-box grid-x align-middle">
+			<a title="{{ product.title | escape }}" href="{{ product.url }}">
+				<span class="thumbnail"><img alt="{{ product.images.first.alt | escape }}" src="{{img_src}}"></span>
+			</a>
+		</div>
+
+		<div class="options-box">
+			{% for option in product.options %}
+				{% if option == 'Color' %}
+				{% assign index = forloop.index0 %}
+				{% assign colorlist = '' %}
+				{% assign color = '' %}
+				<div class="product-options">
+					<div class="option-colors text-center">
+					{% for variant in product.variants %}
+						{% capture color %}{{ variant.options[index] }}{% endcapture %} 
+						{% capture color_image_name %}color-{{ color }}.png{% endcapture %} 
+
+						{% unless colorlist contains color %}
+							<a class="color-{{color|handleize}}"
+								href="{{ product.url | within: collection }}?variant={{variant.id}}">
+								<img src="{{ color_image_name | asset_url }}">
+							</a>
+
+							{% capture tempList %}
+							{{colorlist | append: color | append: ''}}
+							{% endcapture %}
+							{% assign colorlist = tempList %}
+						{% endunless %}
+					{% endfor %}
+					</div>
+				</div>
+				{% endif %}
+			{% endfor %}  
+		</div>
+
+		<div class="title-box">
+			<a title="{{ product.title | escape }}" href="{{ product.url }}">
+				<span class="product-title">{{ product.title | escape }}</span>
+			</a>
+		</div>
+
+		<div class="price-box">
+			<span class="price">{% if product.price_varies %}<em>from </em>{% endif%}{{product.price | money}}</span> 
+			
+			{% if product.compare_at_price %}
+				<em class="compare_at_price">Sale</em> 					
+			{% endif %}
+		</div>
 	</div>
-</li>			

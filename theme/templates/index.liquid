@@ -1,39 +1,67 @@
-{% if settings.show_home_collection %}
-    <div class="twelve columns">
-        {% if settings.home_collection_heading != "" %}<h3>{{settings.home_collection_heading}}</h3>{% endif %}
-		<ul class="block-grid mobile {{settings.products_per_row}}-up product-collection">
-            {% for product in collections.[settings.home_collection].products limit:settings.home_collection_no %}
-			    {% include 'product-loop' %}
-            {% endfor %}
-		</ul>
+<div class="home">
+	<div class="row">
+		<div class="columns">
+			<h6>shop home</h6>
+		</div>
 	</div>
-{% endif %}
 
-{% if settings.show_home_collections %}
-    <div class="twelve columns collection-list">
-        {% if settings.home_collections_heading != "" %}<h3>{{settings.home_collections_heading}}</h3>{% endif %}
-        <ul class="block-grid mobile {{settings.products_per_row}}-up product-collection">
-            {% for link in linklists.[settings.home_collections_linklist].links limit:settings.home_collection_no %}
-				{% if link.url contains '/collections/' %}
-					{% capture coll_name %}{{link.url | remove:'/collections/' }}{% endcapture %}
-					<li>
-					{% capture collection_title %}{{ collections.[coll_name].title | escape }}{% endcapture %}
-					<div class="product">
-						<a href="{{ link.url }}" title="Browse our {{ collection_title }} collection">
-						{{ collections.[coll_name].products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}
-                        <!--{{ collections.[coll_name].image.src | collection_img_url: 'medium' | img_tag: collection_title }}-->
-						<span class="product-title">{{ collections.[coll_name].title | escape }}</span>
-						</a>	  
+	<div class="row grid-x align-bottom">
+		<div class="columns">
+			<div class="collection">
+				<div class="image">
+					<img src="{{'category-1-image.jpg' | asset_url}}">
+				</div>
+				<div class="meta row">
+					<div class="columns">{{ settings['category-1-name'] }}</div>
+					<div class="columns text-right">
+						<a href="">View More</a>
 					</div>
-					</li>					
-				{% endif %}
-            {% endfor %}
-		</ul>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="collection">
+				<div class="image">
+					<img src="{{'category-2-image.jpg' | asset_url}}">
+				</div>
+				<div class="meta row">
+					<div class="columns">{{ settings['category-2-name'] }}</div>
+					<div class="columns text-right">
+						<a href="">View More</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-{% endif %}
 
-{% if settings.show_home_text %}
-<div class="twelve columns welcome-text">
-    {{pages.[settings.home_text_page].content}}
+
+	<div class="row grid-x align-bottom">
+		<div class="columns medium-8">
+			<div class="collection">
+				<div class="image">
+					<img src="{{'category-3-image.jpg' | asset_url}}">
+				</div>
+				<div class="meta row">
+					<div class="columns">{{ settings['category-3-name'] }}</div>
+					<div class="columns text-right">
+						<a href="">View More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns medium-4">
+			<div class="collection">
+				<div class="image">
+					<img src="{{'category-4-image.jpg' | asset_url}}">
+				</div>
+				<div class="meta row">
+					<div class="columns">{{ settings['category-4-name'] }}</div>
+					<div class="columns text-right">
+						<a href="">View More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
-{% endif %}

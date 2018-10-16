@@ -1,3 +1,4 @@
+@import 'variables';
 #featured{
   .carousel-cell {
     width: 100%;
@@ -50,6 +51,38 @@
       &.is-selected{
         background: #ffffff;
         opacity: 1;
+      }
+    }
+  }
+}
+
+.home{
+  width: 100%;
+  margin-top: 40px;
+  
+  h6{
+    margin-bottom: 40px;
+  }
+
+  .collection{
+    height: 100%;
+    .image{
+      background: #e0e0e0;
+      overflow: hidden;
+    }
+
+    .meta{
+      padding: 20px 25px;
+      font-family: 'Gotham-Medium';
+      background: #fff;
+    }
+
+    a{
+      color: #333332;
+      font-style: italic;
+
+      &:hover{
+        color: $ingamba-primary-color;
       }
     }
   }
