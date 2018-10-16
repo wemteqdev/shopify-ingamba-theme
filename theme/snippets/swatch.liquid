@@ -42,21 +42,21 @@
 </div>
 -->
 {% else %}
-<div id="swatches">
 <div class="swatch clearfix" data-option-index="{{ option_index }}">
-  <div class="header">
+  <div class="swatch-title-box">
     <div class="row">
-      <div class="col-sm-6">
-        <label class="swatch-title">{{ swatch }}</label>
+      <div class="columns medium-6">
+        <label class="swatch-title">{{ swatch }}s</label>
       </div>
-      <div class="col-sm-6">
-        <div class="swatch-selected text-sm-right">
-          <span>Selected: </span>
+      <div class="columns medium-6">
+        <div class="swatch-selected text-right">
+          <span>Selected:</span>
           <span id="selected-option-{{ option_index }}"></span>
         </div>
       </div>
     </div>
   </div>
+  <div class="swatch-options-box">
   {% assign values = '' %}
   {% for variant in product.variants %}
     {% assign value = variant.options[option_index] %}
@@ -64,17 +64,15 @@
       {% assign values = values | join: ',' %}
       {% assign values = values | append: ',' | append: value %} 
       {% assign values = values | split: ',' %}
-
+      {% capture color_image_name %}color-{{ value | handleize }}.{{ file_extension }}{% endcapture %} 
         <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color{% endif %} {% if variant.available %}available{% else %}soldout{% endif %}">
           {% if is_color %}
           <div class="tooltip">{{ value }}</div>
           {% endif %}
           <input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
           {% if is_color %}
-          <label for="swatch-{{ option_index }}-{{ value | handle }}" >
-            <span class="{{ value | handleize }}" style="background-color: {{ value | split: ' ' | last | handle }};">
-              <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
-            </span>
+          <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ color_image_name | asset_url }})">
+            <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
           </label>
           {% else %}
           <label for="swatch-{{ option_index }}-{{ value | handle }}">
@@ -86,7 +84,7 @@
 
     {% endunless %}
   {% endfor %}
-</div>
+  </div>
 </div>
 
 {% endunless %}

@@ -11,15 +11,19 @@
 	{% endif %}
 </div>
 
-<div class="stripe-bg-grey">
+<div class="product-main-box">
 	<div class="product-title-box">
 		<div class="row">
 			<div class="columns medium-2">
+				{% if product.available and product.variants.size > 1 %}
+					{% include 'swatch-color' %}
+				{% endif %}
 			</div>
 			<div class="columns medium-8">
-				<h1 class="product-title page-title">{{ product.title | escape}}</h1>
+				<h1 class="product-title text-center">{{ product.title | escape}}</h1>
 			</div>
 			<div class="columns medium-2">
+				<div class="heading text-right"><div id="price-field"></div></div>
 			</div>
 		</div>
 	</div>
@@ -35,30 +39,43 @@
 				<div class="add-to-cart-box">
 					{% if product.available %}
 						<form action="/cart/add" method="post" class="cartableProduct">
-							<div id="product-variants">
-								<fieldset>
-									{% if product.variants.size == 1%}
-										{% for variant in product.variants %}
-											<div id="price-field">{% if product.compare_at_price and product.compare_at_price > variant.price %}<del>{{product.compare_at_price | money}}</del> {% endif %}{{ variant.price | money }}</div>
-											<input type="hidden" name="id" value="{{ variant.id }}" />
-										{% endfor %}
-									{% else %}
-										{% assign multi_options = true %}
-										<div id="price-field"></div>
-										<select id="product-select" name='id'>
-										{% for variant in product.variants %}
-											<option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
-										{% endfor %}
-										</select>
-									{% endif %}
-								</fieldset>
-							</div>
-							{% if settings.show_qty %}
-							<p class="qty-field"><label for="product-quantity-{{product.id}}">Qty:</label>
-								<input class="product-qty" type="text" id="product-quantity-{{product.id}}" name="quantity" value="1" />
-							</p>
+							{% if product.available and product.variants.size > 1 %}
+									{% include 'swatch' with 'Color' %}
 							{% endif %}
-							<button type="submit" id="purchase" class="button nice">{{settings.prd_button_text}}</button>
+							<div class="product-options">
+								<div class="row">
+									<div class="columns">
+										<div id="product-variants">
+												<div id="options">
+													{% if product.variants.size == 1%}
+														{% for variant in product.variants %}
+															<div id="price-field">{% if product.compare_at_price and product.compare_at_price > variant.price %}<del>{{product.compare_at_price | money}}</del> {% endif %}{{ variant.price | money }}</div>
+															<input type="hidden" name="id" value="{{ variant.id }}" />
+														{% endfor %}
+													{% else %}
+														{% assign multi_options = true %}
+														<div id="price-field"></div>
+														<select id="product-select" name='id'>
+														{% for variant in product.variants %}
+															<option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+														{% endfor %}
+														</select>
+													{% endif %}
+												</div>
+										</div>
+									</div>
+									<div class="columns">
+										{% if settings.show_qty %}
+										<div class="qty-field"><label for="product-quantity-{{product.id}}">Qty:</label>
+											<input class="product-qty" type="text" id="product-quantity-{{product.id}}" name="quantity" value="1" />
+										</div>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+							<div class="product-submit">
+								<button type="submit" id="purchase" class="button nice">{{settings.prd_button_text}}</button>
+							</div>
 						</form>
 					{% else %}
 						<p><strong>{{settings.prd_out_stock_msg}}</strong></p>
@@ -69,7 +86,6 @@
 	</div>	
 </div>		
 
-{% if settings.show_related %}
 {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
     {% assign found_a_collection = false %}
     {% for c in product.collections %}
@@ -79,31 +95,70 @@
 		{% endif %}
 	{% endfor %}
 {% endif %}
-{% endif %}
 
 {% if collection and collection.products.size > 1 %}
-<div class="row">
-    <div id="related">
-    	<h3>{{settings.related_heading}}</h3>
-        {% assign max_items = '' %}
-		<ul class="block-grid mobile five-up product-collection">
+
+	<div id="related">
+		<div class="row">
+			<div class="columns">
+				<h3 class="heading">RECOMMENDED FOR YOU</h3>
+			</div>
+		</div>
+		
+		{% assign max_items = '' %}
+		<div class="product-collection">
+			<div class="row">
 			{% for prd in collection.products %}
-				{% if prd.handle != product.handle and max_items != '*****' %}
-					<li>
-					<div class="product">
-						<a title="{{ prd.title | escape }}" href="{{ prd.url }}"><span class="thumbnail"><img alt="{{ prd.images.first.alt | escape }}" src="{{ prd.images.first | product_img_url: 'medium' }}"></span>
-						<span class="price">{% if prd.price_varies %}<em>from </em>{% endif%}{{prd.price | money}}</span> 
-						<span class="product-title">{{ prd.title | escape }}</span>
-						{% if prd.compare_at_price %}
-							<span class="sale-item">Sale</span> 					
-						{% endif %}
-						</a>
+				{% if prd.handle != product.handle and max_items != '***' %}
+					<div class="columns small-6 medium-4 grid-x align-bottom">
+					<div class="related-product">
+						<div class="related-product-image-box grid-x align-middle align-center">
+							<a title="{{ prd.title | escape }}" href="{{ prd.url }}">
+								<span class="thumbnail">
+								<img alt="{{ prd.images.first.alt | escape }}" src="{{ prd.images.first | product_img_url: 'original' }}">
+								</span>
+							</a>
+						</div>
+						<div class="related-product-title-box text-center">
+							<a title="{{ prd.title | escape }}" href="{{ prd.url }}">
+								<span class="product-title">{{ prd.title | escape }}</span>
+							</a>
+						</div>
+						<div class="related-product-price-box text-center">
+							<span class="price">{% if prd.price_varies %}<em>from </em>{% endif%}{{prd.price | money}}</span> 
+							
+							{% assign option_index = 0 %}
+							{% assign found_option = false %}
+
+							{% for option in prd.options %}
+								{% if option == 'Color' %}
+									{% assign option_index = forloop.index0 %}
+									{% assign found_option = true %}
+									<span class="spliter">|</span>
+								{% endif %}
+							{% endfor %}
+
+							{% if found_option %}
+								{% assign values = '' %}
+								{% for variant in prd.variants %}
+									{% assign value = variant.options[option_index] %}
+									{% unless values contains value %}
+										{% assign values = values | join: ',' %}
+										{% assign values = values | append: ',' | append: value %} 
+										{% assign values = values | split: ',' %}
+									{% endunless %}
+								{% endfor %}
+
+								<span>{{ values | size }} colors</span>
+							{% endif %}
+							
+						</div>							
 					</div>
-					</li>
-                    {% capture max_items %}{{max_items}}*{% endcapture %}
+					</div>
+					{% capture max_items %}{{max_items}}*{% endcapture %}
 				{% endif %}
 			{% endfor %}
-		</ul>		
+			</div>
+		</div>		
 	</div>	
-{% endif %}
-</div>
+{%endif%}

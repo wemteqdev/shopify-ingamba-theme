@@ -1,6 +1,30 @@
 <script type="text/javascript">
 // <![CDATA[  
 var selectCallback = function(variant, selector) {
+
+	// BEGIN SWATCHES
+	if (variant) {
+		var form = jQuery('#' + selector.domIdPrefix).closest('form');
+		for (var i=0,length=variant.options.length; i<length; i++) {
+			var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+			if (radioButton.length > 0) {
+				radioButton.get(0).checked = true;
+			}
+
+			jQuery('#selected-option-' + i).html(variant.options[i]);
+      jQuery('.swatch[data-option-index=' + i + '] .swatch-element').removeClass('active');
+      jQuery('.swatch[data-option-index=' + i + '] .swatch-element[data-value="'+ variant.options[i] +'"]').addClass('active');
+		}
+	}
+
+	if(variant.available)
+	{
+		jQuery(".swatch-element.color .crossed-out").hide();
+	}else{
+		jQuery(".swatch-element.color .crossed-out").show();
+	}
+	// END SWATCHE
+
   if (variant && variant.available == true) {
     // selected a valid variant
     jQuery('#purchase').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
