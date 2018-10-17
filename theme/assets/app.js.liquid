@@ -1,5 +1,10 @@
 $(document).foundation();
 
+function abbrev_name(namestr)
+{
+    var split_names = namestr.trim().replace("-", " ").replace("_", "").split(" ");
+    return split_names.map((name) => name[0]).join('');
+}
 // extends jQuery
 (function($) {
 		$.fn.setAllToMaxHeight = function(){
@@ -16,8 +21,10 @@ $(document).foundation();
 
 // main javascripts
 $(function() {
+
 	$('#filter-by-link').on('click', function(){
  			$('#filter-options').slideToggle(250);
+			$(this).toggleClass('closed');
   });
 
 	$('.home-carousel').flickity({
@@ -77,6 +84,18 @@ $(function() {
 				$('.shop-menu').slideUp(250);
 			}, 500);	
 		});
+	});
 
+
+	$('.filter-group-size a').each(function(index, element){
+		var text = $(element).text();
+		console.log(abbrev_name(text));
+		$(element).text(abbrev_name(text));
+	});
+
+	$('.filter-group .selected a').each(function(index, element){
+		var href = $(element).attr('href');
+		var text = $(element).attr('title').replace('Remove tag ', '').replace('size-', '').replace('color-', '');
+		$('#selected-filters').append(`<li><a href="${href}"><i class="fa fa-times"></i> ${text}</a></li>`);
 	});
 });

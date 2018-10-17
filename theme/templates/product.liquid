@@ -30,12 +30,12 @@
 
 	<div class="product-description-box">
 		<div class="row">
-			<div class="columns">
+			<div class="columns medium-6 small-12">
 				<div class="product-description">
 						{{ product.description }}
 				</div>
 			</div>
-			<div class="columns">
+			<div class="columns medium-6 small-12">
 				<div class="add-to-cart-box">
 					{% if product.available %}
 						<form action="/cart/add" method="post" class="cartableProduct">
