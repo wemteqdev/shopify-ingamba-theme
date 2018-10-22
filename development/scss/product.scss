@@ -100,7 +100,13 @@
       padding-bottom: 35px;
       border-bottom: 1px solid #ededed;
     }
-    
+
+    .swatch-selected{
+      font-family: 'Gotham-Book';
+      font-size: 15px;
+      color: #333332;
+    }
+
     .swatch-element.color{
       display: inline-block;
       input[type=radio]{
@@ -117,6 +123,12 @@
          border-radius: 20px; 
          background-repeat: no-repeat;
          background-size: cover;
+      }
+
+      &.active{
+        label{
+          border: 1px solid #333332;
+        }
       }
     }
    
@@ -155,6 +167,26 @@
          }
        }
       }
+    }
+  }
+
+  .product-promotion{
+    .row{
+      .column{
+        max-height: 570px;
+        overflow: hidden;
+        text-align: center;
+
+        &.full-width-image{
+          img{
+            width: 100%;
+          }          
+        }
+      }
+    }
+
+    img{
+      min-height: 570px;
     }
   }
 }

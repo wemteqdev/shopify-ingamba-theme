@@ -29,6 +29,78 @@
         {%- endunless -%}
     </div>
     {% endunless %}
+
+
+
+
+
+    {%- if settings.pt_show_tags_group -%}
+        {%- assign has_tags = false -%}
+        {%- assign has_selected = false -%}
+        {%- for tag in collection.tags -%}
+            {%- unless tag contains '_' -%}
+            {%- assign tag_handle = tag | handleize -%}
+            {%- if tag_handle != tag -%}
+                {%- assign has_tags = true -%}
+            {%- endif -%}
+            {%- endunless -%}
+        {%- endfor -%}
+        {% if has_tags %}
+        {%- assign current_selected = '|' -%}
+        {%- for tag in current_tags -%}
+            {%- unless tag contains '_' -%}
+            {%- assign tag_handle = tag | handle -%}
+            {%- if tag != tag_handle -%}
+                {%- assign has_selected = true -%}
+            {%- endif -%}
+            {%- endunless -%}
+        {%- endfor -%}
+        <div class="filter-group filter-group-tags-options {% if has_selected %}has_group_selected{% endif %} {% if settings.pt_force_dropdown or pt_force_dropdown %}pt-display-dropdown{% endif %}">
+            <h4>{{ pt_tags_text }}</h4>
+            <div class="scroll-content">
+            <input type="text" class="fm-search-box" name="q" placeholder="{{ pt_search_placeholder_text }}" style="display:none" autocomplete="off">
+            <ul class="nav-tags-group">
+                {%- for tag in collection.tags -%}
+                    {%- unless tag contains '_' -%}
+                    {%- assign tag_handle = tag | handleize -%}
+                    {%- if tag_handle != tag -%}
+                    <li class="collection-container filter-active-{{ tag_handle }} active {% if current_tags contains tag %}selected{% endif %}">
+                        <div class="collection-name">
+                        {%- if current_tags contains tag -%}{{ '<i class="check-icon fa fa-times float-right"></i>' | append: tag | link_to_remove_tag: tag }}{%- assign current_selected = current_selected | append: tag | append: '|' -%}
+                        {%- else -%}{{ '<i class="check-icon"></i> ' | append: tag | link_to_add_tag: tag }}{%- endif -%}
+                        </div>
+                    </li>
+                    {%- endif -%}
+                    {%- endunless -%}
+                {%- endfor -%}
+            </ul>
+            </div>
+            {%- unless '|' == current_selected -%}
+            {%- assign cleared_tags = current_tags | join: '|'  | prepend: '|' | append: '|' -%}
+            {%- assign current_selected_split = current_selected | split: '|' -%}
+            {%- for current_selected_tag in current_selected_split -%}
+            {%- unless '' == current_selected_tag -%}
+            {%- assign current_selected_tag = current_selected_tag | prepend: '|' | append: '|' -%}
+            {%- if cleared_tags contains current_selected_tag -%}
+            {%- assign cleared_tags = cleared_tags | replace_first: current_selected_tag, '|' -%}
+            {%- endif -%}
+            {%- endunless -%}
+            {%- endfor -%}
+            {%- assign cleared_tags = cleared_tags | replace: '||||', '|' | replace: '|||', '|' | replace: '||', '|' | remove_first: '|' | split: '|' -%}
+            {%- assign cleared_tags_handle = '' -%}
+            {%- for full_tag in cleared_tags -%}{% assign handle_tag = full_tag | handle %}{%- assign cleared_tags_handle = cleared_tags_handle | append:  cleared_tags_handle | append: '|' | append: handle_tag -%}{%- endfor -%}
+            {%- assign cleared_tags = cleared_tags_handle | remove_first: '|' | split: '|' | uniq | join: '+' -%}
+            <a class="filter-clear" href="/collections/{{ current_collection_handle }}{% unless '|' == cleared_tags or '' == cleared_tags %}/{{ cleared_tags }}{% endunless %}">{{ pt_clear_text }}</a>
+            {%- endunless -%}
+        </div>
+        {%- endif -%}
+    {%- endif -%}
+
+
+
+
+
+
     {%- unless collection.handle != nil and template contains 'collection' -%}
     {%- for menu_header in shop.metafields.pt_filter_menu -%}
     {%- assign menu_items = menu_header.last | split: ',' -%}
@@ -286,69 +358,7 @@
         {%- endfor -%}
     {%- endif -%}
 
-    {%- if settings.pt_show_tags_group -%}
-    {%- if current_collection_handle == collection.handle and current_collection_handle != 'all' -%}
-    {%- assign has_tags = false -%}
-    {%- assign has_selected = false -%}
-    {%- for tag in collection.tags -%}
-        {%- unless tag contains '_' -%}
-        {%- assign tag_handle = tag | handleize -%}
-        {%- if tag_handle != tag -%}
-            {%- assign has_tags = true -%}
-        {%- endif -%}
-        {%- endunless -%}
-    {%- endfor -%}
-    {% if has_tags %}
-    {%- assign current_selected = '|' -%}
-    {%- for tag in current_tags -%}
-        {%- unless tag contains '_' -%}
-        {%- assign tag_handle = tag | handle -%}
-        {%- if tag != tag_handle -%}
-            {%- assign has_selected = true -%}
-        {%- endif -%}
-        {%- endunless -%}
-    {%- endfor -%}
-    <div class="filter-group filter-group-tags-options {% if has_selected %}has_group_selected{% endif %} {% if settings.pt_force_dropdown or pt_force_dropdown %}pt-display-dropdown{% endif %}">
-        <h4>{{ pt_tags_text }}</h4>
-        <div class="scroll-content">
-        <input type="text" class="fm-search-box" name="q" placeholder="{{ pt_search_placeholder_text }}" style="display:none" autocomplete="off">
-        <ul class="nav-tags-group">
-            {%- for tag in collection.tags -%}
-                {%- unless tag contains '_' -%}
-                {%- assign tag_handle = tag | handleize -%}
-                {%- if tag_handle != tag -%}
-                <li class="collection-container filter-active-{{ tag_handle }} active {% if current_tags contains tag %}selected{% endif %}">
-                    <div class="collection-name">
-                    {%- if current_tags contains tag -%}{{ '<i class="check-icon fa fa-times float-right"></i>' | append: tag | link_to_remove_tag: tag }}{%- assign current_selected = current_selected | append: tag | append: '|' -%}
-                    {%- else -%}{{ '<i class="check-icon"></i> ' | append: tag | link_to_add_tag: tag }}{%- endif -%}
-                    </div>
-                </li>
-                {%- endif -%}
-                {%- endunless -%}
-            {%- endfor -%}
-        </ul>
-        </div>
-        {%- unless '|' == current_selected -%}
-        {%- assign cleared_tags = current_tags | join: '|'  | prepend: '|' | append: '|' -%}
-        {%- assign current_selected_split = current_selected | split: '|' -%}
-        {%- for current_selected_tag in current_selected_split -%}
-        {%- unless '' == current_selected_tag -%}
-        {%- assign current_selected_tag = current_selected_tag | prepend: '|' | append: '|' -%}
-        {%- if cleared_tags contains current_selected_tag -%}
-        {%- assign cleared_tags = cleared_tags | replace_first: current_selected_tag, '|' -%}
-        {%- endif -%}
-        {%- endunless -%}
-        {%- endfor -%}
-        {%- assign cleared_tags = cleared_tags | replace: '||||', '|' | replace: '|||', '|' | replace: '||', '|' | remove_first: '|' | split: '|' -%}
-        {%- assign cleared_tags_handle = '' -%}
-      	{%- for full_tag in cleared_tags -%}{% assign handle_tag = full_tag | handle %}{%- assign cleared_tags_handle = cleared_tags_handle | append:  cleared_tags_handle | append: '|' | append: handle_tag -%}{%- endfor -%}
-      	{%- assign cleared_tags = cleared_tags_handle | remove_first: '|' | split: '|' | uniq | join: '+' -%}
-      	<a class="filter-clear" href="/collections/{{ current_collection_handle }}{% unless '|' == cleared_tags or '' == cleared_tags %}/{{ cleared_tags }}{% endunless %}">{{ pt_clear_text }}</a>
-        {%- endunless -%}
-    </div>
-    {%- endif -%}
-    {%- endif -%}
-    {%- endif -%}
+    
     {%- unless true or displayed_collection_handles contains current_collection_handle_sep or current_collection_handle == 'all' -%}
     <div class="filter-group filter-group-not-shown has_group_selected {% if settings.pt_force_dropdown or pt_force_dropdown %}pt-display-dropdown{% endif %}">
       <h4>{{ pt_collection_text }}</h4>

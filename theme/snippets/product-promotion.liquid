@@ -1,0 +1,8 @@
+{% if template contains 'product' %}
+  {% assign product_promotion = product.handle | append: "-product-promotion" %}
+  {% unless pages[product_promotion].empty? or pages[product_promotion].content == blank %}
+    <div class="product-promotion">
+      {{ pages[product_promotion].content }}
+    </div>
+  {% endunless %}
+{% endif %}
