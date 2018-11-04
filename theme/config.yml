@@ -2,6 +2,7 @@ development:
   password: 5d7a51962e594d8ce22cc0c0d1712be3
   theme_id: "4496311"
   store: ingamba.myshopify.com
+  timeout: 15s
   ignore_files:
   - development
   - config/settings_data.json
