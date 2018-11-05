@@ -64,7 +64,7 @@
                     {%- unless tag contains '_' -%}
                     {%- assign tag_handle = tag | handleize -%}
                     {%- if tag_handle != tag -%}
-                    <li class="collection-container filter-active-{{ tag_handle }} active {% if current_tags contains tag %}selected{% endif %}">
+                    <li data-tag="{{ tag_handle }}" class="collection-container filter-active-{{ tag_handle }} active {% if current_tags contains tag %}selected{% endif %}">
                         <div class="collection-name">
                         {%- if current_tags contains tag -%}{{ '<i class="check-icon fa fa-times float-right"></i>' | append: tag | link_to_remove_tag: tag }}{%- assign current_selected = current_selected | append: tag | append: '|' -%}
                         {%- else -%}{{ '<i class="check-icon"></i> ' | append: tag | link_to_add_tag: tag }}{%- endif -%}
@@ -253,7 +253,7 @@
             {%- assign filter_collection = collections[menu_item] -%}
             {%- if filter_collection and filter_collection.title != nil and filter_collection.title != '' -%}
             {%- assign displayed_collection_handles = displayed_collection_handles | append: menu_item | append: '|' -%}
-            <li class="collection-container filter-active-{{ menu_item }} {% if tag_list contains menu_item %}active{% endif %} {% if current_tags contains menu_item or current_collection_handle == menu_item %}selected{% endif %} {% unless current_tags or current_collection_handle != 'all' or settings.pt_show_collection_count == false %}has_collection_counts{% endunless %}">
+            <li data-tag="{{ menu_item }}" class="collection-container filter-active-{{ menu_item }} {% if tag_list contains menu_item %}active{% endif %} {% if current_tags contains menu_item or current_collection_handle == menu_item %}selected{% endif %} {% unless current_tags or current_collection_handle != 'all' or settings.pt_show_collection_count == false %}has_collection_counts{% endunless %}">
                 <div class="collection-name">
                     {% comment %} color or sizing here {% endcomment %}
                     {%- if header_handle == '-color' -%}

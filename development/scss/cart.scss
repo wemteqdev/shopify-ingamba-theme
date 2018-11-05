@@ -43,9 +43,13 @@
     margin: 0;
     list-style: none;
   }
-  
+
   .cart-row{
     margin-bottom: 30px;
+  }
+
+  .cart-row.last{
+    margin-bottom: 180px;
   }
 
   .item-qty{

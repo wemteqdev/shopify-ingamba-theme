@@ -11,9 +11,9 @@ function abbrev_name(namestr)
 			return this.height( Math.max.apply(this, jQuery.map( this , function(e){ return jQuery(e).height() }) ) );
 		}
 
-    $.fn.goTo = function() {
+    $.fn.goTo = function(offset=0) {
         $('html, body').animate({
-            scrollTop: $(this).offset().top + 'px'
+            scrollTop: ($(this).offset().top + offset) + 'px'
         }, 'fast');
         return this; // for chaining...
     }
@@ -27,6 +27,8 @@ $(function() {
 			$(this).toggleClass('closed');
   });
 
+	$(".chosen-select").chosen({disable_search_threshold: 10});
+	
 	$('.home-carousel').flickity({
 		wrapAround: true,
 		imagesLoaded: true,
@@ -91,11 +93,4 @@ $(function() {
 		var text = $(element).text();
 		$(element).text(abbrev_name(text));
 	});
-
-	$('.filter-group .selected a').each(function(index, element){
-		var href = $(element).attr('href');
-		var text = $(element).attr('title').replace('Remove tag ', '').replace('size-', '').replace('color-', '');
-		$('#selected-filters').append(`<li><a href="${href}"><i class="fa fa-times"></i> ${text}</a></li>`);
-	});
-
 });

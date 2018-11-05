@@ -1,4 +1,79 @@
 {% paginate collection.products by settings.paginate_products_by %}
+<script>
+    var params = Qs.parse(window.location.search.substr(1));
+    var applied_filters = [];
+
+    if(params.applied_filters)
+    {
+        applied_filters = params.applied_filters.split(" ");
+    }
+
+    function clear_filters()
+    {
+        applied_filters = [];
+        refresh_filters();
+    }
+
+    function remove_filter(filter)
+    {
+        _.remove(applied_filters, function(element){
+           return element == filter;
+        });
+
+        refresh_filters();
+    }
+
+    function refresh_filters()
+    {
+        $('.filter-menu li.selected').removeClass('selected');
+        $('#selected-filters').html('');
+        $('#filter-clear-link').hide();
+
+        if(applied_filters.length > 0)
+        {
+            $('#filter-clear-link').show();
+            $('#filter-options').show();
+            $('filter-by-link').removeClass('closed');
+            $('#filter-by-link').goTo(-100);
+        }
+
+        _.map(applied_filters, function(element){
+            $(`li[data-tag=${element}]`).addClass('selected');
+        });
+
+        $('.filter-group .selected').each(function(index, element){
+            var data_tag = $(element).data('tag');
+            var href = $('a', element).attr('href');
+            var text = $('a', element).attr('title').replace('Narrow selection to products matching tag ', '');
+            text = text.replace('Remove tag ', '');
+            text = text.replace('size-', '').replace('color-', '');
+            $('#selected-filters').append(`<li data-tag="${data_tag}"><a href="javascript:void(0);" onclick="remove_filter('${data_tag}');"><i class="fa fa-times"></i> ${text}</a></li>`);
+        });
+
+        params.applied_filters = applied_filters.join('+');
+        var href = window.location.href.split('?')[0];
+        var query_string = _.replace(Qs.stringify(params), new RegExp("\%2B","g"), '+');
+        window.history.pushState({},"", href + '?' + query_string);
+    }
+
+    function init_filter_events()
+    {
+        $('#filter-options .filter-menu li').on('click', function(){
+            applied_filters = _.xor(applied_filters, [ $(this).data('tag') ]);
+            $(this).toggleClass('selected');
+            refresh_filters();
+
+            return false;
+        });
+    }
+
+    jQuery(function($){
+        refresh_filters();
+        init_filter_events();
+
+    });
+</script>
+
 <div id="collection">
     {% if collection.url != "" %}
         <div id="collection-description" class="text-center">
@@ -41,6 +116,7 @@
             {% endif %}
         </div>
     </div>
+
     <div class="filters">
         <div class="row">
             <div class="columns grid-x align-middle">
@@ -80,7 +156,7 @@
             <div class="product-collection">
                 <div class="row">
                 {% for product in collection.products %}
-                    <div class="small-12 medium-6 large-3 columns">
+                    <div class="small-12 medium-6 large-3 columns" data-tags="{{ product.tags | join: ' '}}">
                     {% include 'product-loop' %}
                     </div>
                 {% endfor %}
