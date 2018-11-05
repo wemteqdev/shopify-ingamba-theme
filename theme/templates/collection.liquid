@@ -8,10 +8,23 @@
         applied_filters = params.applied_filters.split(" ");
     }
 
+    function open_filter_menu()
+    {
+        $('#filter-options').show();
+        $('filter-by-link').removeClass('closed');
+    }
+
+    function close_filter_menu()
+    {
+        $('#filter-options').show();
+        $('filter-by-link').removeClass('closed');
+    }
+
     function clear_filters()
     {
         applied_filters = [];
         refresh_filters();
+        close_filter_menu();
     }
 
     function remove_filter(filter)
@@ -31,14 +44,17 @@
 
         if(applied_filters.length > 0)
         {
+            open_filter_menu();
             $('#filter-clear-link').show();
-            $('#filter-options').show();
-            $('filter-by-link').removeClass('closed');
             $('#filter-by-link').goTo(-100);
+            $('.product-item').hide();
+        }else{
+            $('.product-item').show();
         }
 
         _.map(applied_filters, function(element){
             $(`li[data-tag=${element}]`).addClass('selected');
+            $(`.product-item.${element}`).show();
         });
 
         $('.filter-group .selected').each(function(index, element){
@@ -63,6 +79,12 @@
             $(this).toggleClass('selected');
             refresh_filters();
 
+            return false;
+        });
+
+        $('#filter-clear-link').on('click', function(){
+            clear_filters();
+            refresh_filters();
             return false;
         });
     }
@@ -156,7 +178,9 @@
             <div class="product-collection">
                 <div class="row">
                 {% for product in collection.products %}
-                    <div class="small-12 medium-6 large-3 columns" data-tags="{{ product.tags | join: ' '}}">
+                    {% capture product_handlized_tags_string %}{% for tag in product.tags  %}{{ tag | | handleize }},{% endfor %}{% endcapture %}
+                    {% assign product_handlized_tags = product_handlized_tags_string | split: ',' %}
+                    <div class="product-item small-12 medium-6 large-3 columns {{ product_handlized_tags | join: ' '}}" data-tags="{{ product_handlized_tags | join: ' '}}">
                     {% include 'product-loop' %}
                     </div>
                 {% endfor %}
