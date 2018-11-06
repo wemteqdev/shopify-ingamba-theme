@@ -3,7 +3,13 @@ $(document).foundation();
 function abbrev_name(namestr)
 {
     var split_names = namestr.trim().replace("-", " ").replace("_", "").split(" ");
-    return split_names.map((name) => name[0]).join('');
+
+		if(split_names.length > 1)
+		{
+			return split_names.map((name) => name[0]).join('');
+		}
+
+		return namestr;
 }
 // extends jQuery
 (function($) {

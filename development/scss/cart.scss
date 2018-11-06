@@ -82,3 +82,48 @@
 .button.black{
   background: #000!important;
 }
+
+#cartModal{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+
+  font-family: 'Gotham-Light';
+
+  a{
+    color: #3d3d3d;
+  }
+
+  #cartModalTitle{
+    font-family: 'DinCondensed-Bold';
+    font-size: 1.37463rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e6e6e6;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  .cart-item{
+    margin-bottom: 20px;
+    .product-title{
+      font-family: 'Gotham-Medium';
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+    }
+  }
+
+  .button{
+    width: 100%;
+    text-transform: uppercase;
+    margin: 0;
+
+    &.black{
+      color: #fff;
+    }
+  }
+
+  .total{
+    font-family: 'Gotham-Medium';
+  }
+}

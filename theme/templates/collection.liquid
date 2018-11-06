@@ -49,12 +49,12 @@
             $('#filter-by-link').goTo(-100);
             $('.product-item').hide();
         }else{
-            $('.product-item').show();
+            $('.product-item').fadeIn();
         }
 
         _.map(applied_filters, function(element){
             $(`li[data-tag=${element}]`).addClass('selected');
-            $(`.product-item.${element}`).show();
+            $(`.product-item.${element}`).fadeIn();
         });
 
         $('.filter-group .selected').each(function(index, element){
@@ -92,7 +92,6 @@
     jQuery(function($){
         refresh_filters();
         init_filter_events();
-
     });
 </script>
 

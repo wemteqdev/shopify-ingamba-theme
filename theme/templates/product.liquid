@@ -1,3 +1,71 @@
+<div id="cartModal" class="reveal" data-reveal>
+	<div class="text-right">
+		<a href="javascript: void(0);" onclick="$('#cartModal').foundation('close');"><i class='fa fa-times'></i></a>
+	</div>
+  <h2 id="cartModalTitle">Your Shopping Cart</h2>
+	{% raw %}
+		<div v-if="cart.items.length > 0">
+			<div v-for="item in cart.items" class="cart-item">
+				<div class="row">
+					<div class="medium-4 columns">
+						<img v-bind:src="item.image" width="100%">
+					</div>
+					<div class="medium-8 columns">
+						<div class="product-title"><a v-bind:href="item.url">{{ item.product_title }}</a></div>
+						<div class="variant-title">{{ item.variant_title }}</div>
+						<div class="quantity">QTY: {{ item.quantity }}</div>	
+						<div class="quantity">Price: ${{ item.price / 100.0 }}</div>
+						<div class="action">
+							<a href="javascript:void(0);" v-on:click="removeItem(item);">
+								<i class="fa fa-times"></i> Remove
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div v-else>
+			<p>Your cart is empty</p>
+		</div>
+
+		<div class="total text-right">
+			<p>TOTAL ${{ cart.total_price / 100.0 }}</p>
+		</div>
+
+		<div class="actions">
+			<p>
+				<a href="/cart" class="button black">View Cart</a>
+			</p>
+			<p>
+				<a href="javascript: void(0);" 
+						onclick="$('#cartModal').foundation('close');"
+						class="button black">Continue Shopping</a>
+			</p>
+		</div>
+	{% endraw %}
+</div>
+
+<script>
+var cartModal = new Vue({
+  el: '#cartModal',
+  data: {
+    cart: {{ cart | json }}
+  },
+	methods: {
+    load: function () {
+     CartJS.getCart().then(function(res){
+			 cartModal.cart = res;
+		 });
+    },
+		removeItem: function(item){
+			CartJS.removeItemById(item.id).then(function(res){
+				cartModal.cart = res;	
+			});
+		}
+  }
+});
+</script>
+
 <div id="product">
 	<div class="product-images">
 		{% if product.images.size > 1 %}
@@ -173,3 +241,5 @@
 	{% endfor %}
 	</script>
 </div>
+
+{% include 'ajaxify-cart' %}

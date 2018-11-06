@@ -62,10 +62,7 @@
 {{ content_for_header }}
 </head>
 
-
-
 <body id="{{template | replace:'.','_' }}" {% if template contains 'customers' %}class="customer-area"{% endif %}>
-
 	<div class="container topbar-links-container">
 		<div class="row">
 			<div class="columns">
@@ -76,6 +73,7 @@
 
 					<a id="mini-cart" href="/cart">
 						<img src="{{'igb-cart.png' | asset_url}}" alt="cart" />
+						<span class="cart-count"></span>
 					</a>
 				</div>
 			</div>			

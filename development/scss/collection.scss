@@ -199,6 +199,10 @@
     @extend .float-left;
     width: 170px;
     padding-right: 70px;
+
+    .collection-count{
+      display: none;
+    }
   }
 
   h4{
