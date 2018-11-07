@@ -308,6 +308,7 @@ h1, h2, h3, h4, h5 {
   font-family: 'Gotham-Book';
   font-size: 12px;
 }
+
 #breadcrumbs{
   text-transform: uppercase;
 
@@ -322,6 +323,7 @@ h1, h2, h3, h4, h5 {
     }
   }
 }
+
 .dropdown.menu{
   margin: 0;
   li{
@@ -357,4 +359,8 @@ h1, h2, h3, h4, h5 {
       border: 1px solid #333332;
     }
   }
+}
+
+.button{
+  outline: none;
 }

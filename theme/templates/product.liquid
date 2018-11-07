@@ -14,7 +14,7 @@
 						<div class="product-title"><a v-bind:href="item.url">{{ item.product_title }}</a></div>
 						<div class="variant-title">{{ item.variant_title }}</div>
 						<div class="quantity">QTY: {{ item.quantity }}</div>	
-						<div class="quantity">Price: ${{ item.price / 100.0 }}</div>
+						<div class="price">Price: ${{ item.price / 100.0 }}</div>
 						<div class="action">
 							<a href="javascript:void(0);" v-on:click="removeItem(item);">
 								<i class="fa fa-times"></i> Remove

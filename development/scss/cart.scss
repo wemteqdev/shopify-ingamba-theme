@@ -88,11 +88,16 @@
   right: 0;
   height: 100%;
   top: 0;
+  outline: none;
+  padding: 2em;
 
   font-family: 'Gotham-Light';
 
   a{
     color: #3d3d3d;
+    &:hover{
+      color: #e50411;
+    }
   }
 
   #cartModalTitle{
@@ -111,15 +116,27 @@
       margin-bottom: 0.5em;
       text-transform: uppercase;
     }
+
+    .variant-title{
+      text-transform: uppercase;
+    }
+
+    .price{
+      margin-bottom: 1em;
+    }
   }
 
   .button{
+    font-family: 'Gotham-Medium';
     width: 100%;
     text-transform: uppercase;
     margin: 0;
 
     &.black{
       color: #fff;
+      &:hover{
+        background: #e50411!important;
+      }
     }
   }
 

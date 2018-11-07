@@ -180,7 +180,10 @@
 
         &.full-width-image{
           img{
-            width: 100%;
+            min-width: 100%;
+            max-width: none;
+            min-height: 100%;
+            height: auto;
           }          
         }
       }
@@ -188,12 +191,18 @@
 
     img{
       min-height: 570px;
+      width: auto;
     }
   }
 }
 
 #related{
   padding: 50px 0;
+
+  img{
+    width: 100%;
+  }
+
   .heading{
     font-family: 'Gotham-Medium';
     font-size: 18px;
